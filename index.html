@@ -91,11 +91,13 @@
       padding: 4rem 1.5rem;
     }
 
-    .media-block {
+   .media-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
       max-width: 900px;
       margin: 3rem auto 0;
-      display: grid;
-      gap: 2rem;
     }
 
     .hero-video {
@@ -229,6 +231,7 @@
       border-top: 1px solid #ddd;
       padding: 1.5rem;
       text-align: center;
+	
 .media-two-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -303,9 +306,25 @@
     </p>
     <a href="/blog" class="button">Explore the Blog</a>
 
-    <div class="media-block">
-<video controls="" controlslist="nodownload" preload="metadata" height = "210" width = "400" src="wp-content/uploads/2024/01/am-em-mut-vid-1.mp4">
-</video>  </div>
+<div class="media-block">
+  <video
+    src="wp-content/uploads/2024/01/am-em-mut-vid-1.mp4"
+    controls
+    controlslist="nodownload"
+    preload="metadata"
+    width="400"
+    height="210"
+  ></video>
+
+  <img
+    src="midi-keyboard.webp"
+    alt="Music Using Technology"
+    width="400"
+    height="210"
+    loading="eager"
+  >
+</div>
+
  
 
 <main class="container">
