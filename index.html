@@ -3,16 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Music Using Technology</title>
-
-  <!-- Google Analytics (Lite gtag.js only) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5P9CBMF1PD"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-5P9CBMF1PD', { anonymize_ip: true });
-  </script>
+  <title>Contact Us | Music Using Technology</title>
 
   <style>
     :root {
@@ -34,18 +25,9 @@
       line-height: 1.6;
     }
 
-    h1, h2, h3 {
+    h1, h2 {
       font-family: 'Old Standard TT', serif;
       margin-top: 0;
-      color: var(--dark);
-    }
-
-    h1 {
-      font-size: clamp(3rem, 6vw, 6.5rem);
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 2.75rem);
     }
 
     .container {
@@ -53,6 +35,8 @@
       margin: auto;
       padding: 2rem 1.5rem;
     }
+
+    /* ---------- Header (IDENTICAL to homepage) ---------- */
 
     .site-header {
       background: var(--white);
@@ -63,6 +47,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .logo img {
@@ -71,292 +56,176 @@
       display: block;
     }
 
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: #111;
+      padding: 12px 20px;
+      flex-wrap: wrap;
+    }
+
     .main-nav a {
-      margin-left: 1.5rem;
+      color: #fff;
       text-decoration: none;
-      color: var(--dark);
-      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      padding: 8px 10px;
       font-size: 0.8rem;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
 
     .main-nav a:hover {
-      color: var(--primary);
+      color: #2ecc71;
     }
 
-    .hero {
-      background: var(--white);
-      text-align: center;
-      padding: 4rem 1.5rem;
+    .menu-item {
+      position: relative;
     }
 
-   .media-block {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: center;
-      max-width: 900px;
-      margin: 3rem auto 0;
+    .submenu {
+      list-style: none;
+      margin: 0;
+      padding: 8px 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 240px;
+      background: #222;
+      display: none;
+      z-index: 1000;
     }
 
-    .hero-video {
-      width: 100%;
-      border-radius: 12px;
-      background: #000;
-    }
-
-    .hero-image {
-      width: 100%;
-      border-radius: 12px;
+    .submenu li a {
       display: block;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: 1rem auto 2rem;
-    }
-
-    .button {
-      display: inline-block;
-      background: var(--primary);
+      padding: 10px 16px;
       color: #fff;
-      padding: 1rem 2.5rem;
-      border-radius: 24px;
-      text-decoration: none;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: background 0.2s ease;
     }
 
-    .button:hover {
-      background: #1b4e5c;
+    .submenu li a:hover {
+      background: #2ecc71;
+      color: #000;
     }
 
-    .columns {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
+    @media (min-width: 769px) {
+      .menu-item:hover .submenu {
+        display: block;
+      }
     }
 
-    .card {
+    @media (max-width: 768px) {
+      .main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-item {
+        width: 100%;
+      }
+
+      .submenu {
+        position: static;
+        width: 100%;
+      }
+
+      .menu-item:focus-within .submenu {
+        display: block;
+      }
+
+      .submenu-toggle::after {
+        content: " ▾";
+      }
+    }
+
+    /* ---------- Contact Content ---------- */
+
+    .contact {
       background: var(--white);
-      padding: 2rem;
       border-radius: 8px;
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: 3rem auto;
+      text-align: center;
     }
 
-   /* Base nav */
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  background: #111;
-  padding: 12px 20px;
-  flex-wrap: wrap;
-}
+    .contact p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
 
-.main-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 8px 10px;
-}
+    .down-arrow {
+      width: 40px;
+      margin-top: 1.5rem;
+    }
 
-/* Submenu wrapper */
-.menu-item {
-  position: relative;
-}
-
-/* Submenu */
-.submenu {
-  list-style: none;
-  margin: 0;
-  padding: 8px 0;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 240px;
-  background: #222;
-  display: none;
-  z-index: 1000;
-}
-
-.submenu li a {
-  display: block;
-  padding: 10px 16px;
-  color: #fff;
-}
-
-.submenu li a:hover {
-  background: #2ecc71;
-  color: #000;
-}
-
-/* Desktop hover */
-@media (min-width: 769px) {
-  .menu-item:hover .submenu {
-    display: block;
-  }
-}
-
-/* Mobile behaviour */
-@media (max-width: 768px) {
-  .main-nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .menu-item {
-    width: 100%;
-  }
-
-  .submenu {
-    position: static;
-    width: 100%;
-  }
-
-  .menu-item:focus-within .submenu {
-    display: block;
-  }
-
-  .submenu-toggle::after {
-    content: " ▾";
-    font-size: 0.9em;
-  }
-} footer {
+    footer {
       background: var(--white);
       border-top: 1px solid #ddd;
       padding: 1.5rem;
       text-align: center;
-	
-.media-two-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  align-items: center;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.media-two-columns video,
-.media-two-columns img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .media-two-columns {
-    grid-template-columns: 1fr;
-  }
-}
       font-size: 0.9rem;
       color: #777;
-    }
-
-    @media (max-width: 600px) {
-      .hero {
-        padding: 3rem 1rem;
-      }
     }
   </style>
 </head>
 
 <body>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="logo">
-        <a href="/">
-            <img src="wp-content/uploads/2023/01/musicusingtech-.jpg" alt="Music Using Technology" width="168" height="auto" loading="eager" />
-          </a>
-      </div>
-  <nav class="main-nav">
-  <a href="/quickguide">Quick Guides</a>
-
-  <div class="menu-item has-submenu">
-    <a href="/blog" class="submenu-toggle">Blogging</a>
-    <ul class="submenu">
-      <li><a href="/audio-interface-blog">Audio Interface Blog</a></li>
-      <li><a href="/software-instruments-blog">Software Instruments Blog</a></li>
-      <li><a href="/sound-effects-blog">Sound Effects Blog</a></li>
-      <li><a href="/midi-controllers-blog">MIDI Controllers Blog</a></li>
-      <li><a href="/learning-musical-instruments">Learning Musical Instruments</a></li>
-    </ul>
-  </div>
-
-  <a href="/legal">Legal</a>
-  <a href="/privacy-policy">Privacy Policy</a>
-  <a href="/contact-us">Contact Us</a>
-  <a href="/about-us">About Us</a>
-</nav>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo">
+      <a href="/">
+        <img src="../wp-content/uploads/2023/01/musicusingtech-.jpg" alt="Music Using Technology">
+      </a>
     </div>
-  </header>
 
-  <section class="hero">
-    <h1>Music Using Technology</h1>
-    <p>
-      Helping musicians use computers, software instruments, and modern technology
-      to improve their music.
-    </p>
-    <a href="/blog" class="button">Explore the Blog</a>
+    <nav class="main-nav">
+      <a href="/quickguide">Quick Guides</a>
 
-<div class="media-block">
-  <img
-    src="midi-keyboard.jpg"
-    alt="Music Using Technology"
-    width="400"
-    height="210"
-    loading="eager"
-  >
-  <video
-    src="wp-content/uploads/2024/01/am-em-mut-vid-1.mp4"
-    controls
-    controlslist="nodownload"
-    preload="metadata"
-    width="400"
-    height="210"
-  ></video>	
-</div>
+      <div class="menu-item has-submenu">
+        <a href="/blog" class="submenu-toggle">Blogging</a>
+        <ul class="submenu">
+          <li><a href="/audio-interface-blog">Audio Interface Blog</a></li>
+          <li><a href="/software-instruments-blog">Software Instruments Blog</a></li>
+          <li><a href="/sound-effects-blog">Sound Effects Blog</a></li>
+          <li><a href="/midi-controllers-blog">MIDI Controllers Blog</a></li>
+          <li><a href="/learning-musical-instruments">Learning Musical Instruments</a></li>
+        </ul>
+      </div>
 
- 
+      <a href="/legal">Legal</a>
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/contact-us">Contact Us</a>
+      <a href="/about-us">About Us</a>
+    </nav>
+  </div>
+</header>
 
 <main class="container">
-    <section class="columns">
-      <div class="card">
-        <h2>Audio Interfaces</h2>
-        <p>
-          Learn how to choose and use audio interfaces for recording,
-          producing, and live performance.
-        </p>
-      </div>
+  <section class="contact">
+    <h1>Contact Us</h1>
 
-      <div class="card">
-        <h2>Software Instruments</h2>
-        <p>
-          Explore virtual instruments, synthesis, samplers, and MIDI workflows
-          for modern music creation.
-        </p>
-      </div>
+    <p>
+      I would love for you to contact me by leaving me a message.
+      Feel free to ask about more information that I could share and provide
+      for you that would help you.
+    </p>
 
-      <div class="card">
-        <h2>Music & Tech Guides</h2>
-        <p>
-          Practical tutorials that bridge the gap between musicianship
-          and technology.
-        </p>
-      </div>
-    </section>
-  </main>
+    <!-- Down arrow image -->
+    <img
+      src="yellow-arrow-pointing-down-1.webp"
+	  height="200"
+	  width="120"
+      alt="Scroll down"
+      class="down-arrow"
+    >
+  </section>
+</main>
 
 <footer>
-    © 2025 MusicUsingTech.com – Helping musicians use technology
-  </footer>
+  © 2025 MusicUsingTech.com – Helping musicians use technology
+</footer>
 
 </body>
 </html>
