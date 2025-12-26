@@ -149,83 +149,79 @@
     }
 
    /* Base nav */
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  background: #111;
-  padding: 12px 20px;
-  flex-wrap: wrap;
-}
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      background: #111;
+      padding: 10px 14px;
+      border-radius: 10px;
+    }
 
-.main-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 8px 10px;
-}
+    .main-nav a {
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.8rem;
+      padding: 8px 10px;
+      display: inline-block;
+    }
 
-/* Submenu wrapper */
-.menu-item {
-  position: relative;
-}
+    .main-nav a:hover { color: #2ecc71; }
 
-/* Submenu */
-.submenu {
-  list-style: none;
-  margin: 0;
-  padding: 8px 0;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 240px;
-  background: #222;
-  display: none;
-  z-index: 1000;
-}
+    .menu-item { position: relative; }
 
-.submenu li a {
-  display: block;
-  padding: 10px 16px;
-  color: #fff;
-}
+    .submenu {
+      list-style: none;
+      margin: 0;
+      padding: 8px 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 240px;
+      background: #222;
+      display: none;
+      z-index: 1000;
+      border-radius: 10px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+    }
 
-.submenu li a:hover {
-  background: #2ecc71;
-  color: #000;
-}
+    .submenu li a {
+      display: block;
+      padding: 10px 14px;
+      text-transform: none;
+      letter-spacing: 0.2px;
+      font-size: 0.85rem;
+      color: #fff;
+    }
 
-/* Desktop hover */
-@media (min-width: 769px) {
-  .menu-item:hover .submenu {
-    display: block;
-  }
-}
+    .submenu li a:hover {
+      background: #2ecc71;
+      color: #000;
+    }
 
-/* Mobile behaviour */
-@media (max-width: 768px) {
-  .main-nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    @media (min-width: 769px) {
+      .menu-item:hover .submenu { display: block; }
+    }
 
-  .menu-item {
-    width: 100%;
-  }
-
-  .submenu {
-    position: static;
-    width: 100%;
-  }
-
-  .menu-item:focus-within .submenu {
-    display: block;
-  }
-
-  .submenu-toggle::after {
-    content: " ▾";
-    font-size: 0.9em;
-  }
+    @media (max-width: 768px) {
+      .main-nav {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .menu-item { width: 100%; }
+      .submenu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+      }
+      .menu-item:focus-within .submenu { display: block; }
+      .submenu-toggle::after { content: " ▾"; }
+    }
 } footer {
       background: var(--white);
       border-top: 1px solid #ddd;
@@ -276,7 +272,7 @@
             <img src="wp-content/uploads/2023/01/musicusingtech-.jpg" alt="Music Using Technology" width="168" height="auto" loading="eager" />
           </a>
       </div>
-  <nav class="main-nav">
+ <nav class="main-nav">
   <a href="/quickguide">Quick Guides</a>
 
   <div class="menu-item has-submenu">
@@ -294,7 +290,7 @@
   <a href="/privacy-policy-2">Privacy Policy</a>
   <a href="/contact-us">Contact Us</a>
   <a href="/about-us">About Us</a>
-</nav>
+ </nav>
     </div>
   </header>
 
