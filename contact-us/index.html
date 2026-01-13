@@ -64,11 +64,28 @@
       flex-wrap: wrap;
     }
 
+ /* LOGO: larger + more visible */
     .logo img {
-      max-width: 168px;
+      width: 240px;
+      max-width: 240px;
       height: auto;
       display: block;
     }
+
+    @media (max-width: 900px) {
+      .logo img {
+        width: 200px;
+        max-width: 200px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .logo img {
+        width: 170px;
+        max-width: 170px;
+      }
+    }
+
 
    /* Base nav */
     .main-nav {
@@ -183,29 +200,39 @@
 <header class="site-header">
   <div class="container header-inner">
     <div class="logo">
-      <a href="/">
-        <img src="../wp-content/uploads/2023/01/musicusingtech-.jpg" alt="Music Using Technology">
+      <a href="../index.html">
+        <img src="../musicusingtech.webp" alt="Music Using Technology">
       </a>
     </div>
 
     <nav class="main-nav">
-      <a href="/quickguide">Quick Guides</a>
+      <a href="../quickguide/index.html">Quick Guides</a>
 
       <div class="menu-item has-submenu">
-        <a href="/blog" class="submenu-toggle">Blogging</a>
+        <a href="../blog/index.html" class="submenu-toggle">Blogging</a>
         <ul class="submenu">
-          <li><a href="/audio-interface-blog">Audio Interface Blog</a></li>
-          <li><a href="/software-instruments-blog">Software Instruments Blog</a></li>
-          <li><a href="/sound-effects-blog">Sound Effects Blog</a></li>
-          <li><a href="/midi-controllers-blog">MIDI Controllers Blog</a></li>
-          <li><a href="/learning-musical-instruments">Learning Musical Instruments</a></li>
+          <li><a href="../audio-interface-blog/index.html">Audio Interface Blog</a></li>
+          <li><a href="../software-instruments-blog/index.html">Software Instruments Blog</a></li>
+          <li><a href="../sound-effects-blog/index.html">Sound Effects Blog</a></li>
+          <li><a href="../midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
+          <li><a href="../learning-musical-instruments/index.html">Learning Musical Instruments</a></li>
         </ul>
       </div>
 
-      <a href="/legal">Legal</a>
-      <a href="/privacy-policy-2">Privacy Policy</a>
-      <a href="/contact-us">Contact Us</a>
-      <a href="/about-us">About Us</a>
+	  <!-- NEW "BEST" MENU (money pages) -->
+        <div class="menu-item has-submenu">
+          <a href="../best-free-vst-plugins/index.html" class="submenu-toggle">Best</a>
+          <ul class="submenu">
+            <li><a href="../best-free-vst-plugins/index.html">Best Free VST Plugins</a></li>
+            <li><a href="../best-software-instruments/index.html">Best Software Instruments</a></li>
+            <li><a href="../best-audio-interfaces/index.html">Best Audio Interfaces</a></li>
+          </ul>
+        </div>	
+		
+      <a href="../legal/index.html">Legal</a>
+      <a href="../privacy-policy-2/index.html">Privacy Policy</a>
+      <a href="../contact-us/index.html">Contact Us</a>
+      <a href="../about-us/index.html">About Us</a>
     </nav>
   </div>
 </header>
