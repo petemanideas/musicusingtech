@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Best Free VST Plugins for REAPER (Windows & Mac) - Music Using Technology</title>
+  <meta name="description" content="A curated list of the best free VST plugins for REAPER users — synths, instruments, drums, mixing, metering — for both Windows and macOS." />
+
+  <style>
+    :root { --primary:#236373; --dark:#121212; --light:#f7f7f7; --white:#ffffff; }
+    * { box-sizing: border-box; }
+
+    body{
+      margin:0;
+      font-family:'Lato', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--light);
+      color:var(--dark);
+      line-height:1.6;
+    }
+
+    h1,h2,h3{
+      font-family:'Old Standard TT', serif;
+      margin-top:0;
+      color:var(--dark);
+    }
+    h1{ font-size: clamp(2.2rem, 4vw, 3.2rem); }
+    h2{ font-size: clamp(1.6rem, 3vw, 2.2rem); }
+
+    .container{
+      max-width:1200px;
+      margin:auto;
+      padding:2rem 1.5rem;
+    }
+
+    /* Header matches your homepage style */
+    .site-header{ background:var(--white); border-bottom:1px solid #ddd; }
+    .header-inner{ display:flex; justify-content:space-between; align-items:center; gap:18px; }
+
+    .logo img{
+      width:240px;
+      max-width:240px;
+      height:auto;
+      display:block;
+    }
+    @media (max-width:900px){ .logo img{ width:200px; max-width:200px; } }
+    @media (max-width:600px){ .logo img{ width:170px; max-width:170px; } }
+
+    .main-nav{
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      flex-wrap:wrap;
+      background:#111;
+      padding:10px 14px;
+      border-radius:10px;
+    }
+    .main-nav a{
+      color:#fff;
+      text-decoration:none;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-family:"Poppins", sans-serif;
+      font-size:.8rem;
+      padding:8px 10px;
+      display:inline-block;
+    }
+    .main-nav a:hover{ color:#2ecc71; }
+
+    .menu-item{ position:relative; }
+    .submenu{
+      list-style:none;
+      margin:0;
+      padding:8px 0;
+      position:absolute;
+      top:100%;
+      left:0;
+      min-width:260px;
+      background:#222;
+      display:none;
+      z-index:1000;
+      border-radius:10px;
+      box-shadow:0 10px 24px rgba(0,0,0,.25);
+    }
+    .submenu li a{
+      display:block;
+      padding:10px 14px;
+      text-transform:none;
+      letter-spacing:.2px;
+      font-size:.85rem;
+      color:#fff;
+    }
+    .submenu li a:hover{
+      background:#2ecc71;
+      color:#000;
+    }
+    @media (min-width:769px){
+      .menu-item:hover .submenu{ display:block; }
+    }
+    @media (max-width:768px){
+      .main-nav{ width:100%; flex-direction:column; align-items:flex-start; }
+      .menu-item{ width:100%; }
+      .submenu{ position:static; width:100%; box-shadow:none; }
+      .menu-item:focus-within .submenu{ display:block; }
+      .submenu-toggle::after{ content:" ▾"; }
+    }
+
+    /* Page content */
+    .hero{
+      background:var(--white);
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:1.5rem;
+    }
+    .hero p{ max-width:980px; }
+
+    .button{
+      display:inline-block;
+      background:var(--primary);
+      color:#fff;
+      padding:1rem 2.0rem;
+      border-radius:24px;
+      text-decoration:none;
+      font-family:'Poppins', sans-serif;
+      font-size:.8rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      transition:background .2s ease;
+      margin:.35rem .35rem 0 0;
+      border:0;
+      cursor:pointer;
+    }
+    .button:hover{ background:#1b4e5c; }
+    .button.secondary{ background:#111; }
+    .button.secondary:hover{ background:#222; }
+
+    .disclosure{
+      margin-top:1rem;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid #ddd;
+      background:#fafafa;
+      color:#333;
+      font-size:.95rem;
+    }
+    .disclosure a{ text-decoration:underline; }
+
+    .card{
+      background:var(--white);
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:1.5rem;
+      margin-top:1rem;
+    }
+
+    .lead{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width:920px){
+      .lead{ grid-template-columns:1fr; }
+    }
+
+   
+    .adslot{
+      border:1px dashed #bbb;
+      border-radius:12px;
+      padding:14px;
+      color:#555;
+      font-size:.9rem;
+      text-align:center;
+      background:#fcfcfc;
+      margin-top:12px;
+    }
+
+    .tablewrap{
+      overflow:auto;
+      border-radius:12px;
+      border:1px solid #ddd;
+      background:#fff;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:860px;
+    }
+    th,td{
+      padding:12px 12px;
+      border-bottom:1px solid #eee;
+      vertical-align:top;
+    }
+    th{
+      text-align:left;
+      font-size:.9rem;
+      color:#444;
+    }
+    td{ font-size:1rem; }
+
+    .tag{
+      display:inline-block;
+      font-size:.75rem;
+      font-weight:700;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#111;
+      color:#fff;
+      letter-spacing:.5px;
+      text-transform:uppercase;
+      margin-left:6px;
+      white-space:nowrap;
+    }
+
+    .fine{
+      font-size:.95rem;
+      color:#333;
+    }
+
+    footer{
+      background:var(--white);
+      border-top:1px solid #ddd;
+      padding:1.5rem;
+      text-align:center;
+      font-size:.9rem;
+      color:#777;
+      margin-top:2rem;
+    }
+
+    code{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .95em; }
+  </style>
+	
+	<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YMQHLEN5DM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YMQHLEN5DM');
+</script>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3308191074184260"
+  crossorigin="anonymous"></script>
+	
+</head>
+
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo">
+      <!-- relative: from /best-free-vst-plugins/ back to site root -->
+      <a href="../index.html">
+        <img src="../musicusingtech.webp" alt="Music Using Technology" loading="eager">
+      </a>
+    </div>
+
+    <nav class="main-nav" aria-label="Primary navigation">
+      <a href="../quickguide/index.html">Quick Guides</a>
+
+      <div class="menu-item has-submenu">
+        <a href="../blog/index.html" class="submenu-toggle">Blogging</a>
+        <ul class="submenu">
+          <li><a href="../audio-interface-blog/index.html">Audio Interface Blog</a></li>
+          <li><a href="../software-instruments-blog/index.html">Software Instruments Blog</a></li>
+          <li><a href="../sound-effects-blog/index.html">Sound Effects Blog</a></li>
+          <li><a href="../midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
+          <li><a href="../learning-musical-instruments/index.html">Learning Musical Instruments</a></li>
+        </ul>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <a href="../best-free-vst-plugins/index.html" class="submenu-toggle">Best</a>
+        <ul class="submenu">
+          <li><a href="../best-free-vst-plugins/index.html">Best Free VST Plugins</a></li>
+          <li><a href="../best-software-instruments/index.html">Best Software Instruments</a></li>
+          <li><a href="../best-audio-interfaces/index.html">Best Audio Interfaces</a></li>
+        </ul>
+      </div>
+
+      <a href="../legal/index.html">Legal</a>
+      <a href="../privacy-policy-2/index.html">Privacy</a>
+      <a href="../about-us/index.html">About</a>
+      <a href="../contact-us/index.html">Contact</a>
+    </nav>
+  </div>
+	
+	
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h1>Best Free VST Plugins for REAPER (Windows &amp; Mac)</h1>
+    <p>
+      This is a curated “starter kit” list — not a massive directory. Everything here runs on both Windows and macOS,
+      and is a great match for REAPER users. (Where possible, choose <strong>VST3</strong> versions on Windows; on Mac,
+      AU or VST3 both work.)
+    </p>
+
+    <a class="button" href="#starter-kit">Jump to the list</a>
+    <a class="button secondary" href="../best-software-instruments/index.html">Upgrade to paid picks</a>
+
+    <div class="disclosure" role="note" aria-label="Affiliate disclosure">
+      <strong>Affiliate disclosure:</strong> This page links to free plugin downloads. Other pages on this site may contain affiliate links to paid products.
+      If you buy through affiliate links, I may earn a small commission (at no extra cost to you).
+      <a href="../privacy-policy-2/index.html">Learn more</a>.
+    </div>
+  </section>
+
+<section class="card">
+  <h2>Starter Kit checklist (coming soon)</h2>
+  <p>
+    I’m building a free downloadable checklist:
+    <strong>“REAPER Free Plugin Starter Kit”</strong> (what to install first, in order).
+  </p>
+  <p>
+    For now, use this quick install order:
+  </p>
+  <ol class="fine">
+    <li>Install a synth: <strong>Vital</strong> or <strong>Surge XT</strong></li>
+    <li>Install instruments: <strong>Spitfire LABS</strong></li>
+    <li>Install mixing tools: <strong>TDR Nova</strong> + <strong>SPAN</strong></li>
+    <li>Install ambience: <strong>Valhalla Supermassive</strong></li>
+    <li>Add metering: <strong>Youlean Loudness Meter</strong></li>
+  </ol>
+  <div class="adslot">Future spot for the free checklist signup (ConvertKit/MailerLite).</div>
+</section>
+
+
+  <section class="card" id="starter-kit">
+    <h2>The REAPER-friendly free plugin list</h2>
+    <p class="fine">
+      Recommended approach: install these first, then move to your paid “best of” pages for upgrades.
+      All download links below go to the <strong>official</strong> plugin pages.
+    </p>
+
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Recommended free plugin</th>
+            <th>Why it’s useful</th>
+            <th>Official download</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Synth</strong></td>
+            <td><strong>Vital (Free)</strong> <span class="tag">Wavetable</span></td>
+            <td>Modern, powerful synth that’s great for learning presets + sound design.</td>
+            <td><a class="button" href="https://vital.audio/" rel="nofollow">Vital</a></td>
+          </tr>
+
+          <tr>
+            <td><strong>Synth</strong></td>
+            <td><strong>Surge XT</strong> <span class="tag">Workhorse</span></td>
+            <td>Huge range of synthesis types + effects. Brilliant “one free synth that does a lot”.</td>
+            <td><a class="button" href="https://surge-synthesizer.github.io/downloads/" rel="nofollow">Surge XT</a></td>
+          </tr>
+
+          <tr>
+            <td><strong>Piano / instruments</strong></td>
+            <td><strong>Spitfire LABS</strong> <span class="tag">Free library</span></td>
+            <td>Loads of free instruments (including pianos/keys). Great for beginners and composers.</td>
+            <td><a class="button" href="https://labs.spitfireaudio.com/download" rel="nofollow">LABS</a></td>
+          </tr>
+
+          <tr>
+            <td><strong>Drums</strong></td>
+            <td><strong>Sitala</strong> <span class="tag">Drum sampler</span></td>
+            <td>Fast, simple 16-pad drum sampler. Drag &amp; drop sounds, program beats quickly in REAPER.</td>
+            <td><a class="button" href="https://decomposer.de/sitala/" rel="nofollow">Sitala</a></td>
+          </tr>
+
+          <tr>
+            <td><strong>Reverb / Delay</strong></td>
+            <td><strong>Valhalla Supermassive</strong> <span class="tag">Space</span></td>
+            <td>Free “big ambience” reverb/delay that sounds expensive — perfect for pads, vocals, guitars.</td>
+            <td><a class="button" href="https://valhalladsp.com/shop/reverb/valhalla-supermassive/" rel="nofollow">Supermassive</a></td>
+          </tr>
+
+          <tr>
+            <td><strong>EQ</strong></td>
+            <td><strong>TDR Nova</strong> <span class="tag">Dynamic EQ</span></td>
+            <td>EQ + dynamics in one plugin. Great for harshness, sibilance, and tightening mixes.</td>
+            <td><a class="button" href="https://www.tokyodawn.net/tdr-nova/" rel="nofollow">TDR Nova</a></td>
+          </tr>
+
+          <tr>
+            <td><strong>Compressor</strong></td>
+            <td><strong>TDR Kotelnikov</strong> <span class="tag">Transparent</span></td>
+            <td>Clean compression that teaches fundamentals without “over-coloring” your mix.</td>
+            <td><a class="button" href="https://www.tokyodawn.net/tdr-kotelnikov/Download/" rel="nofollow">Kotelnikov</a></td>
+          </tr>
+
+          <tr>
+            <td><strong>Metering</strong></td>
+            <td><strong>Youlean Loudness Meter</strong> <span class="tag">LUFS</span></td>
+            <td>Essential for loudness targets (YouTube/streaming). Works in REAPER and most DAWs.</td>
+            <td><a class="button" href="https://youlean.co/youlean-loudness-meter/" rel="nofollow">Youlean</a></td>
+          </tr>
+
+          <tr>
+            <td><strong>Utility</strong></td>
+            <td><strong>Voxengo SPAN</strong> <span class="tag">Spectrum</span></td>
+            <td>Legendary free spectrum analyzer. Helps you “see” bass, harshness, and balance.</td>
+            <td><a class="button" href="https://www.voxengo.com/product/span/" rel="nofollow">SPAN</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="adslot">Ad Slot (below list). Great for high-traffic pages.</div>
+
+    <p class="fine" style="margin-top:10px;">
+      REAPER tip: on Windows, prefer <strong>VST3</strong> installs when offered; on Mac, AU or VST3 are both fine.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Where to go next (monetisation path)</h2>
+    <ul>
+      <li><a href="../best-software-instruments/index.html">Best Software Instruments</a> (paid upgrades + affiliate links)</li>
+      <li><a href="../best-audio-interfaces/index.html">Best Audio Interfaces</a> (hardware that makes plugins actually usable)</li>
+      <li><a href="../software-instruments-blog/index.html">Software Instruments Blog</a> (deeper explanations + internal links)</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <div>Disclaimer: I am an affiliate marketer and I earn from qualifying purchases that you make</div>
+  <div style="margin-top:6px;">© 2026 MusicUsingTech.com – Helping musicians use technology</div>
+</footer>
+</body>
+</html>

@@ -60,12 +60,30 @@
       gap: 16px;
       flex-wrap: wrap;
     }
+   
+   /* LOGO: larger + more visible */
     .logo img {
-      display: block;
+      width: 240px;
+      max-width: 240px;
       height: auto;
-      max-width: 168px;
+      display: block;
     }
-    .main-nav {
+
+    @media (max-width: 900px) {
+      .logo img {
+        width: 200px;
+        max-width: 200px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .logo img {
+        width: 170px;
+        max-width: 170px;
+      }
+    }
+  
+	  .main-nav {
       display: flex;
       align-items: center;
       gap: 1rem;
@@ -179,34 +197,46 @@
       padding: 22px 10px;
     }
   </style>
+ <div class="adslot">Ad / Affiliate block (replace later)</div>	
 </head>
+	
 <body>
 <header class="site-header">
   <div class="container header-inner">
     <div class="logo">
-      <a href="/">
-        <img src="/wp-content/uploads/2023/01/musicusingtech-.jpg" alt="Music Using Technology" width="168" loading="eager" />
+      <a href="../index.html">
+        <img src="../musicusingtech.webp" alt="Music Using Technology" width="168" loading="eager" />
       </a>
     </div>
 
     <nav class="main-nav" aria-label="Primary">
-      <a href="/quickguide">Quick Guides</a>
+      <a href="../quickguide/index.html">Quick Guides</a>
 
       <div class="menu-item has-submenu">
-        <a href="/blog" class="submenu-toggle">Blogging</a>
+        <a href="../blog/index.html" class="submenu-toggle">Blogging</a>
         <ul class="submenu" aria-label="Blogging submenu">
-          <li><a href="/audio-interface-blog">Audio Interface Blog</a></li>
-          <li><a href="/software-instruments-blog">Software Instruments Blog</a></li>
-          <li><a href="/sound-effects-blog">Sound Effects Blog</a></li>
-          <li><a href="/midi-controllers-blog">MIDI Controllers Blog</a></li>
-          <li><a href="/learning-musical-instruments">Learning Musical Instruments</a></li>
+          <li><a href="../audio-interface-blog/index.html">Audio Interface Blog</a></li>
+          <li><a href="../software-instruments-blog/index.html">Software Instruments Blog</a></li>
+          <li><a href="../sound-effects-blog/index.html">Sound Effects Blog</a></li>
+          <li><a href="../midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
+          <li><a href="../learning-musical-instruments/index.html">Learning Musical Instruments</a></li>
         </ul>
       </div>
 
-      <a href="/legal">Legal</a>
-      <a href="/privacy-policy-2">Privacy Policy</a>
-      <a href="/contact-us">Contact Us</a>
-      <a href="/about-us">About Us</a>
+		<!-- NEW "BEST" MENU (money pages) -->
+        <div class="menu-item has-submenu">
+          <a href="../best-free-vst-plugins/index.html" class="submenu-toggle">Best</a>
+          <ul class="submenu">
+            <li><a href="../best-free-vst-plugins/index.html">Best Free VST Plugins</a></li>
+            <li><a href="../best-software-instruments/index.html">Best Software Instruments</a></li>
+            <li><a href="../best-audio-interfaces/index.html">Best Audio Interfaces</a></li>
+          </ul>
+        </div>	
+		
+      <a href="../legal/index.html">Legal</a>
+      <a href="../privacy-policy-2/index.html">Privacy Policy</a>
+      <a href="../contact-us/index.html">Contact Us</a>
+      <a href="../about-us/index.html">About Us</a>
     </nav>
   </div>
 </header>
@@ -256,31 +286,15 @@
 
 
 
-<h4><b>A Journey from then to now</b></h4><p>I personally began my journey in music by playing an upright Thürmer piano. I also enjoyed learning the acoustic guitar and loved experimenting with effects pedals. With respect to learning the piano, hours were spent learning scales, arpeggios etc…Playing a real acoustic piano is just great. However, when you consider the weight and size of a real piano, the need for regular tuning and that you are locked into one particular piano timbre, there is some merit for alternative approaches. Since those days of learning on a ‘real acoustic piano’, I have enjoyed playing many types of keyboards. Recently, I have used a digital piano connected to a computer to enjoy a never-ending collection of software instruments. I believe the key is to find a digital/electric instrument where you are happy with the feel and response of the keybed action.</p><p>You can find instruments such as digital pianos at the following <a href="https://www.shareasale.com/r.cfm?b=1794713&amp;u=3538726&amp;m=111907">site</a>. Other instruments and accessories are available also.</p>
+<h4><b>A Journey from then to now</b></h4><p>I personally began my journey in music by playing an upright Thürmer piano. I also enjoyed learning the acoustic guitar and loved experimenting with effects pedals. With respect to learning the piano, hours were spent learning scales, arpeggios etc…Playing a real acoustic piano is just great. However, when you consider the weight and size of a real piano, the need for regular tuning and that you are locked into one particular piano timbre, there is some merit for alternative approaches. Since those days of learning on a ‘real acoustic piano’, I have enjoyed playing many types of keyboards. Recently, I have used a digital piano connected to a computer to enjoy a never-ending collection of software instruments. I believe the key is to find a digital/electric instrument where you are happy with the feel and response of the keybed action.</p><p>You can find instruments such as digital pianos at the following site at 
+<a rel="sponsored" href="https://www.awin1.com/awclick.php?gid=523306&mid=116829&awinaffid=2406439&linkid=3983380&clickref=">Mustar</a>
+. Other instruments and accessories are available also.</p>
 
 
-
-
-
-
-
-<!-- START ADVERTISER: Donner Technology LLC from awin.com -->
-<a href="https://www.awin1.com/cread.php?s=4370174&amp;v=67370&amp;q=569209&amp;r=2406439" rel="sponsored">
-<img decoding="async" src="cshow.php"/> to insert 
-	
-</a>
-<!-- END ADVERTISER: Donner Technology LLC from awin.com -->
-
-
-
-
-
-
-
-
-
-
-
+<style>
+  .adslot{border:1px dashed #bbb;border-radius:12px;padding:14px;color:#555;font-size:.9rem;text-align:center;background:#fcfcfc;margin:12px 0;}
+</style>
+<br/>
 
 <h4 class="MsoNormal">Anyone for Software instruments?</h4>
 <p class="MsoNormal"> One of the music software packages that I use is Sampletank. It is a sample-based platform where several types of instruments can be loaded alongside one another or individually. The image is an example of<br/>

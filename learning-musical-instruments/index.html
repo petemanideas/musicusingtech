@@ -60,11 +60,29 @@
       gap: 16px;
       flex-wrap: wrap;
     }
+	  
+ /* LOGO: larger + more visible */
     .logo img {
-      display: block;
+      width: 240px;
+      max-width: 240px;
       height: auto;
-      max-width: 168px;
+      display: block;
     }
+
+    @media (max-width: 900px) {
+      .logo img {
+        width: 200px;
+        max-width: 200px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .logo img {
+        width: 170px;
+        max-width: 170px;
+      }
+    }
+	  
     .main-nav {
       display: flex;
       align-items: center;
@@ -184,29 +202,39 @@
 <header class="site-header">
   <div class="container header-inner">
     <div class="logo">
-      <a href="/">
-        <img src="/wp-content/uploads/2023/01/musicusingtech-.jpg" alt="Music Using Technology" width="168" loading="eager" />
+      <a href="../index.html">
+        <img src="../musicusingtech.webp" alt="Music Using Technology" width="168" loading="eager" />
       </a>
     </div>
 
     <nav class="main-nav" aria-label="Primary">
-      <a href="/quickguide">Quick Guides</a>
+      <a href="../quickguide/index.html">Quick Guides</a>
 
       <div class="menu-item has-submenu">
-        <a href="/blog" class="submenu-toggle">Blogging</a>
+        <a href="../blog/index.html" class="submenu-toggle">Blogging</a>
         <ul class="submenu" aria-label="Blogging submenu">
-          <li><a href="/audio-interface-blog">Audio Interface Blog</a></li>
-          <li><a href="/software-instruments-blog">Software Instruments Blog</a></li>
-          <li><a href="/sound-effects-blog">Sound Effects Blog</a></li>
-          <li><a href="/midi-controllers-blog">MIDI Controllers Blog</a></li>
-          <li><a href="/learning-musical-instruments">Learning Musical Instruments</a></li>
+          <li><a href="../audio-interface-blog/index.html">Audio Interface Blog</a></li>
+          <li><a href="../software-instruments-blog/index.html">Software Instruments Blog</a></li>
+          <li><a href="../sound-effects-blog/index.html">Sound Effects Blog</a></li>
+          <li><a href="../midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
+          <li><a href="../learning-musical-instruments/index.html">Learning Musical Instruments</a></li>
         </ul>
       </div>
 
-      <a href="/legal">Legal</a>
-      <a href="/privacy-policy-2">Privacy Policy</a>
-      <a href="/contact-us">Contact Us</a>
-      <a href="/about-us">About Us</a>
+	  <!-- NEW "BEST" MENU (money pages) -->
+        <div class="menu-item has-submenu">
+          <a href="../best-free-vst-plugins/index.html" class="submenu-toggle">Best</a>
+          <ul class="submenu">
+            <li><a href="../best-free-vst-plugins/index.html">Best Free VST Plugins</a></li>
+            <li><a href="../best-software-instruments/index.html">Best Software Instruments</a></li>
+            <li><a href="../best-audio-interfaces/index.html">Best Audio Interfaces</a></li>
+          </ul>
+        </div>			
+		
+      <a href="../legal/index.html">Legal</a>
+      <a href="../index.html">Privacy Policy</a>
+      <a href="../contact-us/index.html">Contact Us</a>
+      <a href="../about-us/index.html">About Us</a>
     </nav>
   </div>
 </header>
@@ -222,8 +250,21 @@
 <p>Learning to play a musical instrument is one of the most rewarding journeys you can embark on. Whether you’re strumming your first chords on a guitar, exploring melodies on a keyboard, or drawing your bow across a violin string, each instrument offers a unique path to musical expression. But in today’s digital age, you don’t have to go it alone—technology is transforming how we learn, practice, and create music..</p>
 <p>&nbsp;</p>
 <p>Check out some of the learning products and tools available:</p><ul><li>Pianoforall – The Incredible New Way To Learn Piano and Keyboards – <a href="https://882ddj6ioazms6khjv28f-yh2w.hop.clickbank.net/">BUY IT at https://pianoforall.com/ </a> </li><li>Rocket Piano – <a href="https://8782cc4exbrkn4levcdb3wel3w.hop.clickbank.net/">BUY IT at https://www.rocketpiano.com// </a> </li><li>Piano Book for Adult Beginners: Teach Yourself How to Play Famous Piano Songs, Read Music, Theory &amp; Technique (Book &amp; Streaming Video Lessons) <em>- link to come</em>&nbsp;</a></li><li>Guitar Exercises for Beginners: 10x Your Guitar Skills in 10 Minutes a Day  <em>- link to come </em></li>
-  <li>Guitar Theory https://amzn.to/41zWz7SRevolution (E-books, Videos and MP3 course) – <a href="https://dbfebi5jk3sliyi8yph9l49wbd.hop.clickbank.net/">BUY IT at https://guitartheoryrevolution.com/  </a></li><li>Violin For Dummies: Book + Online Video and Audio Instruction <em>– link to come</em> </li>
-</ul><p><img alt="" decoding="async" height="233" src="learning-instruments.webp" width="414"/><br/><a href="https://shareasale.com/r.cfm?b=2247355&amp;u=3538726&amp;m=111907&amp;urllink=&amp;afftrack=" rel="noopener" target="_blank"><img alt="Donner Music" decoding="async" src="Donner300x250.jpg"/></a></p><h2>The Joy of Learning Instruments:</h2><h3>🎸Guitar</h3><p>The guitar is a versatile and accessible instrument for beginners and pros alike. With countless online tutorials, chord libraries, and tablature apps, you can start playing your favourite songs in no time. Tools like <strong>Yousician</strong> and <strong>Fender Play</strong> offer interactive lessons that adapt to your skill level, making learning both fun and structured.</p><h3>🎹 Keyboard</h3><p>The keyboard is a gateway to understanding music theory and composition. Apps like <strong>Simply Piano</strong> and <strong>Flowkey</strong> provide real-time feedback as you play, helping you improve accuracy and timing. MIDI-enabled keyboards can connect directly to your computer or tablet, opening up a world of virtual instruments and digital sheet music.</p><h3>🎻 Violin</h3>
+  <li>Guitar Theory https://amzn.to/41zWz7SRevolution (E-books, Videos and MP3 course) – <a href="https://dbfebi5jk3sliyi8yph9l49wbd.hop.clickbank.net/">BUY IT at https://guitartheoryrevolution.com/  </a></li><li>Violin For Dummies: Book + Online Video and Audio Instruction <em>– link to come</em> </li></ul>
+	
+	<p>
+		
+<!-- START ADVERTISER: Mustar from awin.com
+
+<a rel="sponsored" href="https://www.awin1.com/cread.php?s=3983379&v=116829&q=523306&r=2406439">
+    <img src="https://www.awin1.com/cshow.php?s=3983379&v=116829&q=523306&r=2406439" border="0">
+</a>
+
+ END ADVERTISER: Mustar from awin.com -->
+</p>
+	
+	
+<h2>The Joy of Learning Instruments:</h2><h3>🎸Guitar</h3><p>The guitar is a versatile and accessible instrument for beginners and pros alike. With countless online tutorials, chord libraries, and tablature apps, you can start playing your favourite songs in no time. Tools like <strong>Yousician</strong> and <strong>Fender Play</strong> offer interactive lessons that adapt to your skill level, making learning both fun and structured.</p><h3>🎹 Keyboard</h3><p>The keyboard is a gateway to understanding music theory and composition. Apps like <strong>Simply Piano</strong> and <strong>Flowkey</strong> provide real-time feedback as you play, helping you improve accuracy and timing. MIDI-enabled keyboards can connect directly to your computer or tablet, opening up a world of virtual instruments and digital sheet music.</p><h3>🎻 Violin</h3>
 <p>The violin may seem intimidating at first, but with the right tools, it becomes much more approachable. Platforms like <strong>Trala</strong> use AI to analyze your playing and offer instant corrections. Video tutorials and slow-motion play-alongs help you master bowing techniques and finger placement at your own pace.</p>
 <p>&nbsp;</p>
 <h2>How Technology Enhances the Learning Experience</h2><p>Technology doesn’t just make learning easier—it makes it more immersive and creative. Here are a few ways it can elevate your musical journey:</p><ul><li><a href="../audio-interface-blog/index.html"><strong>Audio Interfaces</strong></a>: These devices let you connect your instrument to a computer or mobile device, enabling high-quality recording and real-time effects processing.</li><li><a href="../software-instruments-blog/index.html"><strong>Virtual Instruments</strong></a>: With software like Kontakt or Logic Pro’s built-in instruments, you can experiment with sounds beyond your physical instrument.</li><li><a href="../sound-effects-blog/index.html"><strong>Sound Effects and Plugins</strong></a>: Add reverb, delay, distortion, and more to shape your tone and explore new sonic landscapes.</li><li><a href="../midi-controllers-blog/index.html"><strong>MIDI Controllers</strong></a>: These tools allow you to trigger sounds, control software, and compose music digitally, making them perfect for keyboardists and producers alike.</li></ul>

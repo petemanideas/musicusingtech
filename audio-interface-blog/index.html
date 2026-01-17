@@ -67,11 +67,28 @@
       flex-wrap: wrap;
     }
 
+   /* LOGO: larger + more visible */
     .logo img {
-      display: block;
+      width: 240px;
+      max-width: 240px;
       height: auto;
-      max-width: 168px;
+      display: block;
     }
+
+    @media (max-width: 900px) {
+      .logo img {
+        width: 200px;
+        max-width: 200px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .logo img {
+        width: 170px;
+        max-width: 170px;
+      }
+    }
+
 
     .main-nav {
       display: flex;
@@ -201,29 +218,39 @@
 <header class="site-header">
   <div class="container header-inner">
     <div class="logo">
-      <a href="/">
-        <img src="/wp-content/uploads/2023/01/musicusingtech-.jpg" alt="Music Using Technology" width="168" loading="eager" />
+      <a href="../index.html">
+        <img src="../musicusingtech.webp" alt="Music Using Technology" width="168" loading="eager" />
       </a>
     </div>
 
     <nav class="main-nav" aria-label="Primary">
-      <a href="/quickguide">Quick Guides</a>
+      <a href="../quickguide/index.html">Quick Guides</a>
 
       <div class="menu-item has-submenu">
-        <a href="/blog" class="submenu-toggle">Blogging</a>
+        <a href="../blog/index.html" class="submenu-toggle">Blogging</a>
         <ul class="submenu" aria-label="Blogging submenu">
-          <li><a href="/audio-interface-blog">Audio Interface Blog</a></li>
-          <li><a href="/software-instruments-blog">Software Instruments Blog</a></li>
-          <li><a href="/sound-effects-blog">Sound Effects Blog</a></li>
-          <li><a href="/midi-controllers-blog">MIDI Controllers Blog</a></li>
-          <li><a href="/learning-musical-instruments">Learning Musical Instruments</a></li>
+          <li><a href="../audio-interface-blog/index.html">Audio Interface Blog</a></li>
+          <li><a href="../software-instruments-blog/index.html">Software Instruments Blog</a></li>
+          <li><a href="../sound-effects-blog/index.html">Sound Effects Blog</a></li>
+          <li><a href="../midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
+          <li><a href="../learning-musical-instruments/index.html">Learning Musical Instruments</a></li>
         </ul>
       </div>
+		
+	  <!-- NEW "BEST" MENU (money pages) -->
+        <div class="menu-item has-submenu">
+          <a href="../best-free-vst-plugins/index.html" class="submenu-toggle">Best</a>
+          <ul class="submenu">
+            <li><a href="../best-free-vst-plugins/index.html">Best Free VST Plugins</a></li>
+            <li><a href="../best-software-instruments/index.html">Best Software Instruments</a></li>
+            <li><a href="../best-audio-interfaces/index.html">Best Audio Interfaces</a></li>
+          </ul>
+        </div>	
 
-      <a href="/legal">Legal</a>
-      <a href="/privacy-policy-2">Privacy Policy</a>
-      <a href="/contact-us">Contact Us</a>
-      <a href="/about-us">About Us</a>
+      <a href="../legal/index.html">Legal</a>
+      <a href="../privacy-policy-2/index.html">Privacy Policy</a>
+      <a href="../contact-us/index.html">Contact Us</a>
+      <a href="../about-us/index.html">About Us</a>
     </nav>
   </div>
 </header>
@@ -241,7 +268,7 @@
 
 
 
-<center><img alt="audio interface focusrite scarlett " decoding="async" height="210" src="https://i0.wp.com/musicusingtech.com/wp-content/uploads/2025/01/focusrite-scarlett-6i6.jpg?resize=510%2C210&amp;ssl=1" width="510"/></center><h1><strong><em></em></strong></h1><h5><strong><em><span>I have used the Focusrite audio interface brand for many years, and it has always performed well for me. The exact device can be seen in the image above. It is the Scarlett 6i6 model. This model provides two types of MIDI connections – the traditional circular plug plus the USB-type interface (both located at the rear of the device. You can check out some possible audio interfaces below -&gt;</span></em></strong></h5><ul>
+<center><img alt="audio interface focusrite scarlett " decoding="async" height="210" src="focusrite-scarlett-6i6.webp" width="510"/></center><h1><strong><em></em></strong></h1><h5><strong><em><span>I have used the Focusrite audio interface brand for many years, and it has always performed well for me. The exact device can be seen in the image above. It is the Scarlett 6i6 model. This model provides two types of MIDI connections – the traditional circular plug plus the USB-type interface (both located at the rear of the device. You can check out some possible audio interfaces below -&gt;</span></em></strong></h5><ul>
   <li><span>Focusrite Scarlett Solo 3rd Gen USB Audio Interface for Guitarists, Vocalists, Podcasters or Producers to record and playback studio quality sound -<em> link to come</em></span></li>
   <li>Focusrite Scarlett 2i2 4th Generation Audio Interface <em>- link to come</em>&nbsp;</li>
 <li><span>Focusrite Scarlett 18i8 3rd Generation Audio Interface&nbsp;- <em>link to come</em></span></span></li>
@@ -257,31 +284,11 @@
 	  <div><span><H3>Get an audio interface to complement your music software</H3></span></div><p>You may have a computer and a music keyboard that has MIDI, but you have never combined them to help improve your music. Do you want to use music software such as digital audio workstations (DAWs)? Do you want to get more out of your MIDI keyboard and computer?  You can achieve this with the right gear and know-how to take more control of your music. At the same time, visualizing it in various ways to help improve your overall experience.</p> 
 
 
-
-
-
-
-
-<img alt="digital audio workstation 1" decoding="async" height="576" sizes="(max-width: 1024px) 100vw, 1024px" src="DAW1.webp?fit=1024%2C576&amp;ssl=1" srcset="DAW1.webp?w=1920&amp;ssl=1 1920w, DAW1.webp?resize=300%2C169&amp;ssl=1 300w, DAW1.webp?resize=1024%2C576&amp;ssl=1 1024w, DAW1.webp?resize=768%2C432&amp;ssl=1 768w, DAW1.webp?resize=1536%2C864&amp;ssl=1 1536w" width="1024"/> 
-
-
-
-
-
-
-
-
+<img alt="digital audio workstation 1" decoding="async" height="576" sizes="(max-width: 1024px) 100vw, 1024px" src="DAW1.webp" srcset="DAW1.webp?w=1920&amp;ssl=1 1920w, DAW1.webp?resize=300%2C169&amp;ssl=1 300w, DAW1.webp?resize=1024%2C576&amp;ssl=1 1024w, DAW1.webp?resize=768%2C432&amp;ssl=1 768w, DAW1.webp?resize=1536%2C864&amp;ssl=1 1536w" width="1024"/> 
 
 
 
 <h3>What computer and music equipment do you already have?</h3><h3>Desktops/Laptops</h3><p>You may already use a desktop PC or laptop computer (Windows or Mac) and they should be just fine if their specifications are up to the level of what you hope to achieve. If you are just starting out, then you don’t need to buy the latest and greatest computer. However, as you continue your path of learning and acquiring more audio software (including Software instruments), the demands on your computer will become greater.</p> 
-
-
-
-
-
-
-
 
 
 
@@ -291,16 +298,7 @@
 
 
 
-
-
-
 <img alt="" decoding="async" height="576" loading="lazy" sizes="(max-width: 1024px) 100vw, 1024px" src="laptop.webp?fit=1024%2C576&amp;ssl=1" srcset="laptop.webp?w=1920&amp;ssl=1 1920w, laptop.webp?resize=300%2C169&amp;ssl=1 300w, laptop.webp?resize=1024%2C576&amp;ssl=1 1024w, laptop.webp?resize=768%2C432&amp;ssl=1 768w, laptop.webp?resize=1536%2C864&amp;ssl=1 1536w" width="1024"/> 
-
-
-
-
-
-
 
 
 
@@ -312,16 +310,7 @@
 
 
 
-
-
-
-
-
-
 <img alt="" decoding="async" height="576" loading="lazy" sizes="(max-width: 1024px) 100vw, 1024px" src="focusrite-audio-interface.webp?fit=1024%2C576&amp;ssl=1" srcset="focusrite-audio-interface.webp?w=1920&amp;ssl=1 1920w, focusrite-audio-interface.webp?resize=300%2C169&amp;ssl=1 300w, focusrite-audio-interface.webp?resize=1024%2C576&amp;ssl=1 1024w, focusrite-audio-interface.webp?resize=768%2C432&amp;ssl=1 768w, focusrite-audio-interface.webp?resize=1536%2C864&amp;ssl=1 1536w" width="1024"/> 
-
-
-
 
 
 
@@ -329,15 +318,10 @@
 <img alt="" decoding="async" height="576" loading="lazy" sizes="(max-width: 1024px) 100vw, 1024px" src="MIDI-connections.webp?fit=1024%2C576&amp;ssl=1" srcset="MIDI-connections.webp?w=1920&amp;ssl=1 1920w, MIDI-connections.webp?resize=300%2C169&amp;ssl=1 300w, MIDI-connections.webp?resize=1024%2C576&amp;ssl=1 1024w, MIDI-connections.webp?resize=768%2C432&amp;ssl=1 768w, MIDI-connections.webp?resize=1536%2C864&amp;ssl=1 1536w" width="1024"/> 
 
 
-
-
-
-
 <div>
 
 
 <p><a href="https://">Link</a> to audio interface – <strong><em>to insert</em></strong></p> 
-
 
 
 <p><a href="https://" rel="noopener" target="_blank">Link</a> to MIDI interface – <strong><em>to insert</em></strong></p> 
