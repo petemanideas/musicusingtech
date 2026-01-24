@@ -1,0 +1,235 @@
+<article>
+
+  <h1>How to Install VST Plugins in REAPER (Windows &amp; Mac – Step by Step)</h1>
+
+  <p>If you’re new to REAPER, one of the first things you’ll want to do is install VST plugins.
+    Plugins are what give REAPER its real power – virtual instruments, effects, guitar amps, synths, reverbs,
+    compressors, and much more.</p>
+
+  <p>But for beginners, the process can feel confusing:</p>
+
+  <ul>
+    <li>Where do plugins get installed?</li>
+    <li>Why don’t some plugins show up?</li>
+    <li>What’s the difference between VST, VST3, and AU?</li>
+  </ul>
+
+  <p>This guide walks you through the entire process – for both <strong>Windows and Mac</strong> – in simple, clear steps.</p>
+
+  <p>By the end of this article you’ll know exactly how to:</p>
+
+  <ul>
+    <li>Install any VST plugin</li>
+    <li>Make REAPER recognise it</li>
+    <li>Fix common problems</li>
+    <li>Start using your new sounds immediately</li>
+  </ul>
+
+  <hr>
+
+  <h2>What Are VST Plugins?</h2>
+
+  <p>VST stands for <strong>Virtual Studio Technology</strong>.
+    A VST plugin is simply a piece of software that runs inside your DAW (in this case, REAPER) to add extra features.</p>
+
+  <p>There are two main types:</p>
+
+  <h3>1) Instrument Plugins (VSTi)</h3>
+  <p>These generate sound, such as:</p>
+  <ul>
+    <li>Synthesizers</li>
+    <li>Drum machines</li>
+    <li>Pianos</li>
+    <li>Sample libraries</li>
+  </ul>
+
+  <p>Examples: Vital, Surge XT, Spitfire LABS.</p>
+
+  <h3>2) Effect Plugins (VST)</h3>
+  <p>These process existing audio, such as:</p>
+  <ul>
+    <li>Reverb</li>
+    <li>Delay</li>
+    <li>EQ</li>
+    <li>Compression</li>
+  </ul>
+
+  <p>Examples: Valhalla Supermassive, TDR Nova, Voxengo SPAN.</p>
+
+  <hr>
+
+  <h2>VST2, VST3, and AU – What’s the Difference?</h2>
+
+  <p>You’ll often see different formats when downloading plugins:</p>
+  <ul>
+    <li><strong>VST2</strong> – Older standard, still widely used</li>
+    <li><strong>VST3</strong> – Newer, more efficient format (recommended on Windows)</li>
+    <li><strong>AU (Audio Units)</strong> – Mac-only format</li>
+  </ul>
+
+  <h3>Quick rule of thumb</h3>
+  <ul>
+    <li><strong>Windows users:</strong> install VST3 whenever possible</li>
+    <li><strong>Mac users:</strong> install AU or VST3</li>
+  </ul>
+
+  <p>REAPER supports all of them.</p>
+
+  <hr>
+
+  <h2>Installing Plugins in REAPER on Windows</h2>
+
+  <p>Let’s start with the most common setup: Windows.</p>
+
+  <h3>Step 1 – Download the plugin</h3>
+  <p>Go to the plugin website and download the installer. Most plugins come as an EXE installer or a ZIP file containing the plugin.</p>
+
+  <h3>Step 2 – Run the installer</h3>
+  <p>During installation, the plugin will usually ask where to install.</p>
+
+  <h3>Common Windows plugin locations</h3>
+
+  <p><strong>VST3 plugins:</strong></p>
+  <pre><code>C:\Program Files\Common Files\VST3</code></pre>
+
+  <p><strong>VST2 plugins:</strong></p>
+  <pre><code>C:\Program Files\VSTPlugins</code></pre>
+
+  <p>If the installer suggests these folders, accept the defaults.</p>
+
+  <h3>Step 3 – Open REAPER and scan for plugins</h3>
+
+  <ol>
+    <li>Open REAPER</li>
+    <li>Go to <strong>Options → Preferences → Plug-ins → VST</strong></li>
+    <li>Click <strong>Re-scan</strong></li>
+  </ol>
+
+  <p>REAPER will now search your computer for new plugins.</p>
+
+  <h3>Step 4 – Use your plugin</h3>
+
+  <ol>
+    <li>Create a new track</li>
+    <li>Click <strong>FX</strong></li>
+    <li>Search for the plugin name</li>
+    <li>Double click to load it</li>
+  </ol>
+
+  <hr>
+
+  <h2>Installing Plugins in REAPER on Mac</h2>
+
+  <p>The process on macOS is very similar.</p>
+
+  <h3>Step 1 – Download the plugin</h3>
+  <p>Most Mac plugins come as a <code>.dmg</code> file or a <code>.pkg</code> installer.</p>
+
+  <h3>Step 2 – Install the plugin</h3>
+  <p>On Mac, plugins normally install to one of these locations:</p>
+
+  <p><strong>AU plugins:</strong></p>
+  <pre><code>/Library/Audio/Plug-Ins/Components</code></pre>
+
+  <p><strong>VST3 plugins:</strong></p>
+  <pre><code>/Library/Audio/Plug-Ins/VST3</code></pre>
+
+  <p><strong>VST2 plugins:</strong></p>
+  <pre><code>/Library/Audio/Plug-Ins/VST</code></pre>
+
+  <p>You normally don’t need to change anything — just run the installer.</p>
+
+  <h3>Step 3 – Re-scan in REAPER</h3>
+  <ol>
+    <li>Open REAPER</li>
+    <li>Go to <strong>Options → Preferences → Plug-ins → VST</strong></li>
+    <li>Click <strong>Re-scan</strong></li>
+  </ol>
+
+  <p>Your new plugin should now appear in the FX browser.</p>
+
+  <hr>
+
+  <h2>How to Add Custom Plugin Folders</h2>
+
+  <p>Sometimes you’ll download a plugin that doesn’t use an installer — just a single <code>.dll</code> (Windows) or plugin file.</p>
+
+  <h3>Example on Windows</h3>
+  <p>Create a folder like:</p>
+  <pre><code>C:\MyVSTPlugins</code></pre>
+
+  <p>Then in REAPER:</p>
+  <ol>
+    <li>Go to <strong>Preferences → Plug-ins → VST</strong></li>
+    <li>Add that folder to the VST plug-in paths</li>
+    <li>Click <strong>Re-scan</strong></li>
+  </ol>
+
+  <hr>
+
+  <h2>Common Problems (and Fixes)</h2>
+
+  <h3>“My plugin isn’t showing up in REAPER”</h3>
+  <p>Common causes:</p>
+  <ul>
+    <li><strong>Wrong format installed:</strong> on Windows try VST3; on Mac try AU or VST3.</li>
+    <li><strong>No re-scan:</strong> go to <strong>Preferences → Plug-ins → VST</strong> and click <strong>Re-scan</strong>.</li>
+  </ul>
+
+  <h3>32-bit vs 64-bit plugins</h3>
+  <p>Modern REAPER is 64-bit. If you install a 32-bit plugin on a 64-bit system, it may not appear.
+    Always download the 64-bit version when available.</p>
+
+  <h3>The plugin loads but has no sound</h3>
+  <p>This is common with instrument plugins. Make sure:</p>
+  <ul>
+    <li>The track is armed</li>
+    <li>Monitoring is on</li>
+    <li>You are playing MIDI into it</li>
+  </ul>
+
+  <hr>
+
+  <h2>Best Free Plugins to Try First</h2>
+
+  <p>Now that you know how to install plugins, the next question is: <strong>which ones should you start with?</strong></p>
+
+  <p>I’ve put together a curated list here:</p>
+
+  <p><a href="../best-free-vst-plugins/index.html">Best Free VST Plugins for REAPER</a></p>
+
+  <p>That page gives you a perfect beginner starter kit.</p>
+
+  <hr>
+
+  <h2>Ready to Go Further?</h2>
+
+  <p>Installing plugins is just the beginning.</p>
+
+  <p>If you want to move beyond free plugins and start using higher-quality instruments and effects, check out:</p>
+
+  <p><a href="../best-software-instruments/index.html">Best Software Instruments for REAPER</a></p>
+
+  <p>And if you’re recording real instruments like guitar or vocals, a good audio interface makes a huge difference:</p>
+
+  <p><a href="../best-audio-interfaces/index.html">Best Audio Interfaces for REAPER</a></p>
+
+  <hr>
+
+  <h2>Final Thoughts</h2>
+
+  <p>Learning how to install VST plugins is one of the most important skills in REAPER.</p>
+
+  <p>Once you understand this process, you unlock:</p>
+
+  <ul>
+    <li>Thousands of free plugins</li>
+    <li>Professional paid instruments</li>
+    <li>Endless creative possibilities</li>
+  </ul>
+
+  <p>After doing it once or twice, it becomes second nature.</p>
+
+  <p><strong>Happy music making! 🎵</strong></p>
+
+</article>
