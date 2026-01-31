@@ -6,6 +6,176 @@
   <meta name="description" content="Learn how Wireless MIDI works, how to connect MIDI keyboards wirelessly to iPad, Mac and Windows, and which Bluetooth MIDI adapters are worth using.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- ✅ Paste your SAME <style> block here (the one you just sent me) -->
+  <style>
+    :root {
+      --primary: #236373;
+      --dark: #121212;
+      --light: #f7f7f7;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Lato', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Old Standard TT', serif;
+      margin-top: 0;
+      color: var(--dark);
+    }
+
+    h1 { font-size: clamp(3rem, 6vw, 6.5rem); }
+    h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    /* LOGO: larger + more visible */
+    .logo img {
+      width: 240px;
+      max-width: 240px;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .logo img {
+        width: 200px;
+        max-width: 200px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .logo img {
+        width: 170px;
+        max-width: 170px;
+      }
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 1rem 2.5rem;
+      border-radius: 24px;
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: background 0.2s ease;
+      margin: 0.35rem;
+    }
+
+    .button:hover { background: #1b4e5c; }
+
+    /* NAV (your style, cleaned up) */
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      background: #111;
+      padding: 10px 14px;
+      border-radius: 10px;
+    }
+
+    .main-nav a {
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.8rem;
+      padding: 8px 10px;
+      display: inline-block;
+    }
+
+    .main-nav a:hover { color: #2ecc71; }
+
+    .menu-item { position: relative; }
+
+    .submenu {
+      list-style: none;
+      margin: 0;
+      padding: 8px 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 260px;
+      background: #222;
+      display: none;
+      z-index: 1000;
+      border-radius: 10px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+    }
+
+    .submenu li a {
+      display: block;
+      padding: 10px 14px;
+      text-transform: none;
+      letter-spacing: 0.2px;
+      font-size: 0.85rem;
+      color: #fff;
+    }
+
+    .submenu li a:hover {
+      background: #2ecc71;
+      color: #000;
+    }
+
+    @media (min-width: 769px) {
+      .menu-item:hover .submenu { display: block; }
+    }
+
+    @media (max-width: 768px) {
+      .main-nav {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .menu-item { width: 100%; }
+      .submenu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+      }
+      .menu-item:focus-within .submenu { display: block; }
+      .submenu-toggle::after { content: " ▾"; }
+    }
+
+    footer {
+      background: var(--white);
+      border-top: 1px solid #ddd;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMQHLEN5DM"></script>
   <script>
@@ -19,37 +189,41 @@
   <script async
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3308191074184260"
     crossorigin="anonymous"></script>
-
-  <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
 
-<header>
-  <a href="../index.html">
-    <img src="../musicusingtech.webp" alt="Music Using Technology" loading="eager">
-  </a>
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a class="logo" href="../index.html">
+        <img src="../musicusingtech.webp" alt="Music Using Technology" loading="eager">
+      </a>
 
-  <!-- MAIN MENU -->
-  <nav class="main-nav">
-    <a href="../index.html">Home</a>
+      <nav class="main-nav">
+        <a href="../index.html">Home</a>
 
-    <div class="menu-item has-submenu">
-      <a href="../blog/index.html" class="submenu-toggle">Blogging</a>
-      <ul class="submenu">
-        <li><a href="../audio-interface-blog/index.html">Audio Interface Blog</a></li>
-        <li><a href="../software-instruments-blog/index.html">Software Instruments Blog</a></li>
-        <li><a href="../sound-effects-blog/index.html">Sound Effects Blog</a></li>
-        <li><a href="../midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
-        <li><a href="../wireless-midi/index.html">Wireless MIDI</a></li>
-        <li><a href="../learning-musical-instruments/index.html">Learning Musical Instruments</a></li>
-      </ul>
+        <div class="menu-item has-submenu">
+          <a href="../blog/index.html" class="submenu-toggle">Blogging</a>
+          <ul class="submenu">
+            <li><a href="../audio-interface-blog/index.html">Audio Interface Blog</a></li>
+            <li><a href="../software-instruments-blog/index.html">Software Instruments Blog</a></li>
+            <li><a href="../sound-effects-blog/index.html">Sound Effects Blog</a></li>
+            <li><a href="../midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
+            <li><a href="../wireless-midi/index.html">Wireless MIDI</a></li>
+            <li><a href="../learning-musical-instruments/index.html">Learning Musical Instruments</a></li>
+          </ul>
+        </div>
+
+        <!-- Top-level link (fine to keep) -->
+        <a href="../wireless-midi/index.html">Wireless MIDI</a>
+
+        <a href="../contact/index.html">Contact</a>
+      </nav>
     </div>
-
-    <a href="../wireless-midi/index.html">Wireless MIDI</a>
-    <a href="../contact/index.html">Contact</a>
-  </nav>
+  </div>
 </header>
+
 
 <main class="container">
   <article class="content-wrap">
