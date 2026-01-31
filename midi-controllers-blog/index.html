@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Music Using Technology</title>
-
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMQHLEN5DM"></script>
   <script>
@@ -18,52 +14,52 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3308191074184260"
      crossorigin="anonymous"></script>
 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MIDI Controllers Blog - Music using Tech</title>
+  <meta name="description" content="MIDI Controllers Explained: Types, Features, and How to Use Them Maximize Your Software Instruments: Why MIDI Controllers Are Essential for Hands-On Sound ControlIf you want to get the most out of your software instruments, then you need to use MIDI controllers. They are an excellent way to control and play your sounds from" />
+
+  <!-- Fonts to match Audio Interface blog -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Old+Standard+TT:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --primary: #236373;
-      --dark: #121212;
-      --light: #f7f7f7;
-      --white: #ffffff;
+      --text: #121212;
+      --muted: #666;
+      --bg: #f7f7f7;
+      --card: #ffffff;
+      --border: #e6e6e6;
     }
-
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
-      font-family: 'Lato', sans-serif;
-      background: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
+      font-family: "Lato", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      font-size: 16px;
     }
-
-    h1, h2, h3 {
-      font-family: 'Old Standard TT', serif;
-      margin-top: 0;
-      color: var(--dark);
-    }
-
-    h1 { font-size: clamp(3rem, 6vw, 6.5rem); }
-    h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
-
     .container {
       max-width: 1200px;
-      margin: auto;
-      padding: 2rem 1.5rem;
+      margin: 0 auto;
+      padding: 18px 16px;
     }
-
     .site-header {
-      background: var(--white);
-      border-bottom: 1px solid #ddd;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
     }
-
     .header-inner {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 18px;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
     }
-
-    /* LOGO: larger + more visible */
+	  
+   /* LOGO: larger + more visible */
     .logo img {
       width: 240px;
       max-width: 240px;
@@ -84,102 +80,7 @@
         max-width: 170px;
       }
     }
-
-    .hero {
-      background: var(--white);
-      text-align: center;
-      padding: 4rem 1.5rem;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: 1rem auto 2rem;
-    }
-
-    .button {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
-      padding: 1rem 2.5rem;
-      border-radius: 24px;
-      text-decoration: none;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: background 0.2s ease;
-      margin: 0.35rem;
-    }
-
-    .button:hover { background: #1b4e5c; }
-
-    .button.secondary {
-      background: #111;
-    }
-    .button.secondary:hover {
-      background: #222;
-    }
-
-    .media-block {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: center;
-      max-width: 900px;
-      margin: 3rem auto 0;
-    }
-
-    .hero-video {
-      width: 100%;
-      border-radius: 12px;
-      background: #000;
-    }
-
-    .hero-image {
-      width: 100%;
-      border-radius: 12px;
-      display: block;
-    }
-
-    .columns {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .card {
-      background: var(--white);
-      padding: 2rem;
-      border-radius: 8px;
-    }
-
-    .card p { margin-bottom: 0; }
-
-    .card .card-links {
-      margin-top: 14px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .card .card-links a {
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 18px;
-      text-decoration: none;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.78rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      background: #111;
-      color: #fff;
-    }
-
-    .card .card-links a:hover { background: #2ecc71; color: #000; }
-
-    /* NAV (your style, cleaned up) */
+	  
     .main-nav {
       display: flex;
       align-items: center;
@@ -189,7 +90,6 @@
       padding: 10px 14px;
       border-radius: 10px;
     }
-
     .main-nav a {
       color: #fff;
       text-decoration: none;
@@ -200,11 +100,8 @@
       padding: 8px 10px;
       display: inline-block;
     }
-
     .main-nav a:hover { color: #2ecc71; }
-
     .menu-item { position: relative; }
-
     .submenu {
       list-style: none;
       margin: 0;
@@ -212,14 +109,13 @@
       position: absolute;
       top: 100%;
       left: 0;
-      min-width: 260px;
+      min-width: 240px;
       background: #222;
       display: none;
       z-index: 1000;
       border-radius: 10px;
       box-shadow: 0 10px 24px rgba(0,0,0,0.25);
     }
-
     .submenu li a {
       display: block;
       padding: 10px 14px;
@@ -228,16 +124,13 @@
       font-size: 0.85rem;
       color: #fff;
     }
-
     .submenu li a:hover {
       background: #2ecc71;
       color: #000;
     }
-
     @media (min-width: 769px) {
       .menu-item:hover .submenu { display: block; }
     }
-
     @media (max-width: 768px) {
       .main-nav {
         width: 100%;
@@ -253,157 +146,167 @@
       .menu-item:focus-within .submenu { display: block; }
       .submenu-toggle::after { content: " ▾"; }
     }
-
-    /* Disclosure block for homepage (optional but useful) */
-    .disclosure {
-      max-width: 900px;
-      margin: 1.25rem auto 0;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid #ddd;
-      background: #fafafa;
-      color: #333;
-      font-size: 0.9rem;
-      text-align: left;
+    .content-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px 20px;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.06);
     }
-
+    h1, h2, h3, h4 {
+      font-family: "Old Standard TT", serif;
+      line-height: 1.2;
+      margin: 0.2em 0 0.6em;
+      color: var(--text);
+    }
+    h1 { font-size: clamp(2rem, 4vw, 3rem); }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+    h3 { font-size: clamp(1.2rem, 2.4vw, 1.6rem); }
+    p { margin: 0 0 1em; }
+    ul, ol { padding-left: 1.2rem; margin: 0 0 1em; }
+    li { margin: 0.25em 0; }
+    a { color: var(--primary); }
+    a:hover { text-decoration: underline; }
+    img, video, iframe {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      margin: 0.8rem auto;
+    }
+    blockquote {
+      margin: 1.2rem 0;
+      padding: 0.9rem 1rem;
+      border-left: 5px solid var(--primary);
+      background: #f3fbfd;
+      border-radius: 10px;
+    }
     footer {
-      background: var(--white);
-      border-top: 1px solid #ddd;
-      padding: 1.5rem;
       text-align: center;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    @media (max-width: 600px) {
-      .hero { padding: 3rem 1rem; }
-      .media-block { grid-template-columns: 1fr; }
+      color: var(--muted);
+      padding: 22px 10px;
     }
   </style>
 </head>
-
 <body>
-
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="logo">
-        <a href="index.html">
-          <!-- keep your original path; bigger size handled by CSS -->
-          <img src="../musicusingtech.webp"
-               alt="Music Using Technology"
-               loading="eager" />
-        </a>
-      </div>
-
-      <nav class="main-nav" aria-label="Primary navigation">
-        <a href="quickguide/index.html">Quick Guides</a>
-
-        <!-- ORIGINAL BLOGGING MENU (reattached) -->
-        <div class="menu-item has-submenu">
-          <a href="blog/index.html" class="submenu-toggle">Blogging</a>
-          <ul class="submenu">
-            <li><a href="audio-interface-blog/index.html">Audio Interface Blog</a></li>
-            <li><a href="software-instruments-blog/index.html">Software Instruments Blog</a></li>
-            <li><a href="sound-effects-blog/index.html">Sound Effects Blog</a></li>
-            <li><a href="midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
-         	<li><a href="wireless-midi/index.html">Wireless MIDI</a></li>
-            <li><a href="learning-musical-instruments/index.html">Learning Musical Instruments</a></li>
-          </ul>
-        </div>
-
-        <!-- NEW "BEST" MENU (money pages) -->
-        <div class="menu-item has-submenu">
-          <a href="best-free-vst-plugins/index.html" class="submenu-toggle">Best</a>
-          <ul class="submenu">
-            <li><a href="best-free-vst-plugins/index.html">Best Free VST Plugins</a></li>
-            <li><a href="best-software-instruments/index.html">Best Software Instruments</a></li>
-            <li><a href="best-audio-interfaces/index.html">Best Audio Interfaces</a></li>
-          </ul>
-        </div>
-
-        <a href="legal/index.html">Legal</a>
-        <a href="privacy-policy-2/index.html">Privacy Policy</a>
-        <a href="contact-us/index.html">Contact Us</a>
-        <a href="about-us/index.html">About Us</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero">
-    <h1>Music Using Technology</h1>
-
-<p><strong>New:</strong> Interested in cable-free setups? See my new hub: 
-<a href="../wireless-midi/index.html">Wireless MIDI (Bluetooth MIDI)</a>.</p>
-    <p>
-      Helping musicians use computers, software instruments, and modern technology
-      to improve their music.
-    </p>
-
-    <!-- Funnel buttons (AU first, then US/global later when you add affiliate links) -->
-    <a href="best-free-vst-plugins/index.html" class="button">Start Free (REAPER Plugins)</a>
-    <a href="blog/index.html" class="button secondary">Explore the Blog</a>
-
-    <div class="disclosure">
-      <strong>Affiliate disclosure:</strong> Some links on this site may be affiliate links. If you purchase through them, I may earn a small commission (at no extra cost to you).
-      <a href="privacy-policy-2/index.html">Learn more</a>.
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../musicusingtech.webp" alt="Music Using Technology" width="168" loading="eager" />
+      </a>
     </div>
 
-    <div class="media-block">
-      <img
-        class="hero-image"
-        src="midi-keyboard.webp"
-        alt="MIDI keyboard"
-        width="400"
-        height="210"
-        loading="eager"
-      />
-      <video
-        class="hero-video"
-        src="am-em-mut-vid-1.mp4"
-        controls
-        controlslist="nodownload"
-        preload="metadata"
-        width="400"
-        height="210"
-      ></video>
-    </div>
-  </section>
+    <nav aria-label="Primary navigation" class="main-nav">
+<a href="../quickguide/index.html">Quick Guides</a>
+<!-- ORIGINAL BLOGGING MENU (reattached) -->
+<div class="menu-item has-submenu">
+<a class="submenu-toggle" href="../blog/index.html">Blogging</a>
+<ul class="submenu">
+<li><a href="../audio-interface-blog/index.html">Audio Interface Blog</a></li>
+<li><a href="../software-instruments-blog/index.html">Software Instruments Blog</a></li>
+<li><a href="../sound-effects-blog/index.html">Sound Effects Blog</a></li>
+<li><a href="../midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
+<li><a href="../learning-musical-instruments/index.html">Learning Musical Instruments</a></li>
+<li><a href="../how-to-install-vst-plugins-in-reaper/index.html">How to Install VST Plugins in REAPER</a></li>
+<li><a href="../best-free-synth-vst-plugins-for-reaper/index.html">Best Free Synth VST Plugins (2026)</a></li>
+</ul>
+</div>
+<!-- NEW "BEST" MENU (money pages) -->
+<div class="menu-item has-submenu">
+<a class="submenu-toggle" href="../best-free-vst-plugins/index.html">Best</a>
+<ul class="submenu">
+<li><a href="../best-free-vst-plugins/index.html">Best Free VST Plugins</a></li>
+<li><a href="../best-software-instruments/index.html">Best Software Instruments</a></li>
+<li><a href="../best-audio-interfaces/index.html">Best Audio Interfaces</a></li>
+</ul>
+</div>
+<a href="../legal/index.html">Legal</a>
+<a href="../privacy-policy-2/index.html">Privacy Policy</a>
+<a href="../contact-us/index.html">Contact Us</a>
+<a href="../about-us/index.html">About Us</a>
+</nav>
+  </div>
+	<div class="adslot">Ad / Affiliate block (replace later)</div>
 
-  <main class="container">
-    <section class="columns">
-      <div class="card">
-        <h2>Audio Interfaces</h2>
-        <p>Learn how to choose and use audio interfaces for recording, producing, and live performance.</p>
-        <div class="card-links">
-          <a href="audio-interface-blog/index.html">Read the blog</a>
-          <a href="best-audio-interfaces/index.html">Best picks</a>
-        </div>
-      </div>
+</header>
 
-      <div class="card">
-        <h2>Software Instruments</h2>
-        <p>Explore virtual instruments, synthesis, samplers, and MIDI workflows for modern music creation.</p>
-        <div class="card-links">
-          <a href="software-instruments-blog/index.html">Read the blog</a>
-          <a href="best-software-instruments/index.html">Best picks</a>
-        </div>
-      </div>
+<main class="container">
+  <article class="content-wrap">
+<div class="entry-content clear" itemprop="text">
 
-      <div class="card">
-        <h2>Music & Tech Guides</h2>
-        <p>Practical tutorials that bridge the gap between musicianship and technology.</p>
-        <div class="card-links">
-          <a href="quickguide/index.html">Quick guides</a>
-          <a href="best-free-vst-plugins/index.html">Free plugins</a>
-        </div>
-      </div>
-    </section>
-  </main>
 
-  <footer>
-    © 2026 MusicUsingTech.com – Helping musicians use technology
-  </footer>
 
+
+<h1>MIDI Controllers Explained: Types, Features, and How to Use Them</h1>
+
+
+
+
+
+
+<h3>Maximize Your Software Instruments: Why MIDI Controllers Are Essential for Hands-On Sound Control</h3>If you want to get the most out of your software instruments, then you need to use MIDI controllers. They are an excellent way to control and play your sounds from your computer or other device storing your sounds.<p><img alt="" decoding="async" height="324" src="arturia-keylab-49-essentials.webp" width="400"/><img alt="MIDI controller Roland and Arturia together" decoding="async" height="89" src="roland-and-arturia-together.webp" width="400"/></p>
+	
+	<strong><em>The first image shows my 49-key Arturia Midi Controller, and it has served me well over the years when connecting to and playing virtual instruments.  My choice has been the Arturia Keylab49 Essential, which is shown above. The list below shows some possible options for MIDI controllers -&gt;</em></strong><ul><li>Arturia KeyLAB Essential Mk3 USB MIDI Controller 61 Keys Keyboard, White <em>- link to come</em></li>
+	  <li>Arturia Soft Synth/MIDI Controller MiniFreak V + KeyLab Essential 49 BK Bundle Bundle <em>- link to come</em></li>
+	  <li>Arturia 430201 AR-KEYSTEP KeyStep Portable Keyboard Sequencer and Controller <em>- link to come</em></li>
+	</ul><p><style>
+  .adslot{border:1px dashed #bbb;border-radius:12px;padding:14px;color:#555;font-size:.9rem;text-align:center;background:#fcfcfc;margin:12px 0;}
+	</style></br>
+   </a>
+	
+	</p><em><strong>I accompany the previous Arturia instrument with another MIDI controller which is over 20 years old. It is the Roland EP85 digital piano. I no longer use it’s own onboard sounds but instead I connect via MIDI connections to an audio interface into the computer to access any sound I have stored and want to play. The next image shows the Roland keyboard digital piano sitting beneath the Arturia Keylab49 controller. The combination of the two works well and both provide a different touch and therefore different playing experience of the chosen sound.</em> </strong>
+	<h2>&nbsp;</h2>
+	
+	<h3>What Is a MIDI Controller?</h3>
+	<p>A <strong>MIDI controller</strong> is a device that sends MIDI (Musical Instrument Digital Interface) signals to other hardware or software. It doesn’t produce sound on its own — instead, it controls virtual instruments, DAWs (Digital Audio Workstations), or external synths.</p><p>Common uses:</p><ul><li><p>Playing software instruments (like piano, synths, drums)</p></li><li><p>Controlling DAW parameters (volume, pan, effects)</p></li><li><p>Triggering samples or loops live</p></li><li><p>Automating performance gestures (pitch bends, modulation, filter sweeps)</p></li></ul><b> </b><h3>Types of MIDI Controllers</h3><h3>1. <strong>Keyboard Controllers</strong></h3><ul><li><p>Most common type</p></li><li><p>Range from 25 to 88 keys</p></li><li><p>Ideal for piano players and melodic input</p></li><li><p>Often include pitch/mod wheels, pads, knobs, and faders</p></li></ul><p><strong>Popular for:</strong> Studio production, composing, live performance</p><hr/>
+	<h3>&nbsp;</h3>
+	<h3>2. <strong>Pad Controllers</strong></h3>
+	<ul><li><p>Grid-style pads (typically velocity-sensitive)</p></li><li><p>Great for triggering drums, samples, loops</p></li><li><p>Often used in hip-hop, EDM, and finger drumming</p></li></ul><p><strong>Popular models:</strong> Akai MPD, Novation Launchpad</p><hr/>
+	<h3>&nbsp;</h3>
+	<h3>3. <strong>Control Surfaces / DAW Controllers</strong></h3>
+	<ul><li><p>Designed to control the DAW interface</p></li><li><p>Includes faders, transport controls, knobs</p></li><li><p>Often motorized faders (useful for automation)</p></li></ul><p><strong>Best for:</strong> Mixing, automation, hands-on DAW control</p><hr/>
+	<h3>&nbsp;</h3>
+	<h3>4. <strong>Wind / Breath Controllers</strong></h3>
+	<ul><li><p>Designed for wind instrument players</p></li><li><p>Allows expressive control via breath and embouchure</p></li><li><p>Sends MIDI data for dynamics, pitch, modulation</p></li></ul><p><strong>Used in:</strong> Film scoring, expressive solo work</p><hr/>
+	<h3>&nbsp;</h3>
+	<h3>5. <strong>Guitar-Style MIDI Controllers</strong></h3>
+	<ul><li><p>Guitar-like interfaces with MIDI output</p></li><li><p>Detect pitch/fret info and convert to MIDI</p></li><li><p>Some are hybrid electric guitars with MIDI capability</p></li></ul><p><strong>Used by:</strong> Guitarists wanting to control synths or notation software</p>
+	<h2>&nbsp;</h2>
+	<h2>Key Features to Look For</h2>
+	<ul><li><p><strong>Key Count and Action:</strong> 25, 49, 61, or 88 keys; synth-action vs semi-weighted vs fully weighted</p></li><li><p><strong>Velocity and Aftertouch:</strong> Adds expressiveness to playing</p></li><li><p><strong>Assignable Knobs and Faders:</strong> Great for controlling synth parameters, volume, effects</p></li><li><p><strong>Drum Pads:</strong> Useful for beat-making and live triggering</p></li><li><p><strong>Transport Controls:</strong> Play, stop, record buttons to control your DAW</p></li><li><p><strong>MIDI Connectivity:</strong> USB-MIDI, 5-pin DIN MIDI, Bluetooth MIDI (for wireless setups)</p></li></ul>
+	<h2>&nbsp;</h2>
+	<h2>How to Use a MIDI Controller in Your Setup</h2>
+	<h3>1. <strong>Connect It to Your Computer or DAW</strong></h3><ul><li><p>Via USB or traditional MIDI cables</p></li><li><p>Ensure your DAW recognizes the controller (most modern DAWs have auto-mapping for common models)</p></li></ul>
+	<h3>&nbsp;</h3>
+	<h3>2. <strong>Load a Virtual Instrument or Plugin</strong></h3>
+	<ul><li><p>For example: Piano VST, synth, drum machine</p></li><li><p>Play the keys or pads to trigger sounds</p></li></ul>
+	<h3>&nbsp;</h3>
+	<h3>3. <strong>Map Controls for Better Workflow</strong></h3>
+	<ul><li><p>Assign knobs and sliders to filter cutoff, reverb levels, track volume, etc.</p></li><li><p>Customize layouts to match your creative flow</p></li></ul>
+	<h3>&nbsp;</h3>
+	<h3>4. <strong>Record and Automate</strong></h3>
+	<ul><li><p>Record MIDI performances in your DAW</p></li><li><p>Edit velocity, timing, and expression after recording</p></li><li><p>Automate parameters using faders/knobs or the automation lane</p></li></ul> <h2>Who Should Use a MIDI Controller?</h2><ul><li><p><strong>Beginners:</strong> Learn piano or experiment with synths</p></li><li><p><strong>Producers:</strong> Speed up beat making and sound design</p></li><li><p><strong>Composers:</strong> Lay down orchestral sketches or themes quickly</p></li><li><p><strong>Live Performers:</strong> Trigger samples or control synths in real time</p></li></ul><p>I plan to talk more about the options available and would love for you to experience more about what is possible using technology with music.</p><p>I would love to hear from you and know where you are on your musical journey. I am keen to provide more information about the various options available and the fun experiences you can have when connecting music with computers and using technology in general.</p><p>Please send a message or leave a comment below so I can provide some more input into your journey.</p><p>Return to my <a href="../index.html">Home</a> page.<code><br/>
+</code></p>
+
+
+
+
+
+
+
+<p><strong><em>Disclaimer: I am an affiliate marketer and I earn from qualifying purchases that you make </em></strong></p>
+
+
+
+
+
+</div>
+  </article>
+</main>
+
+<footer>
+  © 2025 MusicUsingTech.com – Helping musicians use technology
+</footer>
 </body>
 </html>
