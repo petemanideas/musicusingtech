@@ -174,7 +174,47 @@
       font-size: 0.9rem;
       color: #777;
     }
-  </style>
+  
+
+  .fine {
+    font-size: 0.92rem;
+    color: #444;
+  }
+
+  .callout {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 14px;
+    margin: 16px 0;
+  }
+
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    margin: 14px 0 6px;
+  }
+
+  .resource-card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 14px;
+  }
+
+  .resource-card a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #111;
+  }
+
+  .resource-card a:hover {
+    color: #236373;
+    text-decoration: underline;
+  }
+
+</style>
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMQHLEN5DM"></script>
@@ -262,18 +302,43 @@
       <h2>Start here</h2>
 
       <p>
-        <strong>Wireless MIDI explained (pillar guide)</strong><br>
-        <a href="./what-is-wireless-midi/index.html">
-          What Is Wireless MIDI? (Bluetooth MIDI Explained)
-        </a>
-      </p>
+  <strong>Wireless MIDI explained (pillar guide)</strong><br>
+  <a href="./what-is-wireless-midi/index.html">What Is Wireless MIDI? (Bluetooth MIDI Explained)</a>
+</p>
 
-      <p>
-        <strong>Hands-on review</strong><br>
-        <a href="./cme-widi-jack-review/index.html">
-          CME WIDI Jack Review (Keyboard → iPad / Mac / Windows)
-        </a>
-      </p>
+<p>
+  <strong>Hands-on review</strong><br>
+  <a href="./cme-widi-jack-review/index.html">CME WIDI Jack Review (Keyboard → iPad / Mac / Windows 11)</a>
+</p>
+
+<p>
+  <strong>Best picks (money page)</strong><br>
+  <a href="./best-wireless-midi-adapters/index.html">Best Wireless MIDI Adapters (2026) – iPad, Mac & Windows 11</a>
+</p>
+
+<div class="callout">
+  <p style="margin:0;">
+    <strong>Quick tip:</strong> If Wireless MIDI feels “laggy” on Windows, the fix is often your <em>audio driver</em>.
+    Using an ASIO driver (for example, ASIO4ALL) and lowering buffer size can make the playing feel tight and responsive.
+  </p>
+</div>
+
+<div class="resource-grid" aria-label="Wireless MIDI resources">
+  <div class="resource-card">
+    <a href="../how-to-install-vst-plugins-in-reaper/index.html">REAPER plugin setup (Windows & Mac)</a>
+    <p class="fine" style="margin:8px 0 0;">Step-by-step VST install + enabling MIDI inputs properly.</p>
+  </div>
+
+  <div class="resource-card">
+    <a href="../best-free-vst-plugins/index.html">Best Free VST Plugins</a>
+    <p class="fine" style="margin:8px 0 0;">Free instruments & effects to test your Wireless MIDI setup.</p>
+  </div>
+
+  <div class="resource-card">
+    <a href="../midi-controllers-blog/index.html">MIDI Controllers Blog</a>
+    <p class="fine" style="margin:8px 0 0;">More MIDI workflows, gear tips, and controller guides.</p>
+  </div>
+</div>
 
       <h2>What you’ll learn in this section</h2>
       <ul>
