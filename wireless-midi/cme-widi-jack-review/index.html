@@ -1,7 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
+  <meta charset="utf-8">
+  <title>CME WIDI Jack Review (2026) – Tested on iPad, Mac & Windows 11</title>
+  <meta name="description" content="Hands-on CME WIDI Jack review. Tested on iPad (iOS), macOS and Windows 11 with REAPER and virtual instruments. Setup steps, pairing tips, and latency tuning with ASIO4ALL.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root { --primary:#236373; --dark:#121212; --light:#f7f7f7; --white:#ffffff; }
+    *{ box-sizing:border-box; }
+    body{ margin:0; font-family:'Lato',sans-serif; background:var(--light); color:var(--dark); line-height:1.6; }
+    h1,h2,h3{ font-family:'Old Standard TT',serif; margin-top:0; color:var(--dark); }
+    h1{ font-size:clamp(2.3rem,5vw,4.5rem); }
+    h2{ font-size:clamp(1.6rem,3.5vw,2.4rem); }
+
+    .container{ max-width:1200px; margin:auto; padding:2rem 1.5rem; }
+    .site-header{ background:var(--white); border-bottom:1px solid #ddd; }
+    .header-inner{ display:flex; justify-content:space-between; align-items:center; gap:18px; }
+    .logo img{ width:240px; max-width:240px; height:auto; display:block; }
+    @media (max-width:900px){ .logo img{ width:200px; max-width:200px; } }
+    @media (max-width:600px){ .logo img{ width:170px; max-width:170px; } }
+
+    .main-nav{ display:flex; align-items:center; gap:1rem; flex-wrap:wrap; background:#111; padding:10px 14px; border-radius:10px; }
+    .main-nav a{ color:#fff; text-decoration:none; text-transform:uppercase; letter-spacing:1px; font-family:"Poppins",sans-serif; font-size:.8rem; padding:8px 10px; display:inline-block; }
+    .main-nav a:hover{ color:#2ecc71; }
+    .menu-item{ position:relative; }
+    .submenu{ list-style:none; margin:0; padding:8px 0; position:absolute; top:100%; left:0; min-width:260px; background:#222; display:none; z-index:1000; border-radius:10px; box-shadow:0 10px 24px rgba(0,0,0,.25); }
+    .submenu li a{ display:block; padding:10px 14px; text-transform:none; letter-spacing:.2px; font-size:.85rem; color:#fff; }
+    .submenu li a:hover{ background:#2ecc71; color:#000; }
+    @media (min-width:769px){ .menu-item:hover .submenu{ display:block; } }
+    @media (max-width:768px){
+      .main-nav{ width:100%; flex-direction:column; align-items:flex-start; }
+      .menu-item{ width:100%; }
+      .submenu{ position:static; width:100%; box-shadow:none; }
+      .menu-item:focus-within .submenu{ display:block; }
+      .submenu-toggle::after{ content:" ▾"; }
+    }
+
+    .fine{ font-size:.92rem; color:#444; }
+    .adslot{ margin:18px 0; padding:14px; background:#fff; border:1px solid #ddd; border-radius:10px; }
+    .callout{ background:#fff; border:1px solid #ddd; border-radius:12px; padding:14px; margin:16px 0; }
+    footer{ background:var(--white); border-top:1px solid #ddd; padding:1.5rem; text-align:center; font-size:.9rem; color:#777; }
+  </style>
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMQHLEN5DM"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -10,255 +52,188 @@
     gtag('config', 'G-YMQHLEN5DM');
   </script>
 
-  <!-- Google adsense code -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3308191074184260"
-     crossorigin="anonymous"></script>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CME WIDI Jack Review - Music using Tech</title>
-  <meta name="description" content="Hands-on review of the CME WIDI Jack: setup, latency, stability, and using wireless MIDI with iPad, Mac, Windows, and REAPER." />
-
-  <!-- Fonts to match Audio Interface blog -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Old+Standard+TT:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --primary: #236373;
-      --text: #121212;
-      --muted: #666;
-      --bg: #f7f7f7;
-      --card: #ffffff;
-      --border: #e6e6e6;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Lato", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.7;
-      font-size: 16px;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 18px 16px;
-    }
-    .site-header {
-      background: var(--card);
-      border-bottom: 1px solid var(--border);
-    }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-	  
-   /* LOGO: larger + more visible */
-    .logo img {
-      width: 240px;
-      max-width: 240px;
-      height: auto;
-      display: block;
-    }
-
-    @media (max-width: 900px) {
-      .logo img {
-        width: 200px;
-        max-width: 200px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .logo img {
-        width: 170px;
-        max-width: 170px;
-      }
-    }
-	  
-    .main-nav {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      background: #111;
-      padding: 10px 14px;
-      border-radius: 10px;
-    }
-    .main-nav a {
-      color: #fff;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-family: "Poppins", sans-serif;
-      font-size: 0.8rem;
-      padding: 8px 10px;
-      display: inline-block;
-    }
-    .main-nav a:hover { color: #2ecc71; }
-    .menu-item { position: relative; }
-    .submenu {
-      list-style: none;
-      margin: 0;
-      padding: 8px 0;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      min-width: 240px;
-      background: #222;
-      display: none;
-      z-index: 1000;
-      border-radius: 10px;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
-    }
-    .submenu li a {
-      display: block;
-      padding: 10px 14px;
-      text-transform: none;
-      letter-spacing: 0.2px;
-      font-size: 0.85rem;
-      color: #fff;
-    }
-    .submenu li a:hover {
-      background: #2ecc71;
-      color: #000;
-    }
-    @media (min-width: 769px) {
-      .menu-item:hover .submenu { display: block; }
-    }
-    @media (max-width: 768px) {
-      .main-nav {
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .menu-item { width: 100%; }
-      .submenu {
-        position: static;
-        width: 100%;
-        box-shadow: none;
-      }
-      .menu-item:focus-within .submenu { display: block; }
-      .submenu-toggle::after { content: " ▾"; }
-    }
-    .content-wrap {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 26px 20px;
-      box-shadow: 0 2px 14px rgba(0,0,0,0.06);
-    }
-    h1, h2, h3, h4 {
-      font-family: "Old Standard TT", serif;
-      line-height: 1.2;
-      margin: 0.2em 0 0.6em;
-      color: var(--text);
-    }
-    h1 { font-size: clamp(2rem, 4vw, 3rem); }
-    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
-    h3 { font-size: clamp(1.2rem, 2.4vw, 1.6rem); }
-    p { margin: 0 0 1em; }
-    ul, ol { padding-left: 1.2rem; margin: 0 0 1em; }
-    li { margin: 0.25em 0; }
-    a { color: var(--primary); }
-    a:hover { text-decoration: underline; }
-    img, video, iframe {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      display: block;
-      margin: 0.8rem auto;
-    }
-    blockquote {
-      margin: 1.2rem 0;
-      padding: 0.9rem 1rem;
-      border-left: 5px solid var(--primary);
-      background: #f3fbfd;
-      border-radius: 10px;
-    }
-    footer {
-      text-align: center;
-      color: var(--muted);
-      padding: 22px 10px;
-    }
-  </style>
+  <!-- Google AdSense -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3308191074184260"
+    crossorigin="anonymous"></script>
 </head>
+
 <body>
+
 <header class="site-header">
-  <div class="container">
-    <div class="header-inner">
-
-      <a class="logo" href="../../index.html">
-        <img src="../../musicusingtech.webp" alt="Music Using Technology" loading="eager">
+  <div class="container header-inner">
+    <div class="logo">
+      <a href="../../index.html">
+        <img src="../../musicusingtech.webp" alt="Music Using Technology" loading="eager" />
       </a>
-
-      <nav aria-label="Primary navigation" class="main-nav">
-
-        <a href="../../quickguide/index.html">Quick Guides</a>
-
-        <div class="menu-item has-submenu">
-          <a class="submenu-toggle" href="../../blog/index.html">Blogging</a>
-          <ul class="submenu">
-            <li><a href="../../audio-interface-blog/index.html">Audio Interface Blog</a></li>
-            <li><a href="../../software-instruments-blog/index.html">Software Instruments Blog</a></li>
-            <li><a href="../../sound-effects-blog/index.html">Sound Effects Blog</a></li>
-            <li><a href="../../midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
-            <li><a href="../../wireless-midi/index.html">Wireless MIDI</a></li>
-            <li><a href="../../learning-musical-instruments/index.html">Learning Musical Instruments</a></li>
-            <li><a href="../../how-to-install-vst-plugins-in-reaper/index.html">How to Install VST Plugins in REAPER</a></li>
-            <li><a href="../../best-free-synth-vst-plugins-for-reaper/index.html">Best Free Synth VST Plugins (2026)</a></li>
-          </ul>
-        </div>
-
-        <a href="../../wireless-midi/index.html">Wireless MIDI</a>
-
-        <div class="menu-item has-submenu">
-          <a class="submenu-toggle" href="../../best-free-vst-plugins/index.html">Best</a>
-          <ul class="submenu">
-            <li><a href="../../best-free-vst-plugins/index.html">Best Free VST Plugins</a></li>
-            <li><a href="../../best-software-instruments/index.html">Best Software Instruments</a></li>
-            <li><a href="../../best-audio-interfaces/index.html">Best Audio Interfaces</a></li>
-          </ul>
-        </div>
-
-        <a href="../../legal/index.html">Legal</a>
-        <a href="../../privacy-policy-2/index.html">Privacy Policy</a>
-        <a href="../../contact-us/index.html">Contact Us</a>
-        <a href="../../about-us/index.html">About Us</a>
-
-      </nav>
-
     </div>
+
+    <nav aria-label="Primary navigation" class="main-nav">
+      <a href="../../quickguide/index.html">Quick Guides</a>
+
+      <div class="menu-item has-submenu">
+        <a class="submenu-toggle" href="../../blog/index.html">Blogging</a>
+        <ul class="submenu">
+          <li><a href="../../audio-interface-blog/index.html">Audio Interface Blog</a></li>
+          <li><a href="../../software-instruments-blog/index.html">Software Instruments Blog</a></li>
+          <li><a href="../../sound-effects-blog/index.html">Sound Effects Blog</a></li>
+          <li><a href="../../midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
+          <li><a href="../../wireless-midi/index.html">Wireless MIDI</a></li>
+          <li><a href="../../learning-musical-instruments/index.html">Learning Musical Instruments</a></li>
+          <li><a href="../../how-to-install-vst-plugins-in-reaper/index.html">How to Install VST Plugins in REAPER</a></li>
+          <li><a href="../../best-free-synth-vst-plugins-for-reaper/index.html">Best Free Synth VST Plugins (2026)</a></li>
+        </ul>
+      </div>
+
+      <a href="../../wireless-midi/index.html">Wireless MIDI</a>
+
+      <div class="menu-item has-submenu">
+        <a class="submenu-toggle" href="../../best-free-vst-plugins/index.html">Best</a>
+        <ul class="submenu">
+          <li><a href="../../best-free-vst-plugins/index.html">Best Free VST Plugins</a></li>
+          <li><a href="../../best-software-instruments/index.html">Best Software Instruments</a></li>
+          <li><a href="../../best-audio-interfaces/index.html">Best Audio Interfaces</a></li>
+        </ul>
+      </div>
+
+      <a href="../../legal/index.html">Legal</a>
+      <a href="../../privacy-policy-2/index.html">Privacy Policy</a>
+      <a href="../../contact-us/index.html">Contact Us</a>
+      <a href="../../about-us/index.html">About Us</a>
+    </nav>
   </div>
 </header>
 
 <main class="container">
-  <article class="content-wrap">
-    <div class="entry-content clear" itemprop="text">
-      <h1>CME WIDI Jack Review (Keyboard → iPad/Mac/Windows)</h1>
-      <p>This page is coming soon.</p>
-      <p class="fine">In the meantime, start here: <a href="../index.html">Wireless MIDI hub</a>.</p>
-      <p class="fine">Or go back to the main site: <a href="../../index.html">Home</a>.</p>
+  <article>
+    <h1>CME WIDI Jack Review (Keyboard → iPad / Mac / Windows 11)</h1>
 
-      <div class="adslot">Ad / Affiliate block placeholder</div>
+    <p>
+      After using MIDI cables for decades, the <strong>CME WIDI Jack</strong> feels like a real step forward:
+      a <strong>wireless Bluetooth MIDI adapter</strong> that lets you play software instruments without long cables everywhere.
+      I tested it across <strong>iPad (iOS)</strong>, an older <strong>iMac (macOS)</strong>, and a <strong>Windows 11 PC</strong>.
+    </p>
 
-      <h2>What you’ll get on this page</h2>
-      <ul>
-        <li>Clear setup steps (iPad, Mac, Windows)</li>
-        <li>Latency + reliability tips</li>
-        <li>Real-world recommendations</li>
-      </ul>
+    <p>
+      I tested with <strong>Pianoteq</strong> (I own the paid version), but that’s just one example — you can use any instrument,
+      including free plugins and free instrument apps. The WIDI Jack is simply sending MIDI data.
+    </p>
+
+    <p class="fine">
+      Back to: <a href="../index.html">Wireless MIDI hub</a> • Pillar guide:
+      <a href="../what-is-wireless-midi/index.html">What Is Wireless MIDI?</a>
+    </p>
+
+    <div class="adslot">Ad / affiliate block placeholder (CME WIDI Jack)</div>
+
+    <h2>What the WIDI Jack is (plain English)</h2>
+    <p>
+      The WIDI Jack is a Bluetooth MIDI adapter that plugs into the standard 5-pin DIN MIDI ports on a keyboard/controller.
+      Once paired, your iPad or computer sees it like a normal MIDI device.
+    </p>
+
+    <h2>iPad setup (iOS): easiest entry point</h2>
+    <ol>
+      <li>Download the <strong>WIDI app</strong> from the Apple App Store.</li>
+      <li>Power the WIDI Jack and open the app.</li>
+      <li>Pair/connect the WIDI Jack in the app.</li>
+      <li>Open a software instrument and play wirelessly from your MIDI keyboard.</li>
+    </ol>
+
+    <p>
+      Once connected, it was straightforward to load an instrument and play. The response felt immediate and very playable.
+    </p>
+
+    <div class="callout">
+      <p style="margin:0;">
+        If you’re building an iPad + keyboard setup, Wireless MIDI is one of the cleanest ways to reduce cable clutter.
+      </p>
     </div>
+
+    <h2>macOS setup (older iMac): Audio MIDI Setup</h2>
+    <ol>
+      <li>Open <strong>Audio MIDI Setup</strong> (Utilities).</li>
+      <li>Open the <strong>MIDI Studio</strong> window.</li>
+      <li>Click the <strong>Bluetooth</strong> icon and select the WIDI Jack.</li>
+      <li>Once connected, it appears like a normal MIDI device.</li>
+    </ol>
+
+    <p>
+      This worked quickly for me. I played Pianoteq wirelessly on macOS, and I also tested <strong>REAPER</strong> with virtual instruments —
+      MIDI input behaved exactly like a normal controller.
+    </p>
+
+    <h2>Windows 11 setup: most involved (but worth it)</h2>
+    <ol>
+      <li>Download and install the <strong>Korg BLE-MIDI driver</strong>.</li>
+      <li>Ensure Bluetooth is enabled on the PC.</li>
+      <li>Pair/connect the WIDI Jack.</li>
+    </ol>
+
+    <h3>Important pairing tip: disconnect other connections first</h3>
+    <p>
+      Windows pairing became much easier once I realised the WIDI Jack was still connected to my iPad. Disconnect the WIDI Jack from other devices first,
+      then pair on Windows.
+    </p>
+
+    <h2>CME WIDI Jack latency test (iPad, Mac &amp; Windows 11)</h2>
+    <p>
+      Your “feel” depends on both Bluetooth MIDI latency <em>and</em> audio driver latency. On Windows, using an ASIO driver can make the biggest difference.
+    </p>
+
+    <h3>Windows latency optimisation: ASIO4ALL</h3>
+    <p>
+      Installing <strong>ASIO4ALL</strong> reduced latency to around <strong>~1.5ms</strong> (depending on buffer settings), which felt fantastic for playing virtual instruments.
+    </p>
+
+    <p class="fine">
+      If you’re setting up instruments in REAPER, see:
+      <a href="../../how-to-install-vst-plugins-in-reaper/index.html">How to Install VST Plugins in REAPER (Windows &amp; Mac)</a>.
+    </p>
+
+    <h2>Pros and cons</h2>
+    <h3>Pros</h3>
+    <ul>
+      <li>True cable-free MIDI (clean studio/practice setups)</li>
+      <li>Worked across iPad, macOS and Windows 11 in real testing</li>
+      <li>Very playable latency, especially with ASIO on Windows</li>
+      <li>Great for iPad rigs and flexible home studios</li>
+    </ul>
+
+    <h3>Cons</h3>
+    <ul>
+      <li>Windows setup requires extra steps (driver + Bluetooth management)</li>
+      <li>You may need to disconnect other devices before pairing elsewhere</li>
+      <li>Bluetooth is short range (room/studio)</li>
+    </ul>
+
+    <h2>Who this is perfect for</h2>
+    <ul>
+      <li>Keyboard players who want less cable clutter</li>
+      <li>iPad musicians using instrument apps</li>
+      <li>REAPER users running virtual instruments on Mac or Windows</li>
+      <li>Anyone modernising an older MIDI keyboard/controller</li>
+    </ul>
+
+    <h2>Related reading</h2>
+    <ul>
+      <li><a href="../what-is-wireless-midi/index.html">What Is Wireless MIDI? (Bluetooth MIDI Explained)</a></li>
+      <li><a href="../index.html">Wireless MIDI hub</a></li>
+      <li><a href="../../midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
+      <li><a href="../../best-free-vst-plugins/index.html">Best Free VST Plugins</a></li>
+    </ul>
+
+    <h2>Affiliate disclosure</h2>
+    <p class="fine">
+      Some links on this page may be affiliate links. If you buy through them, I may earn a small commission at no extra cost to you.
+      This helps support Music Using Tech and keeps the guides free.
+    </p>
   </article>
 </main>
 
 <footer>
-  © 2025 MusicUsingTech.com – Helping musicians use technology
+  <p>&copy; Music Using Tech</p>
 </footer>
+
 </body>
 </html>

@@ -1,7 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
+  <meta charset="utf-8">
+  <title>What Is Wireless MIDI? (Bluetooth MIDI Explained) – iPad, Mac & Windows</title>
+  <meta name="description" content="What is Wireless MIDI? Learn how Bluetooth MIDI works, latency realities, and how to connect a MIDI keyboard wirelessly to iPad, Mac and Windows (REAPER-friendly).">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root { --primary:#236373; --dark:#121212; --light:#f7f7f7; --white:#ffffff; }
+    *{ box-sizing:border-box; }
+    body{ margin:0; font-family:'Lato',sans-serif; background:var(--light); color:var(--dark); line-height:1.6; }
+    h1,h2,h3{ font-family:'Old Standard TT',serif; margin-top:0; color:var(--dark); }
+    h1{ font-size:clamp(2.3rem,5vw,4.5rem); } /* slightly smaller for article pages */
+    h2{ font-size:clamp(1.6rem,3.5vw,2.4rem); }
+    .container{ max-width:1200px; margin:auto; padding:2rem 1.5rem; }
+    .site-header{ background:var(--white); border-bottom:1px solid #ddd; }
+    .header-inner{ display:flex; justify-content:space-between; align-items:center; gap:18px; }
+    .logo img{ width:240px; max-width:240px; height:auto; display:block; }
+    @media (max-width:900px){ .logo img{ width:200px; max-width:200px; } }
+    @media (max-width:600px){ .logo img{ width:170px; max-width:170px; } }
+
+    .main-nav{ display:flex; align-items:center; gap:1rem; flex-wrap:wrap; background:#111; padding:10px 14px; border-radius:10px; }
+    .main-nav a{ color:#fff; text-decoration:none; text-transform:uppercase; letter-spacing:1px; font-family:"Poppins",sans-serif; font-size:.8rem; padding:8px 10px; display:inline-block; }
+    .main-nav a:hover{ color:#2ecc71; }
+    .menu-item{ position:relative; }
+    .submenu{ list-style:none; margin:0; padding:8px 0; position:absolute; top:100%; left:0; min-width:260px; background:#222; display:none; z-index:1000; border-radius:10px; box-shadow:0 10px 24px rgba(0,0,0,.25); }
+    .submenu li a{ display:block; padding:10px 14px; text-transform:none; letter-spacing:.2px; font-size:.85rem; color:#fff; }
+    .submenu li a:hover{ background:#2ecc71; color:#000; }
+    @media (min-width:769px){ .menu-item:hover .submenu{ display:block; } }
+    @media (max-width:768px){
+      .main-nav{ width:100%; flex-direction:column; align-items:flex-start; }
+      .menu-item{ width:100%; }
+      .submenu{ position:static; width:100%; box-shadow:none; }
+      .menu-item:focus-within .submenu{ display:block; }
+      .submenu-toggle::after{ content:" ▾"; }
+    }
+
+    .fine{ font-size:.92rem; color:#444; }
+    .adslot{ margin:18px 0; padding:14px; background:#fff; border:1px solid #ddd; border-radius:10px; }
+    .callout{ background:#fff; border:1px solid #ddd; border-radius:12px; padding:14px; margin:16px 0; }
+    code{ background:#f0f0f0; padding:2px 6px; border-radius:6px; }
+    footer{ background:var(--white); border-top:1px solid #ddd; padding:1.5rem; text-align:center; font-size:.9rem; color:#777; }
+  </style>
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMQHLEN5DM"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -10,256 +52,172 @@
     gtag('config', 'G-YMQHLEN5DM');
   </script>
 
-  <!-- Google adsense code -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3308191074184260"
-     crossorigin="anonymous"></script>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>What Is Wireless MIDI? (Bluetooth MIDI Explained) - Music using Tech</title>
-  <meta name="description" content="Learn what Wireless MIDI is, how Bluetooth MIDI works, latency myths, and how to connect MIDI keyboards to iPad, Mac, and Windows." />
-
-  <!-- Fonts to match Audio Interface blog -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Old+Standard+TT:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --primary: #236373;
-      --text: #121212;
-      --muted: #666;
-      --bg: #f7f7f7;
-      --card: #ffffff;
-      --border: #e6e6e6;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Lato", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.7;
-      font-size: 16px;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 18px 16px;
-    }
-    .site-header {
-      background: var(--card);
-      border-bottom: 1px solid var(--border);
-    }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-	  
-   /* LOGO: larger + more visible */
-    .logo img {
-      width: 240px;
-      max-width: 240px;
-      height: auto;
-      display: block;
-    }
-
-    @media (max-width: 900px) {
-      .logo img {
-        width: 200px;
-        max-width: 200px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .logo img {
-        width: 170px;
-        max-width: 170px;
-      }
-    }
-	  
-    .main-nav {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      background: #111;
-      padding: 10px 14px;
-      border-radius: 10px;
-    }
-    .main-nav a {
-      color: #fff;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-family: "Poppins", sans-serif;
-      font-size: 0.8rem;
-      padding: 8px 10px;
-      display: inline-block;
-    }
-    .main-nav a:hover { color: #2ecc71; }
-    .menu-item { position: relative; }
-    .submenu {
-      list-style: none;
-      margin: 0;
-      padding: 8px 0;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      min-width: 240px;
-      background: #222;
-      display: none;
-      z-index: 1000;
-      border-radius: 10px;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
-    }
-    .submenu li a {
-      display: block;
-      padding: 10px 14px;
-      text-transform: none;
-      letter-spacing: 0.2px;
-      font-size: 0.85rem;
-      color: #fff;
-    }
-    .submenu li a:hover {
-      background: #2ecc71;
-      color: #000;
-    }
-    @media (min-width: 769px) {
-      .menu-item:hover .submenu { display: block; }
-    }
-    @media (max-width: 768px) {
-      .main-nav {
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .menu-item { width: 100%; }
-      .submenu {
-        position: static;
-        width: 100%;
-        box-shadow: none;
-      }
-      .menu-item:focus-within .submenu { display: block; }
-      .submenu-toggle::after { content: " ▾"; }
-    }
-    .content-wrap {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 26px 20px;
-      box-shadow: 0 2px 14px rgba(0,0,0,0.06);
-    }
-    h1, h2, h3, h4 {
-      font-family: "Old Standard TT", serif;
-      line-height: 1.2;
-      margin: 0.2em 0 0.6em;
-      color: var(--text);
-    }
-    h1 { font-size: clamp(2rem, 4vw, 3rem); }
-    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
-    h3 { font-size: clamp(1.2rem, 2.4vw, 1.6rem); }
-    p { margin: 0 0 1em; }
-    ul, ol { padding-left: 1.2rem; margin: 0 0 1em; }
-    li { margin: 0.25em 0; }
-    a { color: var(--primary); }
-    a:hover { text-decoration: underline; }
-    img, video, iframe {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      display: block;
-      margin: 0.8rem auto;
-    }
-    blockquote {
-      margin: 1.2rem 0;
-      padding: 0.9rem 1rem;
-      border-left: 5px solid var(--primary);
-      background: #f3fbfd;
-      border-radius: 10px;
-    }
-    footer {
-      text-align: center;
-      color: var(--muted);
-      padding: 22px 10px;
-    }
-  </style>
+  <!-- Google AdSense -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3308191074184260"
+    crossorigin="anonymous"></script>
 </head>
+
 <body>
+
 <header class="site-header">
   <div class="container header-inner">
     <div class="logo">
-      <a href="../../../index.html">
-        <img src="../../../musicusingtech.webp" alt="Music Using Technology" width="168" loading="eager" />
+      <a href="../../index.html">
+        <img src="../../musicusingtech.webp" alt="Music Using Technology" loading="eager" />
       </a>
     </div>
 
-  <nav aria-label="Primary navigation" class="main-nav">
-  <a href="../quickguide/index.html">Quick Guides</a>
+    <nav aria-label="Primary navigation" class="main-nav">
+      <a href="../../quickguide/index.html">Quick Guides</a>
 
-  <!-- BLOGGING -->
-  <div class="menu-item has-submenu">
-    <a class="submenu-toggle" href="../blog/index.html">Blogging</a>
-    <ul class="submenu">
-      <li><a href="../audio-interface-blog/index.html">Audio Interface Blog</a></li>
-      <li><a href="../software-instruments-blog/index.html">Software Instruments Blog</a></li>
-      <li><a href="../sound-effects-blog/index.html">Sound Effects Blog</a></li>
-      <li><a href="../midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
-      <li><a href="../wireless-midi/index.html">Wireless MIDI</a></li>
-      <li><a href="../learning-musical-instruments/index.html">Learning Musical Instruments</a></li>
-      <li><a href="../how-to-install-vst-plugins-in-reaper/index.html">How to Install VST Plugins in REAPER</a></li>
-      <li><a href="../best-free-synth-vst-plugins-for-reaper/index.html">Best Free Synth VST Plugins (2026)</a></li>
-    </ul>
+      <div class="menu-item has-submenu">
+        <a class="submenu-toggle" href="../../blog/index.html">Blogging</a>
+        <ul class="submenu">
+          <li><a href="../../audio-interface-blog/index.html">Audio Interface Blog</a></li>
+          <li><a href="../../software-instruments-blog/index.html">Software Instruments Blog</a></li>
+          <li><a href="../../sound-effects-blog/index.html">Sound Effects Blog</a></li>
+          <li><a href="../../midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
+          <li><a href="../../wireless-midi/index.html">Wireless MIDI</a></li>
+          <li><a href="../../learning-musical-instruments/index.html">Learning Musical Instruments</a></li>
+          <li><a href="../../how-to-install-vst-plugins-in-reaper/index.html">How to Install VST Plugins in REAPER</a></li>
+          <li><a href="../../best-free-synth-vst-plugins-for-reaper/index.html">Best Free Synth VST Plugins (2026)</a></li>
+        </ul>
+      </div>
+
+      <a href="../../wireless-midi/index.html">Wireless MIDI</a>
+
+      <div class="menu-item has-submenu">
+        <a class="submenu-toggle" href="../../best-free-vst-plugins/index.html">Best</a>
+        <ul class="submenu">
+          <li><a href="../../best-free-vst-plugins/index.html">Best Free VST Plugins</a></li>
+          <li><a href="../../best-software-instruments/index.html">Best Software Instruments</a></li>
+          <li><a href="../../best-audio-interfaces/index.html">Best Audio Interfaces</a></li>
+        </ul>
+      </div>
+
+      <a href="../../legal/index.html">Legal</a>
+      <a href="../../privacy-policy-2/index.html">Privacy Policy</a>
+      <a href="../../contact-us/index.html">Contact Us</a>
+      <a href="../../about-us/index.html">About Us</a>
+    </nav>
   </div>
-
-  <a href="../wireless-midi/index.html">Wireless MIDI</a>
-
-  <!-- BEST (money pages) -->
-  <div class="menu-item has-submenu">
-    <a class="submenu-toggle" href="../best-free-vst-plugins/index.html">Best</a>
-    <ul class="submenu">
-      <li><a href="../best-free-vst-plugins/index.html">Best Free VST Plugins</a></li>
-      <li><a href="../best-software-instruments/index.html">Best Software Instruments</a></li>
-      <li><a href="../best-audio-interfaces/index.html">Best Audio Interfaces</a></li>
-    </ul>
-  </div>
-
-  <a href="../legal/index.html">Legal</a>
-  <a href="../privacy-policy-2/index.html">Privacy Policy</a>
-  <a href="../contact-us/index.html">Contact Us</a>
-  <a href="../about-us/index.html">About Us</a>
-</nav>
-
-  </div>
-	<div class="adslot">Ad / Affiliate block (replace later)</div>
-
 </header>
 
 <main class="container">
-  <article class="content-wrap">
-    <div class="entry-content clear" itemprop="text">
-      <h1>What Is Wireless MIDI? (Bluetooth MIDI Explained)</h1>
-      <p>This page is coming soon.</p>
-      <p class="fine">In the meantime, start here: <a href="../index.html">Wireless MIDI hub</a>.</p>
-      <p class="fine">Or go back to the main site: <a href="../../index.html">Home</a>.</p>
+  <article>
+    <h1>What Is Wireless MIDI? (Bluetooth MIDI Explained)</h1>
 
-      <div class="adslot">Ad / Affiliate block placeholder</div>
+    <p>
+      <strong>Wireless MIDI</strong> lets you play and control software instruments without a physical MIDI cable.
+      Instead of sending MIDI data over a 5-pin DIN cable or USB, your keyboard/controller sends MIDI messages over
+      <strong>Bluetooth (BLE MIDI)</strong>.
+    </p>
 
-      <h2>What you’ll get on this page</h2>
-      <ul>
-        <li>Clear setup steps (iPad, Mac, Windows)</li>
-        <li>Latency + reliability tips</li>
-        <li>Real-world recommendations</li>
-      </ul>
+    <p>
+      The best part: MIDI is tiny data (notes, velocity, sustain, etc.), so wireless can feel surprisingly close to a wired setup —
+      especially for iPad rigs and home studios.
+    </p>
+
+    <div class="callout">
+      <p class="fine" style="margin:0;">
+        Want the practical version? I tested a real adapter across iPad, macOS and Windows 11 here:
+        <a href="../cme-widi-jack-review/index.html">CME WIDI Jack review</a>.
+      </p>
     </div>
+
+    <div class="adslot">Ad / affiliate block placeholder</div>
+
+    <h2>MIDI refresher: it’s not audio</h2>
+    <p>
+      MIDI does <strong>not</strong> transmit audio. It sends messages like:
+    </p>
+    <ul>
+      <li>Note on / note off</li>
+      <li>Velocity (how hard you play)</li>
+      <li>Pitch bend / mod wheel</li>
+      <li>Sustain pedal (CC 64) and other controllers</li>
+    </ul>
+    <p>
+      Your iPad/computer produces the sound using a software instrument (VST/AU/AUv3) or hardware synth.
+    </p>
+
+    <h2>How Bluetooth MIDI works (simple explanation)</h2>
+    <p>
+      Most modern wireless MIDI uses <strong>Bluetooth Low Energy (BLE)</strong>. BLE is designed for small, frequent data packets
+      — perfect for MIDI messages.
+    </p>
+    <p>
+      Once paired, your DAW sees it like a normal MIDI input device. In REAPER, for example, you simply enable it in
+      <code>Preferences → MIDI Devices</code> and you’re away.
+    </p>
+
+    <h2>Latency: is Wireless MIDI “laggy”?</h2>
+    <p>
+      This is the big fear people have. In practice, Bluetooth MIDI can feel very playable. Your total “feel” depends on:
+    </p>
+    <ul>
+      <li><strong>Bluetooth MIDI latency</strong> (usually small)</li>
+      <li><strong>Audio driver latency</strong> (often the bigger factor on Windows)</li>
+      <li>Buffer size / sample rate</li>
+      <li>CPU load (heavy instruments can add lag)</li>
+    </ul>
+
+    <div class="callout">
+      <p style="margin:0;">
+        On Windows, the <em>audio driver</em> is often the difference-maker. Using an ASIO driver (e.g. ASIO4ALL) can dramatically
+        reduce latency when playing virtual instruments.
+      </p>
+    </div>
+
+    <h2>Wireless MIDI on iPad (iOS)</h2>
+    <p>
+      iPad is one of the best platforms for wireless MIDI. Many iOS music apps support Bluetooth MIDI very naturally.
+      Once paired, you can play AUv3 instruments, synth apps, and DAWs wirelessly with a clean, portable setup.
+    </p>
+
+    <h2>Wireless MIDI on macOS</h2>
+    <p>
+      macOS has strong MIDI support. Pairing is typically handled through <strong>Audio MIDI Setup</strong> (MIDI Studio),
+      and the device appears as a normal MIDI input in your DAW.
+    </p>
+
+    <h2>Wireless MIDI on Windows 11</h2>
+    <p>
+      Windows 11 can work very well with Bluetooth MIDI, but sometimes it benefits from a dedicated BLE-MIDI driver and careful pairing.
+      Once connected, use an ASIO driver for best playing feel in REAPER and other DAWs.
+    </p>
+
+    <h2>When Wireless MIDI makes the most sense</h2>
+    <ul>
+      <li>iPad setups (mobile music-making)</li>
+      <li>Home studios where cable clutter is a pain</li>
+      <li>Practice rigs (quick on/off)</li>
+      <li>Teaching setups (clean classroom/studio workflow)</li>
+    </ul>
+
+    <h2>Next steps</h2>
+    <p>
+      If you want the real-world version (setup steps + what worked on each platform), read:
+      <a href="../cme-widi-jack-review/index.html">CME WIDI Jack review (iPad / Mac / Windows 11)</a>.
+    </p>
+
+    <p class="fine">
+      If you’re testing wireless MIDI with instruments, you can start here:
+      <a href="../../best-free-vst-plugins/index.html">Best Free VST Plugins</a>.
+    </p>
+
+    <h2>Affiliate disclosure</h2>
+    <p class="fine">
+      Some links on this site may be affiliate links. If you purchase through them, I may earn a small commission at no extra cost to you.
+      This helps support Music Using Tech and keeps the guides free.
+    </p>
   </article>
 </main>
 
 <footer>
-  © 2025 MusicUsingTech.com – Helping musicians use technology
+  <p>&copy; Music Using Tech</p>
 </footer>
+
 </body>
 </html>
