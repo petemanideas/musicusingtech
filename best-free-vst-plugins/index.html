@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Best Free VST Plugins for REAPER (Windows & Mac) - Music Using Technology</title>
-  <meta name="description" content="A curated list of the best free VST plugins for REAPER users — synths, instruments, drums, mixing, metering — for both Windows and macOS." />
+  <meta name="description" content="A curated list of the best free VST plugins for REAPER users — synths, instruments, drums, mixing, and metering for both Windows and macOS." />
 
   <style>
     :root { --primary:#236373; --dark:#121212; --light:#f7f7f7; --white:#ffffff; }
@@ -25,23 +25,13 @@
     }
     h1{ font-size: clamp(2.2rem, 4vw, 3.2rem); }
     h2{ font-size: clamp(1.6rem, 3vw, 2.2rem); }
+    h3{ font-size: 1.25rem; }
 
-    .container{
-      max-width:1200px;
-      margin:auto;
-      padding:2rem 1.5rem;
-    }
-
-    /* Header matches your homepage style */
+    .container{ max-width:1200px; margin:auto; padding:2rem 1.5rem; }
     .site-header{ background:var(--white); border-bottom:1px solid #ddd; }
     .header-inner{ display:flex; justify-content:space-between; align-items:center; gap:18px; }
 
-    .logo img{
-      width:240px;
-      max-width:240px;
-      height:auto;
-      display:block;
-    }
+    .logo img{ width:240px; max-width:240px; height:auto; display:block; }
     @media (max-width:900px){ .logo img{ width:200px; max-width:200px; } }
     @media (max-width:600px){ .logo img{ width:170px; max-width:170px; } }
 
@@ -74,7 +64,7 @@
       position:absolute;
       top:100%;
       left:0;
-      min-width:260px;
+      min-width:280px;
       background:#222;
       display:none;
       z-index:1000;
@@ -89,13 +79,8 @@
       font-size:.85rem;
       color:#fff;
     }
-    .submenu li a:hover{
-      background:#2ecc71;
-      color:#000;
-    }
-    @media (min-width:769px){
-      .menu-item:hover .submenu{ display:block; }
-    }
+    .submenu li a:hover{ background:#2ecc71; color:#000; }
+    @media (min-width:769px){ .menu-item:hover .submenu{ display:block; } }
     @media (max-width:768px){
       .main-nav{ width:100%; flex-direction:column; align-items:flex-start; }
       .menu-item{ width:100%; }
@@ -104,121 +89,38 @@
       .submenu-toggle::after{ content:" ▾"; }
     }
 
-    /* Page content */
-    .hero{
-      background:var(--white);
-      border:1px solid #ddd;
-      border-radius:12px;
-      padding:1.5rem;
-    }
+    .hero{ background:var(--white); border:1px solid #ddd; border-radius:12px; padding:1.5rem; }
     .hero p{ max-width:980px; }
 
     .button{
-      display:inline-block;
-      background:var(--primary);
-      color:#fff;
-      padding:1rem 2.0rem;
-      border-radius:24px;
-      text-decoration:none;
-      font-family:'Poppins', sans-serif;
-      font-size:.8rem;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      transition:background .2s ease;
-      margin:.35rem .35rem 0 0;
-      border:0;
-      cursor:pointer;
+      display:inline-block; background:var(--primary); color:#fff; padding:1rem 2.0rem; border-radius:24px;
+      text-decoration:none; font-family:'Poppins', sans-serif; font-size:.8rem; letter-spacing:2px;
+      text-transform:uppercase; transition:background .2s ease; margin:.35rem .35rem 0 0; border:0; cursor:pointer;
     }
     .button:hover{ background:#1b4e5c; }
     .button.secondary{ background:#111; }
     .button.secondary:hover{ background:#222; }
 
-    .disclosure{
-      margin-top:1rem;
-      padding:12px 14px;
-      border-radius:12px;
-      border:1px solid #ddd;
-      background:#fafafa;
-      color:#333;
-      font-size:.95rem;
-    }
+    .disclosure{ margin-top:1rem; padding:12px 14px; border-radius:12px; border:1px solid #ddd; background:#fafafa; color:#333; font-size:.95rem; }
     .disclosure a{ text-decoration:underline; }
 
-    .card{
-      background:var(--white);
-      border:1px solid #ddd;
-      border-radius:12px;
-      padding:1.5rem;
-      margin-top:1rem;
-    }
+    .card{ background:var(--white); border:1px solid #ddd; border-radius:12px; padding:1.5rem; margin-top:1rem; }
+    .adslot{ border:1px dashed #bbb; border-radius:12px; padding:14px; color:#555; font-size:.9rem; text-align:center; background:#fcfcfc; margin-top:12px; }
 
-    .adslot{
-      border:1px dashed #bbb;
-      border-radius:12px;
-      padding:14px;
-      color:#555;
-      font-size:.9rem;
-      text-align:center;
-      background:#fcfcfc;
-      margin-top:12px;
-    }
-
-    .tablewrap{
-      overflow:auto;
-      border-radius:12px;
-      border:1px solid #ddd;
-      background:#fff;
-    }
-    table{
-      width:100%;
-      border-collapse:collapse;
-      min-width:860px;
-    }
-    th,td{
-      padding:12px 12px;
-      border-bottom:1px solid #eee;
-      vertical-align:top;
-    }
-    th{
-      text-align:left;
-      font-size:.9rem;
-      color:#444;
-    }
+    .tablewrap{ overflow:auto; border-radius:12px; border:1px solid #ddd; background:#fff; }
+    table{ width:100%; border-collapse:collapse; min-width:860px; }
+    th,td{ padding:12px 12px; border-bottom:1px solid #eee; vertical-align:top; }
+    th{ text-align:left; font-size:.9rem; color:#444; }
     td{ font-size:1rem; }
 
-    .tag{
-      display:inline-block;
-      font-size:.75rem;
-      font-weight:700;
-      padding:6px 10px;
-      border-radius:999px;
-      background:#111;
-      color:#fff;
-      letter-spacing:.5px;
-      text-transform:uppercase;
-      margin-left:6px;
-      white-space:nowrap;
-    }
+    .tag{ display:inline-block; font-size:.75rem; font-weight:700; padding:6px 10px; border-radius:999px; background:#111; color:#fff; letter-spacing:.5px; text-transform:uppercase; margin-left:6px; white-space:nowrap; }
+    .fine{ font-size:.95rem; color:#333; }
 
-    .fine{
-      font-size:.95rem;
-      color:#333;
-    }
-
-    footer{
-      background:var(--white);
-      border-top:1px solid #ddd;
-      padding:1.5rem;
-      text-align:center;
-      font-size:.9rem;
-      color:#777;
-      margin-top:2rem;
-    }
-
-    code{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .95em; }
+    footer{ background:var(--white); border-top:1px solid #ddd; padding:1.5rem; text-align:center; font-size:.9rem; color:#777; margin-top:2rem; }
+    code{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.95em; }
+    ul li{ margin-bottom:.45rem; }
   </style>
 
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMQHLEN5DM"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -227,7 +129,6 @@
     gtag('config', 'G-YMQHLEN5DM');
   </script>
 
-  <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3308191074184260"
     crossorigin="anonymous"></script>
 </head>
@@ -244,7 +145,6 @@
     <nav aria-label="Primary navigation" class="main-nav">
       <a href="../quickguide/index.html">Quick Guides</a>
 
-      <!-- BLOGGING -->
       <div class="menu-item has-submenu">
         <a class="submenu-toggle" href="../blog/index.html">Blogging</a>
         <ul class="submenu">
@@ -261,13 +161,17 @@
 
       <a href="../wireless-midi/index.html">Wireless MIDI</a>
 
-      <!-- BEST (money pages) -->
       <div class="menu-item has-submenu">
         <a class="submenu-toggle" href="../best-free-vst-plugins/index.html">Best</a>
         <ul class="submenu">
           <li><a href="../best-free-vst-plugins/index.html">Best Free VST Plugins</a></li>
           <li><a href="../best-software-instruments/index.html">Best Software Instruments</a></li>
           <li><a href="../best-audio-interfaces/index.html">Best Audio Interfaces</a></li>
+          <li><a href="../best-midi-keyboards/index.html">Best MIDI Keyboards</a></li>
+          <li><a href="../best-free-daws/index.html">Best Free DAWs</a></li>
+          <li><a href="../audio-interface-vs-mixer/index.html">Audio Interface vs Mixer</a></li>
+          <li><a href="../midi-keyboard-vs-digital-piano/index.html">MIDI Keyboard vs Digital Piano</a></li>
+          <li><a href="../how-to-build-a-home-studio-on-a-budget/index.html">Build a Home Studio on a Budget</a></li>
         </ul>
       </div>
 
@@ -280,173 +184,214 @@
 </header>
 
 <main class="container">
+
   <section class="hero">
-    <h1>Best Free VST Plugins for REAPER (Windows &amp; Mac)</h1>
+    <h1>Best Free VST Plugins for REAPER (Windows &amp; Mac) – 2026 Guide</h1>
     <p>
-      This is a curated “starter kit” list — not a massive directory. Everything here runs on both Windows and macOS,
-      and is a great match for REAPER users. (Where possible, choose <strong>VST3</strong> versions on Windows; on Mac,
-      AU or VST3 both work.)
+      If you use REAPER, one of the fastest ways to improve your music is to build a smart collection of free VST plugins.
+      You do not need to download hundreds. You need a small set that covers instruments, drums, EQ, compression, reverb,
+      metering, and a couple of inspiring creative tools. This guide focuses on practical picks that are beginner-friendly,
+      genuinely useful, and worth installing first.
     </p>
 
-    <a class="button" href="#starter-kit">Jump to the list</a>
-    <a class="button secondary" href="../best-software-instruments/index.html">Upgrade to paid picks</a>
+    <a class="button" href="#top-picks">Jump to top picks</a>
+    <a class="button secondary" href="../software-instruments-blog/index.html">Read the Software Instruments Blog</a>
 
     <div class="disclosure" role="note" aria-label="Affiliate disclosure">
-      <strong>Affiliate disclosure:</strong> This page links to free plugin downloads. Some other links on this site may be affiliate links to paid products.
-      If you buy through affiliate links, I may earn a small commission (at no extra cost to you).
+      <strong>Affiliate disclosure:</strong> Some links on this page may be affiliate links.
+      If you purchase through them, I may earn a small commission at no extra cost to you.
       <a href="../privacy-policy-2/index.html">Learn more</a>.
     </div>
   </section>
 
-  <!-- NEW: tasteful, high-converting Plugin Boutique block (top of page) -->
-  <section class="card" aria-label="Optional upgrade">
-    <h2>Optional upgrade: cheap paid plugins + frequent freebies</h2>
-    <p class="fine">
-      Free plugins can take you a long way — but adding <strong>one</strong> solid paid instrument or effect can make your mixes and sounds
-      noticeably better. Plugin Boutique regularly runs discounts, and they often include free plugins with purchase.
-    </p>
-    <p>
-      <a class="button" href="../go/plugin-boutique/index.html" target="_blank" rel="nofollow sponsored">Browse Plugin Boutique deals</a>
-      <a class="button secondary" href="../best-software-instruments/index.html">My best paid instruments</a>
-    </p>
-    <p class="fine" style="margin:8px 0 0;">
-      Tip: start with a quality synth, a good reverb, or a “character” plugin (saturation/colour) — those upgrades are the most noticeable.
-    </p>
-  </section>
+  <section class="card" id="top-picks">
+    <h2>Best free VST plugins: quick answers</h2>
+    <p>These are strong starting points if you want a useful free setup without wasting time.</p>
 
-  <section class="card">
-    <h2>Starter Kit checklist (coming soon)</h2>
-    <p>
-      I’m building a free downloadable checklist:
-      <strong>“REAPER Free Plugin Starter Kit”</strong> (what to install first, in order).
-    </p>
-    <p>For now, use this quick install order:</p>
-    <ol class="fine">
-      <li>Install a synth: <strong>Vital</strong> or <strong>Surge XT</strong></li>
-      <li>Install instruments: <strong>Spitfire LABS</strong></li>
-      <li>Install mixing tools: <strong>TDR Nova</strong> + <strong>SPAN</strong></li>
-      <li>Install ambience: <strong>Valhalla Supermassive</strong></li>
-      <li>Add metering: <strong>Youlean Loudness Meter</strong></li>
-    </ol>
-    <div class="adslot">Future spot for the free checklist signup (ConvertKit/MailerLite).</div>
-  </section>
-
-  <section class="card" id="starter-kit">
-    <h2>The REAPER-friendly free plugin list</h2>
-    <p class="fine">
-      Recommended approach: install these first, then move to your paid “best of” pages for upgrades.
-      All download links below go to the <strong>official</strong> plugin pages.
-    </p>
-
-    <div class="tablewrap">
+    <div class="tablewrap" aria-label="Top free VST plugin picks">
       <table>
         <thead>
           <tr>
+            <th>Plugin</th>
             <th>Category</th>
-            <th>Recommended free plugin</th>
-            <th>Why it’s useful</th>
-            <th>Official download</th>
+            <th>Why it stands out</th>
+            <th>Best for</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Synth</strong></td>
-            <td><strong>Vital (Free)</strong> <span class="tag">Wavetable</span></td>
-            <td>Modern, powerful synth that’s great for learning presets + sound design.</td>
-            <td><a class="button" href="https://vital.audio/" rel="nofollow">Vital</a></td>
+            <td><strong>Vital</strong> <span class="tag">Synth</span></td>
+            <td>Wavetable synthesizer</td>
+            <td>Powerful, modern, and one of the best free synths available.</td>
+            <td>Electronic music, sound design, modern production</td>
           </tr>
-
           <tr>
-            <td><strong>Synth</strong></td>
-            <td><strong>Surge XT</strong> <span class="tag">Workhorse</span></td>
-            <td>Huge range of synthesis types + effects. Brilliant “one free synth that does a lot”.</td>
-            <td><a class="button" href="https://surge-synthesizer.github.io/downloads/" rel="nofollow">Surge XT</a></td>
+            <td><strong>Spitfire LABS</strong> <span class="tag">Instruments</span></td>
+            <td>Sample-based instruments</td>
+            <td>Easy access to soft pianos, strings, textures, and atmospheric sounds.</td>
+            <td>Cinematic, pop, ambient, songwriting</td>
           </tr>
-
           <tr>
-            <td><strong>Piano / instruments</strong></td>
-            <td><strong>Spitfire LABS</strong> <span class="tag">Free library</span></td>
-            <td>Loads of free instruments (including pianos/keys). Great for beginners and composers.</td>
-            <td><a class="button" href="https://labs.spitfireaudio.com/download" rel="nofollow">LABS</a></td>
+            <td><strong>MT Power Drum Kit 2</strong> <span class="tag">Drums</span></td>
+            <td>Acoustic drum instrument</td>
+            <td>Fast way to get playable drum grooves into a song.</td>
+            <td>Rock, pop, demos, songwriting</td>
           </tr>
-
           <tr>
-            <td><strong>Drums</strong></td>
-            <td><strong>Sitala</strong> <span class="tag">Drum sampler</span></td>
-            <td>Fast, simple 16-pad drum sampler. Drag &amp; drop sounds, program beats quickly in REAPER.</td>
-            <td><a class="button" href="https://decomposer.de/sitala/" rel="nofollow">Sitala</a></td>
+            <td><strong>TDR Nova</strong> <span class="tag">Mixing</span></td>
+            <td>Dynamic EQ</td>
+            <td>Much more flexible than a basic EQ, especially for cleaning harshness.</td>
+            <td>Mixing vocals, guitars, problem frequencies</td>
           </tr>
-
           <tr>
-            <td><strong>Reverb / Delay</strong></td>
-            <td><strong>Valhalla Supermassive</strong> <span class="tag">Space</span></td>
-            <td>Free “big ambience” reverb/delay that sounds expensive — perfect for pads, vocals, guitars.</td>
-            <td><a class="button" href="https://valhalladsp.com/shop/reverb/valhalla-supermassive/" rel="nofollow">Supermassive</a></td>
-          </tr>
-
-          <tr>
-            <td><strong>EQ</strong></td>
-            <td><strong>TDR Nova</strong> <span class="tag">Dynamic EQ</span></td>
-            <td>EQ + dynamics in one plugin. Great for harshness, sibilance, and tightening mixes.</td>
-            <td><a class="button" href="https://www.tokyodawn.net/tdr-nova/" rel="nofollow">TDR Nova</a></td>
-          </tr>
-
-          <tr>
-            <td><strong>Compressor</strong></td>
-            <td><strong>TDR Kotelnikov</strong> <span class="tag">Transparent</span></td>
-            <td>Clean compression that teaches fundamentals without “over-coloring” your mix.</td>
-            <td><a class="button" href="https://www.tokyodawn.net/tdr-kotelnikov/Download/" rel="nofollow">Kotelnikov</a></td>
-          </tr>
-
-          <tr>
-            <td><strong>Metering</strong></td>
-            <td><strong>Youlean Loudness Meter</strong> <span class="tag">LUFS</span></td>
-            <td>Essential for loudness targets (YouTube/streaming). Works in REAPER and most DAWs.</td>
-            <td><a class="button" href="https://youlean.co/youlean-loudness-meter/" rel="nofollow">Youlean</a></td>
-          </tr>
-
-          <tr>
-            <td><strong>Utility</strong></td>
-            <td><strong>Voxengo SPAN</strong> <span class="tag">Spectrum</span></td>
-            <td>Legendary free spectrum analyzer. Helps you “see” bass, harshness, and balance.</td>
-            <td><a class="button" href="https://www.voxengo.com/product/span/" rel="nofollow">SPAN</a></td>
+            <td><strong>Youlean Loudness Meter</strong> <span class="tag">Metering</span></td>
+            <td>Loudness meter</td>
+            <td>Helps you understand levels for streaming and final exports.</td>
+            <td>Mix checking, mastering basics</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="adslot">Ad Slot (below list). Great for high-traffic pages.</div>
+    <div class="adslot">Ad Slot (in-content). Add AdSense/Ezoic here later.</div>
+  </section>
 
-    <!-- NEW: mid-page conversion card -->
-    <section class="card" aria-label="Plugin Boutique recommendation" style="margin-top:14px;">
-      <h3>After you install these free plugins… here’s the easiest upgrade path</h3>
-      <p class="fine">
-        Once you’ve got a free synth + a few mixing tools, the biggest “quality leap” usually comes from adding
-        <strong>one good paid instrument</strong> or a <strong>reverb/colour</strong> plugin. Plugin Boutique is a solid place to start
-        because they run frequent deals and sometimes bundle freebies.
-      </p>
-      <p>
-        <a class="button" href="../go/plugin-boutique/index.html" target="_blank" rel="nofollow sponsored">See deals on Plugin Boutique</a>
-      </p>
-      <p class="fine" style="margin:8px 0 0;">
-        Not sure what to buy? See my <a href="../best-software-instruments/index.html">Best Software Instruments</a> page for beginner-friendly picks.
-      </p>
-    </section>
-
-    <p class="fine" style="margin-top:10px;">
-      REAPER tip: on Windows, prefer <strong>VST3</strong> installs when offered; on Mac, AU or VST3 are both fine.
+  <section class="card">
+    <h2>The best free VST plugins to install first</h2>
+    <p>
+      For most beginners, the smartest path is to build a balanced toolkit. Start with one versatile synth, one source of realistic
+      instruments, one drum plugin, a few dependable mixing tools, and one metering plugin. That gives you enough to write, arrange,
+      mix, and finish songs without feeling overwhelmed.
+    </p>
+    <h3>1. Vital</h3>
+    <p>
+      Vital is one of the strongest free synth plugins because it covers an enormous range of sounds. You can make basses, leads,
+      pads, plucks, and motion-rich textures from one instrument. It is especially useful if you enjoy software instruments and want
+      to learn synthesis at the same time.
+    </p>
+    <h3>2. Spitfire LABS</h3>
+    <p>
+      LABS is ideal when you want inspiring sounds quickly. The interface is simple, but the musical results can feel polished and emotional.
+      It is a great choice for adding pianos, strings, felt textures, or subtle cinematic layers to a track without spending money.
+    </p>
+    <h3>3. MT Power Drum Kit 2</h3>
+    <p>
+      If you write songs on keyboard or guitar, a drum plugin can instantly make your ideas feel more complete. MT Power Drum Kit 2 is popular
+      because it is straightforward and musical. It gives you a realistic acoustic drum option when you do not want to program every hit from scratch.
+    </p>
+    <h3>4. TDR Nova</h3>
+    <p>
+      TDR Nova is one of the best free mixing plugins because it does more than normal EQ. You can use it to tame harsh vocals, control boxiness
+      in guitars, or reduce mud in a busy mix in a more intelligent way. It is especially good for learners because it helps you hear why certain
+      frequencies need attention.
+    </p>
+    <h3>5. Valhalla Supermassive</h3>
+    <p>
+      For space, atmosphere, and width, Valhalla Supermassive is excellent. It is not just a basic reverb. It is the kind of plugin that can
+      turn plain sounds into something more cinematic or emotional. If you make ambient, synth-based, or textured music, it is worth installing early.
+    </p>
+    <h3>6. Youlean Loudness Meter</h3>
+    <p>
+      Metering often gets ignored by beginners, but it matters. If your mixes are too loud, too quiet, or inconsistent, a loudness meter helps you
+      make better decisions. This is especially useful when you start uploading tracks or comparing your work against commercial releases.
     </p>
   </section>
 
   <section class="card">
-    <h2>Where to go next (monetisation path)</h2>
+    <h2>How to choose the right free plugins for your setup</h2>
+    <p>
+      The best plugin is not always the one with the most features. It is the one that helps you finish music. If you mainly write songs,
+      focus on pianos, drums, synths, and a simple reverb. If you mainly mix, prioritise EQ, compression, saturation, and metering.
+      If you are still learning REAPER, avoid downloading too much at once. A small setup is easier to understand and use well.
+    </p>
+    <ul>
+      <li>Choose a synth if you want modern electronic sounds and basses.</li>
+      <li>Choose sampled instruments if you want pianos, strings, or organic textures.</li>
+      <li>Choose drum plugins if you need faster arrangement and demo creation.</li>
+      <li>Choose EQ and compression tools if your mixes feel muddy, harsh, or flat.</li>
+      <li>Choose a loudness meter if you want more confidence when exporting final tracks.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Best free VST plugins by category</h2>
+    <div class="tablewrap" aria-label="Free plugin categories">
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Recommended plugin</th>
+            <th>Why it helps</th>
+            <th>Related guide</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Synth</td>
+            <td>Vital</td>
+            <td>Modern sound design and versatile patches from one instrument.</td>
+            <td><a href="../best-software-instruments/index.html">Best Software Instruments</a></td>
+          </tr>
+          <tr>
+            <td>Drums</td>
+            <td>MT Power Drum Kit 2</td>
+            <td>Quick acoustic drums for songs and demos.</td>
+            <td><a href="../best-midi-keyboards/index.html">Best MIDI Keyboards</a></td>
+          </tr>
+          <tr>
+            <td>Reverb / FX</td>
+            <td>Valhalla Supermassive</td>
+            <td>Big space and creative effects.</td>
+            <td><a href="../best-free-daws/index.html">Best Free DAWs</a></td>
+          </tr>
+          <tr>
+            <td>EQ / Dynamic EQ</td>
+            <td>TDR Nova</td>
+            <td>Clean up difficult frequencies with more control.</td>
+            <td><a href="../audio-interface-vs-mixer/index.html">Audio Interface vs Mixer</a></td>
+          </tr>
+          <tr>
+            <td>Metering</td>
+            <td>Youlean Loudness Meter</td>
+            <td>Better final level decisions for uploads and mastering practice.</td>
+            <td><a href="../how-to-build-a-home-studio-on-a-budget/index.html">Build a Home Studio on a Budget</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Frequently asked questions</h2>
+    <h3>Are free VST plugins good enough for serious music production?</h3>
+    <p>
+      Yes. Many free plugins are more than good enough for learning, demo creation, content production, and even finished releases.
+      Paid plugins often add workflow improvements, more presets, bigger libraries, or extra polish, but free tools can absolutely get you started properly.
+    </p>
+    <h3>Do free VST plugins work in REAPER on Windows and Mac?</h3>
+    <p>
+      Many do, but always check the plugin format and operating system support before installing. REAPER users commonly use VST3 and AU on Mac,
+      and VST2 or VST3 on Windows depending on the plugin and setup.
+    </p>
+    <h3>Should I install lots of plugins at once?</h3>
+    <p>
+      No. Start with a focused set. Too many options can slow you down. Learn a few well, then expand when you know what is missing from your workflow.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Where to go next</h2>
     <ul>
       <li><a href="../best-software-instruments/index.html">Best Software Instruments</a> (paid upgrades + affiliate links)</li>
-      <li><a href="../best-audio-interfaces/index.html">Best Audio Interfaces</a> (hardware that makes plugins actually usable)</li>
+      <li><a href="../best-audio-interfaces/index.html">Best Audio Interfaces</a> (hardware that makes plugins easier to use)</li>
+      <li><a href="../best-midi-keyboards/index.html">Best MIDI Keyboards</a> (best controllers for beginners and producers)</li>
+      <li><a href="../best-free-daws/index.html">Best Free DAWs</a> (music software you can start with today)</li>
+      <li><a href="../audio-interface-vs-mixer/index.html">Audio Interface vs Mixer</a> (understand which one you actually need)</li>
+      <li><a href="../midi-keyboard-vs-digital-piano/index.html">MIDI Keyboard vs Digital Piano</a> (helpful for beginners choosing gear)</li>
+      <li><a href="../how-to-build-a-home-studio-on-a-budget/index.html">How to Build a Home Studio on a Budget</a> (simple low-cost setup ideas)</li>
       <li><a href="../software-instruments-blog/index.html">Software Instruments Blog</a> (deeper explanations + internal links)</li>
     </ul>
 
-    <!-- NEW: end-of-page “soft sell” -->
     <div class="disclosure" role="note" aria-label="Recommended plugin store">
       <strong>Want to expand your plugin collection?</strong>
       Plugin Boutique is a popular plugin store with regular discounts and promotions.
@@ -454,16 +399,15 @@
         <a class="button" href="../go/plugin-boutique/index.html" target="_blank" rel="nofollow sponsored">Browse Plugin Boutique</a>
       </div>
       <div class="fine" style="margin-top:8px;">
-        I only recommend stores/products I believe are useful for musicians. Affiliate income helps support the site at no extra cost to you.
+        I only recommend stores and products I believe are useful for musicians. Affiliate income helps support the site at no extra cost to you.
       </div>
     </div>
   </section>
+
 </main>
 
 <footer>
-  <div class="fine">
-    Disclosure: Some links on this site may be affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.
-  </div>
+  <div>Disclaimer: Some links may be affiliate links. I may earn from qualifying purchases at no extra cost to you.</div>
   <div style="margin-top:6px;">© 2026 MusicUsingTech.com – Helping musicians use technology</div>
 </footer>
 </body>
