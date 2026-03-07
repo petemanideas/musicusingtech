@@ -1,11 +1,11 @@
 (function(){
-  function normPath(p){ return p.replace(/\/+/g,'/'); }
   function relRoot() {
     var parts = window.location.pathname.split('/').filter(Boolean);
     if (parts.length === 0) return './';
     return '../'.repeat(parts.length - 1);
   }
   var root = relRoot();
+
   var header = `
 <header class="site-header">
   <div class="container header-inner">
@@ -14,6 +14,7 @@
         <img src="${root}musicusingtech.webp" alt="Music Using Technology" loading="eager">
       </a>
     </div>
+
     <nav aria-label="Primary navigation" class="main-nav">
       <a href="${root}quickguide/index.html">Quick Guides</a>
 
@@ -44,6 +45,18 @@
           <li><a href="${root}best-free-piano-vst-plugins/index.html">Best Free Piano VST Plugins</a></li>
           <li><a href="${root}best-free-drum-vst-plugins/index.html">Best Free Drum VST Plugins</a></li>
           <li><a href="${root}best-free-synth-vst-plugins/index.html">Best Free Synth VST Plugins</a></li>
+          <li><a href="${root}best-audio-interfaces-for-beginners/index.html">Best Audio Interfaces for Beginners</a></li>
+          <li><a href="${root}best-audio-interfaces-under-200/index.html">Best Audio Interfaces Under $200</a></li>
+          <li><a href="${root}best-midi-keyboards-for-beginners/index.html">Best MIDI Keyboards for Beginners</a></li>
+          <li><a href="${root}best-budget-midi-keyboards/index.html">Best Budget MIDI Keyboards</a></li>
+          <li><a href="${root}best-midi-keyboards-under-200/index.html">Best MIDI Keyboards Under $200</a></li>
+          <li><a href="${root}best-midi-keyboards-for-reaper/index.html">Best MIDI Keyboards for REAPER</a></li>
+          <li><a href="${root}best-free-reverb-vst-plugins/index.html">Best Free Reverb VST Plugins</a></li>
+          <li><a href="${root}best-free-delay-vst-plugins/index.html">Best Free Delay VST Plugins</a></li>
+          <li><a href="${root}best-free-compressor-vst-plugins/index.html">Best Free Compressor VST Plugins</a></li>
+          <li><a href="${root}best-free-eq-vst-plugins/index.html">Best Free EQ VST Plugins</a></li>
+          <li><a href="${root}best-free-guitar-vst-plugins/index.html">Best Free Guitar VST Plugins</a></li>
+          <li><a href="${root}best-free-bass-vst-plugins/index.html">Best Free Bass VST Plugins</a></li>
         </ul>
       </div>
 
