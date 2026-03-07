@@ -1,11 +1,5 @@
-/* Shared shell styles */
-:root { --primary:#236373; --dark:#121212; --light:#f7f7f7; --white:#ffffff; }
-*{box-sizing:border-box}
-body{margin:0;font-family:'Lato',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--light);color:var(--dark);line-height:1.6}
-h1,h2,h3{font-family:'Old Standard TT',serif;margin-top:0;color:var(--dark)}
-h1{font-size:clamp(2.2rem,4vw,3.2rem)}
-h2{font-size:clamp(1.6rem,3vw,2.2rem)}
-.container{max-width:1200px;margin:auto;padding:2rem 1.5rem}
+
+/* Shared header/footer shell */
 .site-header{background:var(--white);border-bottom:1px solid #ddd}
 .header-inner{display:flex;justify-content:space-between;align-items:center;gap:18px}
 .logo img{width:240px;max-width:240px;height:auto;display:block}

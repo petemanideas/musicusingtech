@@ -1,20 +1,15 @@
 (function(){
-  function relRoot() {
-    var parts = window.location.pathname.split('/').filter(Boolean);
-    if (parts.length === 0) return './';
-    return '../'.repeat(parts.length - 1);
-  }
-  var root = relRoot();
+  var script = document.currentScript;
+  var src = script ? (script.getAttribute('src') || '') : '';
+  var root = src.replace(/shared\/site-chrome\.js(?:\?.*)?$/,'');
+  if(!root) root = './';
 
   var header = `
 <header class="site-header">
   <div class="container header-inner">
     <div class="logo">
-      <a href="${root}index.html">
-        <img src="${root}musicusingtech.webp" alt="Music Using Technology" loading="eager">
-      </a>
+      <a href="${root}index.html"><img src="${root}musicusingtech.webp" alt="Music Using Technology" loading="eager"></a>
     </div>
-
     <nav aria-label="Primary navigation" class="main-nav">
       <a href="${root}quickguide/index.html">Quick Guides</a>
 
@@ -76,6 +71,6 @@
 
   var h = document.getElementById('site-header');
   var f = document.getElementById('site-footer');
-  if (h) h.innerHTML = header;
-  if (f) f.innerHTML = footer;
+  if(h) h.innerHTML = header;
+  if(f) f.innerHTML = footer;
 })();
