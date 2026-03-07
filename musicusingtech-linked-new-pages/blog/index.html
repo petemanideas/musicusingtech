@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Blog – Music Using Technology</title>
+  <meta name="description" content="Articles and guides on audio interfaces, software instruments, MIDI controllers, and music technology.">
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YMQHLEN5DM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YMQHLEN5DM');
+</script>
+
+<!-- Google adsense code -->	
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3308191074184260"
+     crossorigin="anonymous"></script>
+
+
+  <style>
+    :root {
+      --primary: #236373;
+      --dark: #121212;
+      --light: #f7f7f7;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Lato', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    h1, h2 {
+      font-family: 'Old Standard TT', serif;
+      margin-top: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Header */
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+ /* LOGO: larger + more visible */
+    .logo img {
+      width: 240px;
+      max-width: 240px;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .logo img {
+        width: 200px;
+        max-width: 200px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .logo img {
+        width: 170px;
+        max-width: 170px;
+      }
+    }
+
+
+    /* Navigation (same as homepage) */
+  /* Base nav */
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      background: #111;
+      padding: 10px 14px;
+      border-radius: 10px;
+    }
+
+    .main-nav a {
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.8rem;
+      padding: 8px 10px;
+      display: inline-block;
+    }
+
+    .main-nav a:hover { color: #2ecc71; }
+
+    .menu-item { position: relative; }
+
+    .submenu {
+      list-style: none;
+      margin: 0;
+      padding: 8px 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 240px;
+      background: #222;
+      display: none;
+      z-index: 1000;
+      border-radius: 10px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+    }
+
+    .submenu li a {
+      display: block;
+      padding: 10px 14px;
+      text-transform: none;
+      letter-spacing: 0.2px;
+      font-size: 0.85rem;
+      color: #fff;
+    }
+
+    .submenu li a:hover {
+      background: #2ecc71;
+      color: #000;
+    }
+
+    @media (min-width: 769px) {
+      .menu-item:hover .submenu { display: block; }
+    }
+
+    @media (max-width: 768px) {
+      .main-nav {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .menu-item { width: 100%; }
+      .submenu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+      }
+      .menu-item:focus-within .submenu { display: block; }
+      .submenu-toggle::after { content: " ▾"; }
+    }
+
+
+    /* Blog layout */
+    .page-hero {
+      background: var(--white);
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+
+    .page-hero p {
+      max-width: 700px;
+      margin: 1rem auto 0;
+    }
+
+    .posts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .post {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .post a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    footer {
+      background: var(--white);
+      border-top: 1px solid #ddd;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+    }
+	 .green-btn {
+      display: inline-block;
+      background-color: #28a745;
+      color: #ffffff;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .green-btn:hover {
+      background-color: #218838;
+    }
+	  
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="../index.html">
+            <img src="../musicusingtech.webp" alt="Music Using Technology" width="168" height="auto" loading="eager" />
+          </a>
+      </div>
+
+   <nav aria-label="Primary navigation" class="main-nav">
+  <a href="../quickguide/index.html">Quick Guides</a>
+
+  <!-- BLOGGING -->
+  <div class="menu-item has-submenu">
+    <a class="submenu-toggle" href="../blog/index.html">Blogging</a>
+    <ul class="submenu">
+      <li><a href="../audio-interface-blog/index.html">Audio Interface Blog</a></li>
+      <li><a href="../software-instruments-blog/index.html">Software Instruments Blog</a></li>
+      <li><a href="../sound-effects-blog/index.html">Sound Effects Blog</a></li>
+      <li><a href="../midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
+      <li><a href="../wireless-midi/index.html">Wireless MIDI</a></li>
+      <li><a href="../learning-musical-instruments/index.html">Learning Musical Instruments</a></li>
+      <li><a href="../how-to-install-vst-plugins-in-reaper/index.html">How to Install VST Plugins in REAPER</a></li>
+      <li><a href="../best-free-synth-vst-plugins-for-reaper/index.html">Best Free Synth VST Plugins (2026)</a></li>
+    </ul>
+  </div>
+
+  <a href="../wireless-midi/index.html">Wireless MIDI</a>
+
+  <!-- BEST (money pages) -->
+  <div class="menu-item has-submenu">
+<a class="submenu-toggle" href="../best-free-vst-plugins/index.html">Best</a>
+<ul class="submenu">
+<li><a href="../best-free-vst-plugins/index.html">Best Free VST Plugins</a></li>
+<li><a href="../best-software-instruments/index.html">Best Software Instruments</a></li>
+<li><a href="../best-audio-interfaces/index.html">Best Audio Interfaces</a></li>
+<li><a href="../best-midi-keyboards/index.html">Best MIDI Keyboards</a></li>
+<li><a href="../best-free-daws/index.html">Best Free DAWs</a></li>
+<li><a href="../audio-interface-vs-mixer/index.html">Audio Interface vs Mixer</a></li>
+<li><a href="../midi-keyboard-vs-digital-piano/index.html">MIDI Keyboard vs Digital Piano</a></li>
+<li><a href="../how-to-build-a-home-studio-on-a-budget/index.html">Build a Home Studio on a Budget</a></li>
+<li><a href="../best-audio-interfaces-for-beginners/index.html">Best Audio Interfaces for Beginners</a></li>
+<li><a href="../best-audio-interfaces-under-200/index.html">Best Audio Interfaces Under $200</a></li>
+<li><a href="../usb-vs-thunderbolt-audio-interface/index.html">USB vs Thunderbolt Audio Interface</a></li>
+<li><a href="../how-many-audio-interface-inputs/index.html">How Many Audio Interface Inputs?</a></li>
+<li><a href="../best-midi-keyboards-for-beginners/index.html">Best MIDI Keyboards for Beginners</a></li>
+<li><a href="../25-vs-49-vs-61-key-midi-keyboard/index.html">25 vs 49 vs 61 Key MIDI Keyboard</a></li>
+<li><a href="../do-you-need-weighted-keys-midi/index.html">Do You Need Weighted Keys for MIDI?</a></li>
+<li><a href="../best-free-piano-vst-plugins/index.html">Best Free Piano VST Plugins</a></li>
+<li><a href="../best-free-drum-vst-plugins/index.html">Best Free Drum VST Plugins</a></li>
+<li><a href="../best-free-synth-vst-plugins/index.html">Best Free Synth VST Plugins</a></li>
+<li><a href="../what-is-midi-in-music-production/index.html">What Is MIDI in Music Production?</a></li>
+<li><a href="../what-is-an-audio-interface/index.html">What Is an Audio Interface?</a></li>
+<li><a href="../what-is-a-vst-plugin/index.html">What Is a VST Plugin?</a></li>
+</ul>
+</div>
+
+  <a href="../legal/index.html">Legal</a>
+  <a href="../privacy-policy-2/index.html">Privacy Policy</a>
+  <a href="../contact-us/index.html">Contact Us</a>
+  <a href="../about-us/index.html">About Us</a>
+</nav>
+
+  </div>
+</header>
+
+<section class="page-hero">
+  <h1>The Music Using Technology Blog</h1>
+  <p>
+    Articles, guides, and tutorials on audio interfaces, software instruments,
+    MIDI controllers, and modern music technology.
+  </p>
+  <p> I would love to hear from you and know where you are on your musical journey. 
+	  I am keen to provide more information about the various options available and the fun experiences you can have when connecting music with computers and using technology in general.<br>
+	  <br>
+	  Feel free to download a copy of my free quick guide to using computers to help with your music.</p>
+	<p>
+		 <!-- GREEN BUTTON LINK -->
+  <a
+    href="https://music-using-tech.ck.page/3d693fd3d2"
+    class="green-btn">
+    CLICK HERE TO GRAB A FREE QUICK GUIDE ABOUT CREATING MUSIC WITH A COMPUTER
+  </a>
+
+  <p>
+    Return to my
+    <a href="../index.html">Home</a>
+    page.
+  </p>
+		<br>
+	  <br>
+	  Scroll through my list of blogs related to using technology to help your music. I plan to add more topics. </p>
+</section>
+
+<section class="posts">
+
+  <article class="post">
+    <h2>Audio Interface Blog</h2>
+    <p>
+      Guides and tutorials on choosing, setting up, and using audio interfaces
+      for recording and music production.
+    </p>
+    <a href="/audio-interface-blog">View articles →</a>
+  </article>
+
+  <article class="post">
+    <h2>Software Instruments Blog</h2>
+    <p>
+      Learn about virtual instruments, synthesisers, samplers,
+      and MIDI-based music creation.
+    </p>
+    <a href="/software-instruments-blog">View articles →</a>
+  </article>
+
+  <article class="post">
+    <h2>Sound Effects Blog</h2>
+    <p>
+      Articles covering sound effects, audio processing,
+      creative FX usage, and workflows.
+    </p>
+    <a href="/sound-effects-blog">View articles →</a>
+  </article>
+
+  <article class="post">
+    <h2>MIDI Controllers Blog</h2>
+    <p>
+      Everything you need to know about MIDI keyboards,
+      controllers, and performance tools.
+    </p>
+    <a href="/midi-controllers-blog">View articles →</a>
+  </article>
+
+  <article class="post">
+    <h2>Learning Musical Instruments</h2>
+    <p>
+      Practical guidance on learning instruments using
+      technology, apps, and modern tools.
+    </p>
+    <a href="/learning-musical-instruments">View articles →</a>
+  </article>
+
+</section>
+	
+	
+	
+	
+<main class="container">
+  <section class="posts">
+    <!-- Example post -->
+    <article class="post">
+      <h2>Audio Interfaces Explained</h2>
+      <p>Learn how audio interfaces work and how to choose the right one.</p>
+      <a href="/audio-interface-blog">Read more →</a>
+    </article>
+
+    <article class="post">
+      <h2>Software Instruments for Beginners</h2>
+      <p>A clear introduction to virtual instruments and MIDI.</p>
+      <a href="/software-instruments-blog">Read more →</a>
+    </article>
+  </section>
+</main>
+
+<footer>
+  © 2025 MusicUsingTech.com – Helping musicians use technology
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Wireless MIDI Troubleshooting (iPad, Mac & Windows 11) – Pairing, Dropouts & Latency Fixes</title>
+  <meta name="description" content="Wireless MIDI troubleshooting guide for iPad (iOS), macOS and Windows 11. Fix pairing issues, dropouts, latency, and REAPER setup problems with practical step-by-step solutions.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root { --primary:#236373; --dark:#121212; --light:#f7f7f7; --white:#ffffff; }
+    *{ box-sizing:border-box; }
+    body{ margin:0; font-family:'Lato',sans-serif; background:var(--light); color:var(--dark); line-height:1.6; }
+    h1,h2,h3{ font-family:'Old Standard TT',serif; margin-top:0; color:var(--dark); }
+    h1{ font-size:clamp(2.3rem,5vw,4.5rem); }
+    h2{ font-size:clamp(1.6rem,3.5vw,2.4rem); }
+
+    .container{ max-width:1200px; margin:auto; padding:2rem 1.5rem; }
+    .site-header{ background:var(--white); border-bottom:1px solid #ddd; }
+    .header-inner{ display:flex; justify-content:space-between; align-items:center; gap:18px; }
+    .logo img{ width:240px; max-width:240px; height:auto; display:block; }
+    @media (max-width:900px){ .logo img{ width:200px; max-width:200px; } }
+    @media (max-width:600px){ .logo img{ width:170px; max-width:170px; } }
+
+    .main-nav{ display:flex; align-items:center; gap:1rem; flex-wrap:wrap; background:#111; padding:10px 14px; border-radius:10px; }
+    .main-nav a{ color:#fff; text-decoration:none; text-transform:uppercase; letter-spacing:1px; font-family:"Poppins",sans-serif; font-size:.8rem; padding:8px 10px; display:inline-block; }
+    .main-nav a:hover{ color:#2ecc71; }
+    .menu-item{ position:relative; }
+    .submenu{ list-style:none; margin:0; padding:8px 0; position:absolute; top:100%; left:0; min-width:260px; background:#222; display:none; z-index:1000; border-radius:10px; box-shadow:0 10px 24px rgba(0,0,0,.25); }
+    .submenu li a{ display:block; padding:10px 14px; text-transform:none; letter-spacing:.2px; font-size:.85rem; color:#fff; }
+    .submenu li a:hover{ background:#2ecc71; color:#000; }
+    @media (min-width:769px){ .menu-item:hover .submenu{ display:block; } }
+    @media (max-width:768px){
+      .main-nav{ width:100%; flex-direction:column; align-items:flex-start; }
+      .menu-item{ width:100%; }
+      .submenu{ position:static; width:100%; box-shadow:none; }
+      .menu-item:focus-within .submenu{ display:block; }
+      .submenu-toggle::after{ content:" ▾"; }
+    }
+
+    .fine{ font-size:.92rem; color:#444; }
+    .adslot{ margin:18px 0; padding:14px; background:#fff; border:1px solid #ddd; border-radius:10px; }
+    .callout{ background:#fff; border:1px solid #ddd; border-radius:12px; padding:14px; margin:16px 0; }
+    .toc{ background:#fff; border:1px solid #ddd; border-radius:12px; padding:14px; margin:18px 0; }
+    .toc ul{ margin:8px 0 0; }
+    .toc li{ margin:6px 0; }
+    code{ background:#f0f0f0; padding:2px 6px; border-radius:6px; }
+
+    footer{ background:var(--white); border-top:1px solid #ddd; padding:1.5rem; text-align:center; font-size:.9rem; color:#777; }
+  </style>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMQHLEN5DM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YMQHLEN5DM');
+  </script>
+
+  <!-- Google AdSense -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3308191074184260"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo">
+      <a href="../../index.html">
+        <img src="../../musicusingtech.webp" alt="Music Using Technology" loading="eager" />
+      </a>
+    </div>
+
+    <nav aria-label="Primary navigation" class="main-nav">
+      <a href="../../quickguide/index.html">Quick Guides</a>
+
+      <div class="menu-item has-submenu">
+        <a class="submenu-toggle" href="../../blog/index.html">Blogging</a>
+        <ul class="submenu">
+          <li><a href="../../audio-interface-blog/index.html">Audio Interface Blog</a></li>
+          <li><a href="../../software-instruments-blog/index.html">Software Instruments Blog</a></li>
+          <li><a href="../../sound-effects-blog/index.html">Sound Effects Blog</a></li>
+          <li><a href="../../midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
+          <li><a href="../../wireless-midi/index.html">Wireless MIDI</a></li>
+          <li><a href="../../learning-musical-instruments/index.html">Learning Musical Instruments</a></li>
+          <li><a href="../../how-to-install-vst-plugins-in-reaper/index.html">How to Install VST Plugins in REAPER</a></li>
+          <li><a href="../../best-free-synth-vst-plugins-for-reaper/index.html">Best Free Synth VST Plugins (2026)</a></li>
+        </ul>
+      </div>
+
+      <a href="../../wireless-midi/index.html">Wireless MIDI</a>
+
+      <div class="menu-item has-submenu">
+        <a class="submenu-toggle" href="../../best-free-vst-plugins/index.html">Best</a>
+        <ul class="submenu">
+          <li><a href="../../best-free-vst-plugins/index.html">Best Free VST Plugins</a></li>
+          <li><a href="../../best-software-instruments/index.html">Best Software Instruments</a></li>
+          <li><a href="../../best-audio-interfaces/index.html">Best Audio Interfaces</a></li>
+        </ul>
+      </div>
+
+      <a href="../../legal/index.html">Legal</a>
+      <a href="../../privacy-policy-2/index.html">Privacy Policy</a>
+      <a href="../../contact-us/index.html">Contact Us</a>
+      <a href="../../about-us/index.html">About Us</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <article>
+    <h1>Wireless MIDI Troubleshooting (iPad, Mac &amp; Windows 11)</h1>
+
+    <p>
+      Wireless MIDI is one of those technologies that feels magical when it works — and confusing when it doesn’t.
+      This guide is a practical checklist for fixing the most common issues:
+      <strong>pairing problems</strong>, <strong>dropouts</strong>, and <strong>latency</strong>.
+    </p>
+
+    <p class="fine">
+      Start here: <a href="../what-is-wireless-midi/index.html">What Is Wireless MIDI?</a> •
+      Hands-on test: <a href="../cme-widi-jack-review/index.html">CME WIDI Jack review</a> •
+      Shopping guide: <a href="../best-wireless-midi-adapters/index.html">Best Wireless MIDI Adapters (2026)</a>
+    </p>
+
+    <div class="toc">
+      <strong>Quick navigation</strong>
+      <ul>
+        <li><a href="#before-you-start">Before you start (fast wins)</a></li>
+        <li><a href="#pairing">Pairing issues (won’t connect)</a></li>
+        <li><a href="#dropouts">Dropouts &amp; unstable connections</a></li>
+        <li><a href="#latency">Latency problems (feels laggy)</a></li>
+        <li><a href="#reaper">REAPER checklist (Windows &amp; Mac)</a></li>
+        <li><a href="#ios">iPad (iOS) specific fixes</a></li>
+        <li><a href="#macos">macOS specific fixes</a></li>
+        <li><a href="#windows">Windows 11 specific fixes</a></li>
+      </ul>
+    </div>
+
+    <div class="adslot">Ad placeholder</div>
+
+    <h2 id="before-you-start">Before you start (fast wins)</h2>
+    <p>Do these first — they solve a surprising number of issues:</p>
+    <ul>
+      <li><strong>Power cycle</strong> the adapter and the device you’re pairing to.</li>
+      <li>Move the Bluetooth devices closer (same room, a few metres apart).</li>
+      <li>Disable/enable Bluetooth on the host device (iPad/Mac/PC).</li>
+      <li>Close and re-open your DAW/app so it re-detects MIDI devices.</li>
+      <li>If the adapter supports it, check for <strong>firmware updates</strong> (via the maker’s app).</li>
+    </ul>
+
+    <h2 id="pairing">Pairing issues (it won’t connect)</h2>
+
+    <h3>Fix 1: Disconnect other devices first (the most common cause)</h3>
+    <p>
+      Many Bluetooth MIDI adapters behave like “one connection at a time”.
+      If your adapter is already connected to your iPad, your Windows PC might fail to connect until you disconnect the iPad connection first.
+    </p>
+
+    <div class="callout">
+      <p style="margin:0;">
+        <strong>Rule:</strong> If pairing fails, disconnect the adapter from any other device first (iPad/Mac/PC), then try again.
+      </p>
+    </div>
+
+    <h3>Fix 2: Remove / forget device, then pair again</h3>
+    <ul>
+      <li><strong>iPad:</strong> Bluetooth settings → tap the device → “Forget this device”</li>
+      <li><strong>Windows:</strong> Bluetooth settings → remove the device → pair again</li>
+      <li><strong>macOS:</strong> Audio MIDI Setup / Bluetooth MIDI → disconnect and re-add</li>
+    </ul>
+
+    <h3>Fix 3: Use the maker’s app (when available)</h3>
+    <p>
+      Some adapters pair more reliably via their companion app (and may expose settings).
+      If your adapter supports an app, pairing through it often gives the cleanest result.
+    </p>
+
+    <h2 id="dropouts">Dropouts &amp; unstable connections</h2>
+    <p>If the connection drops during playing:</p>
+    <ul>
+      <li>Keep devices in the same room (Bluetooth range is limited).</li>
+      <li>Avoid placing the adapter behind metal objects or inside cramped racks.</li>
+      <li>Reduce interference: move away from congested Wi-Fi routers, USB 3 hubs, and crowded Bluetooth environments.</li>
+      <li>Restart the host app/DAW if it “loses” the MIDI device.</li>
+    </ul>
+
+    <h2 id="latency">Latency problems (it feels laggy)</h2>
+    <p>
+      This is important: your “feel” is usually a combination of:
+      <strong>Bluetooth MIDI latency</strong> + <strong>audio driver latency</strong>.
+      On Windows especially, the audio driver can be the biggest factor.
+    </p>
+
+    <h3>Windows tip: use ASIO (often the biggest improvement)</h3>
+    <p>
+      If you’re using Windows and virtual instruments, an ASIO driver (such as ASIO4ALL, or your interface’s native ASIO driver)
+      can reduce latency dramatically. Then lower your buffer size until it feels responsive (without crackling).
+    </p>
+
+    <h3>Buffer size sanity check</h3>
+    <ul>
+      <li>Smaller buffer = lower latency (but more CPU strain)</li>
+      <li>Larger buffer = more stable (but can feel laggy)</li>
+      <li>Heavier instruments (pianos, orchestral libraries) need more CPU headroom</li>
+    </ul>
+
+    <h2 id="reaper">REAPER checklist (Windows &amp; Mac)</h2>
+    <ol>
+      <li>Open <code>Options → Preferences → MIDI Devices</code></li>
+      <li>Find your Bluetooth MIDI device and <strong>Enable input</strong></li>
+      <li>On your track: arm the track, choose <strong>Input: MIDI</strong> and select the device</li>
+      <li>Insert a virtual instrument and test notes</li>
+    </ol>
+
+    <p class="fine">
+      Full setup guide: <a href="../../how-to-install-vst-plugins-in-reaper/index.html">How to Install VST Plugins in REAPER (Windows &amp; Mac)</a>
+    </p>
+
+    <h2 id="ios">iPad (iOS) specific fixes</h2>
+    <ul>
+      <li>Make sure Bluetooth is enabled and the adapter is not connected to another device.</li>
+      <li>Try connecting in the companion app first (if available).</li>
+      <li>If an app won’t detect MIDI, fully close and re-open the app.</li>
+      <li>As a test, try a different instrument/app to confirm the MIDI path is working.</li>
+    </ul>
+
+    <h2 id="macos">macOS specific fixes</h2>
+    <ul>
+      <li>Open <strong>Audio MIDI Setup</strong> → MIDI Studio → Bluetooth icon → reconnect.</li>
+      <li>If the device shows but doesn’t pass MIDI: disconnect and reconnect.</li>
+      <li>Restart your DAW so it re-scans devices.</li>
+    </ul>
+
+    <h2 id="windows">Windows 11 specific fixes</h2>
+    <ul>
+      <li>Remove/forget the Bluetooth device and pair again.</li>
+      <li>Try a BLE-MIDI driver if needed (some users install the Korg BLE-MIDI driver).</li>
+      <li>Use an ASIO driver for your audio chain (native ASIO is best; ASIO4ALL is a common fallback).</li>
+      <li>Double-check the adapter is not still connected to your iPad or Mac.</li>
+    </ul>
+
+    <div class="callout">
+      <p style="margin:0;">
+        If you’d like, I can turn this into a printable one-page checklist later (great as a quick guide / lead magnet).
+      </p>
+    </div>
+
+    <h2>Related reading</h2>
+    <ul>
+      <li><a href="../index.html">Wireless MIDI hub</a></li>
+      <li><a href="../what-is-wireless-midi/index.html">What Is Wireless MIDI?</a></li>
+      <li><a href="../cme-widi-jack-review/index.html">CME WIDI Jack review</a></li>
+      <li><a href="../best-wireless-midi-adapters/index.html">Best Wireless MIDI Adapters (2026)</a></li>
+      <li><a href="../../midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
+    </ul>
+
+    <h2>Affiliate disclosure</h2>
+    <p class="fine">
+      Some links on this site may be affiliate links. If you purchase through them, I may earn a small commission at no extra cost to you.
+      This helps support Music Using Tech and keeps the guides free.
+    </p>
+  </article>
+</main>
+
+<footer>
+  <p>&copy; Music Using Tech</p>
+</footer>
+
+</body>
+</html>
