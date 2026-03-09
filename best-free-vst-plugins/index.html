@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Best Free VST Plugins for REAPER (Windows & Mac) - Music Using Technology</title>
-  <meta name="description" content="A curated list of the best free VST plugins for REAPER users — synths, instruments, drums, mixing, and metering for both Windows and macOS." />
+  <meta name="description" content="A curated list of the best free VST plugins for REAPER users — synths, instruments, drums, mixing, and metering for both Windows and macOS, with official download links." />
 
   <style>
-    :root { --primary:#236373; --dark:#121212; --light:#f7f7f7; --white:#ffffff; }
+    :root { --primary:#236373; --dark:#121212; --light:#f7f7f7; --white:#ffffff; --muted:#666; }
     * { box-sizing: border-box; }
 
     body{
@@ -28,85 +28,26 @@
     h3{ font-size: 1.25rem; }
 
     .container{ max-width:1200px; margin:auto; padding:2rem 1.5rem; }
-    .site-header{ background:var(--white); border-bottom:1px solid #ddd; }
-    .header-inner{ display:flex; justify-content:space-between; align-items:center; gap:18px; }
 
-    .logo img{ width:240px; max-width:240px; height:auto; display:block; }
-    @media (max-width:900px){ .logo img{ width:200px; max-width:200px; } }
-    @media (max-width:600px){ .logo img{ width:170px; max-width:170px; } }
-
-    .main-nav{
-      display:flex;
-      align-items:center;
-      gap:1rem;
-      flex-wrap:wrap;
-      background:#111;
-      padding:10px 14px;
-      border-radius:10px;
-    }
-    .main-nav a{
-      color:#fff;
-      text-decoration:none;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      font-family:"Poppins", sans-serif;
-      font-size:.8rem;
-      padding:8px 10px;
-      display:inline-block;
-    }
-    .main-nav a:hover{ color:#2ecc71; }
-
-    .menu-item{ position:relative; }
-    .submenu{
-      list-style:none;
-      margin:0;
-      padding:8px 0;
-      position:absolute;
-      top:100%;
-      left:0;
-      min-width:280px;
-      background:#222;
-      display:none;
-      z-index:1000;
-      border-radius:10px;
-      box-shadow:0 10px 24px rgba(0,0,0,.25);
-    }
-    .submenu li a{
-      display:block;
-      padding:10px 14px;
-      text-transform:none;
-      letter-spacing:.2px;
-      font-size:.85rem;
-      color:#fff;
-    }
-    .submenu li a:hover{ background:#2ecc71; color:#000; }
-    @media (min-width:769px){ .menu-item:hover .submenu{ display:block; } }
-    @media (max-width:768px){
-      .main-nav{ width:100%; flex-direction:column; align-items:flex-start; }
-      .menu-item{ width:100%; }
-      .submenu{ position:static; width:100%; box-shadow:none; }
-      .menu-item:focus-within .submenu{ display:block; }
-      .submenu-toggle::after{ content:" ▾"; }
-    }
-
-    .hero{ background:var(--white); border:1px solid #ddd; border-radius:12px; padding:1.5rem; }
+    .hero,.card{ background:var(--white); border:1px solid #ddd; border-radius:12px; padding:1.5rem; }
+    .card{ margin-top:1rem; }
     .hero p{ max-width:980px; }
 
     .button{
-      display:inline-block; background:var(--primary); color:#fff; padding:1rem 2.0rem; border-radius:24px;
+      display:inline-block; background:var(--primary); color:#fff; padding:1rem 2rem; border-radius:24px;
       text-decoration:none; font-family:'Poppins', sans-serif; font-size:.8rem; letter-spacing:2px;
       text-transform:uppercase; transition:background .2s ease; margin:.35rem .35rem 0 0; border:0; cursor:pointer;
     }
     .button:hover{ background:#1b4e5c; }
     .button.secondary{ background:#111; }
     .button.secondary:hover{ background:#222; }
+    .button.small{ padding:.72rem 1rem; font-size:.72rem; letter-spacing:1.2px; }
 
-    .disclosure{ margin-top:1rem; padding:12px 14px; border-radius:12px; border:1px solid #ddd; background:#fafafa; color:#333; font-size:.95rem; }
-    .disclosure a{ text-decoration:underline; }
+    .disclosure, .tipbox, .link-note{
+      margin-top:1rem; padding:12px 14px; border-radius:12px; border:1px solid #ddd; background:#fafafa; color:#333;
+    }
 
-    .card{ background:var(--white); border:1px solid #ddd; border-radius:12px; padding:1.5rem; margin-top:1rem; }
     .adslot{ border:1px dashed #bbb; border-radius:12px; padding:14px; color:#555; font-size:.9rem; text-align:center; background:#fcfcfc; margin-top:12px; }
-
     .tablewrap{ overflow:auto; border-radius:12px; border:1px solid #ddd; background:#fff; }
     table{ width:100%; border-collapse:collapse; min-width:860px; }
     th,td{ padding:12px 12px; border-bottom:1px solid #eee; vertical-align:top; }
@@ -115,9 +56,14 @@
 
     .tag{ display:inline-block; font-size:.75rem; font-weight:700; padding:6px 10px; border-radius:999px; background:#111; color:#fff; letter-spacing:.5px; text-transform:uppercase; margin-left:6px; white-space:nowrap; }
     .fine{ font-size:.95rem; color:#333; }
+    .muted{ color:var(--muted); }
 
-    footer{ background:var(--white); border-top:1px solid #ddd; padding:1.5rem; text-align:center; font-size:.9rem; color:#777; margin-top:2rem; }
-    code{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.95em; }
+    .plugin-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem; margin-top:1rem; }
+    .plugin-box{ border:1px solid #e6e6e6; border-radius:12px; padding:1rem; background:#fff; }
+    .plugin-box h3{ margin-bottom:.45rem; }
+    .plugin-box p{ margin:.45rem 0; }
+    .plugin-actions{ margin-top:.8rem; }
+
     ul li{ margin-bottom:.45rem; }
   </style>
 
@@ -149,6 +95,7 @@
     </p>
 
     <a class="button" href="#top-picks">Jump to top picks</a>
+    <a class="button secondary" href="#official-links">Official download links</a>
     <a class="button secondary" href="../software-instruments-blog/index.html">Read the Software Instruments Blog</a>
 
     <div class="disclosure" role="note" aria-label="Affiliate disclosure">
@@ -170,6 +117,7 @@
             <th>Category</th>
             <th>Why it stands out</th>
             <th>Best for</th>
+            <th>Official link</th>
           </tr>
         </thead>
         <tbody>
@@ -178,36 +126,109 @@
             <td>Wavetable synthesizer</td>
             <td>Powerful, modern, and one of the best free synths available.</td>
             <td>Electronic music, sound design, modern production</td>
+            <td><a href="https://vital.audio/" target="_blank" rel="noopener nofollow">Official site</a></td>
           </tr>
           <tr>
             <td><strong>Spitfire LABS</strong> <span class="tag">Instruments</span></td>
             <td>Sample-based instruments</td>
             <td>Easy access to soft pianos, strings, textures, and atmospheric sounds.</td>
             <td>Cinematic, pop, ambient, songwriting</td>
+            <td><a href="https://labs.spitfireaudio.com/download" target="_blank" rel="noopener nofollow">Official download</a></td>
           </tr>
           <tr>
             <td><strong>MT Power Drum Kit 2</strong> <span class="tag">Drums</span></td>
             <td>Acoustic drum instrument</td>
             <td>Fast way to get playable drum grooves into a song.</td>
             <td>Rock, pop, demos, songwriting</td>
+            <td><a href="https://www.powerdrumkit.com/download76187.php" target="_blank" rel="noopener nofollow">Official download</a></td>
           </tr>
           <tr>
             <td><strong>TDR Nova</strong> <span class="tag">Mixing</span></td>
             <td>Dynamic EQ</td>
             <td>Much more flexible than a basic EQ, especially for cleaning harshness.</td>
             <td>Mixing vocals, guitars, problem frequencies</td>
+            <td><a href="https://www.tokyodawn.net/tdr-nova/" target="_blank" rel="noopener nofollow">Official site</a></td>
           </tr>
           <tr>
             <td><strong>Youlean Loudness Meter</strong> <span class="tag">Metering</span></td>
             <td>Loudness meter</td>
             <td>Helps you understand levels for streaming and final exports.</td>
             <td>Mix checking, mastering basics</td>
+            <td><a href="https://youlean.co/youlean-loudness-meter/" target="_blank" rel="noopener nofollow">Official site</a></td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="adslot">Ad Slot (in-content). Add AdSense/Ezoic here later.</div>
+  </section>
+
+  <section class="card" id="official-links">
+    <h2>Official free plugin download links</h2>
+    <p>
+      These links go to the official developer pages so readers can find the safest current download source quickly.
+    </p>
+
+    <div class="plugin-grid">
+      <article class="plugin-box">
+        <h3>Vital</h3>
+        <p class="muted">Free wavetable synth</p>
+        <p>Excellent for leads, basses, pads, plucks, and learning synthesis.</p>
+        <div class="plugin-actions">
+          <a class="button small" href="https://vital.audio/" target="_blank" rel="noopener nofollow">Download Vital</a>
+        </div>
+      </article>
+
+      <article class="plugin-box">
+        <h3>Spitfire LABS</h3>
+        <p class="muted">Free sampled instruments</p>
+        <p>Great for pianos, strings, textures, and cinematic layers.</p>
+        <div class="plugin-actions">
+          <a class="button small" href="https://labs.spitfireaudio.com/download" target="_blank" rel="noopener nofollow">Get LABS</a>
+        </div>
+      </article>
+
+      <article class="plugin-box">
+        <h3>MT Power Drum Kit 2</h3>
+        <p class="muted">Free acoustic drums</p>
+        <p>A quick route to playable drum grooves for demos and full songs.</p>
+        <div class="plugin-actions">
+          <a class="button small" href="https://www.powerdrumkit.com/download76187.php" target="_blank" rel="noopener nofollow">Download MT Power Drum Kit 2</a>
+        </div>
+      </article>
+
+      <article class="plugin-box">
+        <h3>TDR Nova</h3>
+        <p class="muted">Free dynamic EQ</p>
+        <p>Excellent for taming harshness, mud, and other problem frequencies.</p>
+        <div class="plugin-actions">
+          <a class="button small" href="https://www.tokyodawn.net/tdr-nova/" target="_blank" rel="noopener nofollow">Get TDR Nova</a>
+        </div>
+      </article>
+
+      <article class="plugin-box">
+        <h3>Valhalla Supermassive</h3>
+        <p class="muted">Free reverb and delay</p>
+        <p>Big ambient spaces, lush echoes, and creative effects.</p>
+        <div class="plugin-actions">
+          <a class="button small" href="https://valhalladsp.com/shop/reverb/valhalla-supermassive/" target="_blank" rel="noopener nofollow">Get Supermassive</a>
+        </div>
+      </article>
+
+      <article class="plugin-box">
+        <h3>Youlean Loudness Meter</h3>
+        <p class="muted">Free loudness meter</p>
+        <p>Useful for checking mixes before upload, streaming, or mastering practice.</p>
+        <div class="plugin-actions">
+          <a class="button small" href="https://youlean.co/youlean-loudness-meter/" target="_blank" rel="noopener nofollow">Get Youlean Meter</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="tipbox">
+      <strong>Good conversion move:</strong> keep official links on the page itself. That helps visitors stay on your site longer,
+      reduces friction, and makes the article feel more complete and trustworthy.
+    </div>
   </section>
 
   <section class="card">
@@ -217,38 +238,50 @@
       instruments, one drum plugin, a few dependable mixing tools, and one metering plugin. That gives you enough to write, arrange,
       mix, and finish songs without feeling overwhelmed.
     </p>
+
     <h3>1. Vital</h3>
     <p>
       Vital is one of the strongest free synth plugins because it covers an enormous range of sounds. You can make basses, leads,
       pads, plucks, and motion-rich textures from one instrument. It is especially useful if you enjoy software instruments and want
       to learn synthesis at the same time.
     </p>
+    <p><a class="button small" href="https://vital.audio/" target="_blank" rel="noopener nofollow">Official Vital download</a></p>
+
     <h3>2. Spitfire LABS</h3>
     <p>
       LABS is ideal when you want inspiring sounds quickly. The interface is simple, but the musical results can feel polished and emotional.
       It is a great choice for adding pianos, strings, felt textures, or subtle cinematic layers to a track without spending money.
     </p>
+    <p><a class="button small" href="https://labs.spitfireaudio.com/download" target="_blank" rel="noopener nofollow">Official LABS download</a></p>
+
     <h3>3. MT Power Drum Kit 2</h3>
     <p>
       If you write songs on keyboard or guitar, a drum plugin can instantly make your ideas feel more complete. MT Power Drum Kit 2 is popular
       because it is straightforward and musical. It gives you a realistic acoustic drum option when you do not want to program every hit from scratch.
     </p>
+    <p><a class="button small" href="https://www.powerdrumkit.com/download76187.php" target="_blank" rel="noopener nofollow">Official MT Power Drum Kit 2 download</a></p>
+
     <h3>4. TDR Nova</h3>
     <p>
       TDR Nova is one of the best free mixing plugins because it does more than normal EQ. You can use it to tame harsh vocals, control boxiness
       in guitars, or reduce mud in a busy mix in a more intelligent way. It is especially good for learners because it helps you hear why certain
       frequencies need attention.
     </p>
+    <p><a class="button small" href="https://www.tokyodawn.net/tdr-nova/" target="_blank" rel="noopener nofollow">Official TDR Nova page</a></p>
+
     <h3>5. Valhalla Supermassive</h3>
     <p>
       For space, atmosphere, and width, Valhalla Supermassive is excellent. It is not just a basic reverb. It is the kind of plugin that can
       turn plain sounds into something more cinematic or emotional. If you make ambient, synth-based, or textured music, it is worth installing early.
     </p>
+    <p><a class="button small" href="https://valhalladsp.com/shop/reverb/valhalla-supermassive/" target="_blank" rel="noopener nofollow">Official Supermassive page</a></p>
+
     <h3>6. Youlean Loudness Meter</h3>
     <p>
       Metering often gets ignored by beginners, but it matters. If your mixes are too loud, too quiet, or inconsistent, a loudness meter helps you
       make better decisions. This is especially useful when you start uploading tracks or comparing your work against commercial releases.
     </p>
+    <p><a class="button small" href="https://youlean.co/youlean-loudness-meter/" target="_blank" rel="noopener nofollow">Official Youlean page</a></p>
   </section>
 
   <section class="card">
@@ -276,6 +309,7 @@
             <th>Category</th>
             <th>Recommended plugin</th>
             <th>Why it helps</th>
+            <th>Official link</th>
             <th>Related guide</th>
           </tr>
         </thead>
@@ -284,30 +318,35 @@
             <td>Synth</td>
             <td>Vital</td>
             <td>Modern sound design and versatile patches from one instrument.</td>
+            <td><a href="https://vital.audio/" target="_blank" rel="noopener nofollow">Vital</a></td>
             <td><a href="../best-software-instruments/index.html">Best Software Instruments</a></td>
           </tr>
           <tr>
             <td>Drums</td>
             <td>MT Power Drum Kit 2</td>
             <td>Quick acoustic drums for songs and demos.</td>
+            <td><a href="https://www.powerdrumkit.com/download76187.php" target="_blank" rel="noopener nofollow">MT Power Drum Kit 2</a></td>
             <td><a href="../best-midi-keyboards/index.html">Best MIDI Keyboards</a></td>
           </tr>
           <tr>
             <td>Reverb / FX</td>
             <td>Valhalla Supermassive</td>
             <td>Big space and creative effects.</td>
+            <td><a href="https://valhalladsp.com/shop/reverb/valhalla-supermassive/" target="_blank" rel="noopener nofollow">Supermassive</a></td>
             <td><a href="../best-free-daws/index.html">Best Free DAWs</a></td>
           </tr>
           <tr>
             <td>EQ / Dynamic EQ</td>
             <td>TDR Nova</td>
             <td>Clean up difficult frequencies with more control.</td>
+            <td><a href="https://www.tokyodawn.net/tdr-nova/" target="_blank" rel="noopener nofollow">TDR Nova</a></td>
             <td><a href="../audio-interface-vs-mixer/index.html">Audio Interface vs Mixer</a></td>
           </tr>
           <tr>
             <td>Metering</td>
             <td>Youlean Loudness Meter</td>
             <td>Better final level decisions for uploads and mastering practice.</td>
+            <td><a href="https://youlean.co/youlean-loudness-meter/" target="_blank" rel="noopener nofollow">Youlean</a></td>
             <td><a href="../how-to-build-a-home-studio-on-a-budget/index.html">Build a Home Studio on a Budget</a></td>
           </tr>
         </tbody>
@@ -361,6 +400,6 @@
 </main>
 
 <div id="site-footer"></div>
-  <script src="../shared/site-chrome.js"></script>
+<script src="../shared/site-chrome.js"></script>
 </body>
 </html>
