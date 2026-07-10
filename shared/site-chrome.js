@@ -73,4 +73,10 @@
   var f = document.getElementById('site-footer');
   if(h) h.innerHTML = header;
   if(f) f.innerHTML = footer;
+	
+// Skimlinks affiliate monetisation
+var skimlinks = document.createElement('script');
+skimlinks.type = 'text/javascript';
+skimlinks.src = 'https://s.skimresources.com/js/306019X1794254.skimlinks.js';
+document.body.appendChild(skimlinks);	
 })();
