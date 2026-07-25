@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The complete home studio setup guide — gear, room acoustics, REAPER setup, and free plugins at three budget levels. Download the full e-book from Music Using Tech.">
+  <title>The Home Studio Setup Guide (2025) | Music Using Technology</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 17px;
+      line-height: 1.75;
+      color: #1a1a1a;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .site-nav a { color: #0066cc; text-decoration: none; margin-right: 20px; }
+    .site-nav a:hover { text-decoration: underline; }
+
+    /* ── AFFILIATE DISCLOSURE ── */
+    .affiliate-disclosure {
+      background: #f5f5f5;
+      border-left: 4px solid #0066cc;
+      padding: 12px 16px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 32px;
+      border-radius: 0 4px 4px 0;
+    }
+    .affiliate-disclosure a { color: #0066cc; }
+
+    /* ── HEADINGS ── */
+    h1 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 2em;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #1a1a1a;
+      margin: 0 0 12px;
+    }
+
+    h2 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.45em;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 48px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e0e0e0;
+    }
+
+    h3 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.15em;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 32px 0 12px;
+    }
+
+    p { margin: 0 0 20px; }
+    a { color: #0066cc; }
+    a:hover { text-decoration: underline; }
+    strong { font-weight: 700; }
+    ul, ol { margin: 0 0 20px 0; padding-left: 28px; }
+    li { margin-bottom: 8px; }
+    hr { border: none; border-top: 1px solid #e0e0e0; margin: 40px 0; }
+
+    .post-meta {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 28px;
+    }
+
+    /* ── HERO BUY BOX ── */
+    .buy-box {
+      background: #0d1b2a;
+      border-radius: 8px;
+      padding: 36px 32px;
+      margin: 36px 0;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .buy-box .tag {
+      display: inline-block;
+      background: rgba(58,134,255,0.2);
+      color: #5aa8ff;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 3px;
+      margin-bottom: 16px;
+    }
+
+    .buy-box h2 {
+      font-family: Arial, sans-serif;
+      font-size: 1.6em;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 8px;
+      padding: 0;
+      border: none;
+    }
+
+    .buy-box .subtitle {
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      color: #8aaccc;
+      margin: 0 0 24px;
+    }
+
+    .buy-box .includes {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #aac4dd;
+      text-align: left;
+      display: inline-block;
+      margin: 0 0 28px;
+      line-height: 2;
+    }
+
+    .buy-box .includes span {
+      display: block;
+    }
+
+    .buy-box .includes .check {
+      color: #5aa8ff;
+      margin-right: 8px;
+    }
+
+    .btn-buy {
+      display: inline-block;
+      background: #3a86ff;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 5px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.15s;
+    }
+
+    .btn-buy:hover {
+      background: #1a6be0;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .buy-box .price-note {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #6688aa;
+      margin: 16px 0 0;
+    }
+
+    /* ── CALLOUT ── */
+    .callout {
+      background: #f5f5f5;
+      border-left: 4px solid #0066cc;
+      padding: 16px 18px;
+      margin: 28px 0;
+      border-radius: 0 4px 4px 0;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #1a1a1a;
+    }
+    .callout strong { color: #0066cc; }
+
+    /* ── CHAPTER PREVIEW CARDS ── */
+    .chapters {
+      margin: 8px 0 32px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .chapter-card {
+      background: #f9f9f9;
+      border: 1px solid #e8e8e8;
+      border-left: 4px solid #0066cc;
+      border-radius: 0 6px 6px 0;
+      padding: 16px 18px;
+      font-family: Arial, sans-serif;
+    }
+
+    .chapter-card .ch-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0066cc;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .chapter-card .ch-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+    }
+
+    .chapter-card .ch-desc {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── TEASER SECTION ── */
+    .teaser-content {
+      border-top: 2px solid #e0e0e0;
+      padding-top: 12px;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .teaser-fade {
+      position: relative;
+    }
+
+    .teaser-fade::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(transparent, #ffffff);
+      pointer-events: none;
+    }
+
+    /* ── GEAR TABLE ── */
+    .gear-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0 28px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+    .gear-table th {
+      background: #1a1a1a;
+      color: #ffffff;
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .gear-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid #e8e8e8;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .gear-table tr:nth-child(even) td { background: #f9f9f9; }
+    .gear-table tr:last-child td { border-bottom: none; }
+    .gear-table td:first-child {
+      font-weight: 700;
+      color: #1a1a1a;
+      width: 35%;
+    }
+
+    /* ── MID-PAGE CTA ── */
+    .cta-mid {
+      background: #f0f6ff;
+      border: 1px solid #c0d8f8;
+      border-radius: 6px;
+      padding: 24px 28px;
+      margin: 36px 0;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .cta-mid p {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 0 0 12px;
+    }
+
+    .cta-mid .btn-buy {
+      font-size: 15px;
+      padding: 13px 32px;
+    }
+
+    .cta-mid .sub {
+      font-size: 13px;
+      color: #666;
+      margin: 10px 0 0;
+      font-weight: 400;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid #e0e0e0;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #888;
+    }
+    .site-footer a { color: #0066cc; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.6em; }
+      .buy-box { padding: 28px 20px; }
+      .buy-box h2 { font-size: 1.3em; }
+      .btn-buy { padding: 14px 24px; font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+<div class="site-wrap">
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <a href="https://musicusingtech.com/">Home</a>
+    <a href="https://musicusingtech.com/blog/index.html">Blog</a>
+    <a href="https://musicusingtech.com/best-audio-interfaces/index.html">Audio Interfaces</a>
+    <a href="https://musicusingtech.com/best-free-vst-plugins/index.html">Free Plugins</a>
+  </nav>
+
+  <!-- AFFILIATE DISCLOSURE -->
+  <div class="affiliate-disclosure">
+    <strong>Affiliate disclosure:</strong> Some links on this page may be affiliate links. If you purchase through them, I may earn a small commission at no extra cost to you. <a href="https://musicusingtech.com/privacy-policy-2/index.html">Learn more</a>.
+  </div>
+
+  <!-- TITLE -->
+  <p class="post-meta">Music Using Technology &nbsp;·&nbsp; Home Studio Guides &nbsp;·&nbsp; 2025 Edition</p>
+  <h1>The Home Studio Setup Guide</h1>
+  <p style="font-size:1.15em; color:#444; margin-bottom:8px;">From bare room to professional-sounding recordings — gear, room acoustics, REAPER setup, and free plugins at every budget.</p>
+
+  <!-- HERO BUY BOX -->
+  <div class="buy-box">
+    <div class="tag">E-book · Instant Download</div>
+    <h2>The Complete Guide — All 6 Chapters</h2>
+    <p class="subtitle">Everything in one place, structured and ready to follow.</p>
+    <div class="includes">
+      <span><span class="check">✔</span> Chapter 1 — Planning and treating your room</span>
+      <span><span class="check">✔</span> Chapter 2 — Gear at $400, $1,200, and $3,000 budgets</span>
+      <span><span class="check">✔</span> Chapter 3 — Full REAPER setup walkthrough</span>
+      <span><span class="check">✔</span> Chapter 4 — Free VST plugin starter pack</span>
+      <span><span class="check">✔</span> Chapter 5 — 6 common mistakes to avoid</span>
+      <span><span class="check">✔</span> Chapter 6 — Complete budget build guides</span>
+    </div>
+    <a href="https://musicusingtech.gumroad.com/l/pyzm" class="btn-buy" target="_blank" rel="noopener">Download the Guide →</a>
+    <p class="price-note">PDF e-book · ~5,000 words · Instant download · A$12</p>
+  </div>
+
+  <!-- WHAT YOU'LL LEARN -->
+  <h2>What's inside</h2>
+  <p>This guide is written for musicians, producers, podcasters, and bedroom beatmakers who want to record and produce at home. It assumes basic familiarity with music but no prior studio experience. REAPER is used as the primary DAW throughout.</p>
+
+  <div class="chapters">
+    <div class="chapter-card">
+      <div class="ch-label">Chapter 1</div>
+      <div class="ch-title">Planning Your Space</div>
+      <p class="ch-desc">How to choose the right room, treat it with DIY solutions, and position your monitors for accurate mixing — before you spend a dollar on gear.</p>
+    </div>
+    <div class="chapter-card">
+      <div class="ch-label">Chapter 2</div>
+      <div class="ch-title">Gear — What You Actually Need</div>
+      <p class="ch-desc">Honest recommendations for audio interfaces, headphones, studio monitors, and microphones at every budget level. No fluff, no affiliate padding.</p>
+    </div>
+    <div class="chapter-card">
+      <div class="ch-label">Chapter 3</div>
+      <div class="ch-title">Setting Up REAPER</div>
+      <p class="ch-desc">Step-by-step from install to your first recorded take — including driver setup, buffer settings, project templates, and essential preferences to change first.</p>
+    </div>
+    <div class="chapter-card">
+      <div class="ch-label">Chapter 4</div>
+      <div class="ch-title">Free VST Plugin Starter Pack</div>
+      <p class="ch-desc">A curated list of the best free plugins across synths, drums, EQ, compression, reverb, and saturation — everything you need without spending anything.</p>
+    </div>
+    <div class="chapter-card">
+      <div class="ch-label">Chapter 5</div>
+      <div class="ch-title">Common Mistakes to Avoid</div>
+      <p class="ch-desc">The 6 mistakes that cost home studio owners the most time and money — and exactly how to avoid each one from the start.</p>
+    </div>
+    <div class="chapter-card">
+      <div class="ch-label">Chapter 6</div>
+      <div class="ch-title">Budget Build Guides</div>
+      <p class="ch-desc">Three complete studio setups you can follow: under $400, under $1,200, and a serious home studio under $3,000. Every item listed with current pricing.</p>
+    </div>
+  </div>
+
+  <!-- TEASER: Chapter 1 intro -->
+  <div class="teaser-content">
+    <h2>A preview — from Chapter 1: Planning Your Space</h2>
+    <p>The following is a short excerpt from the guide.</p>
+
+    <div class="teaser-fade">
+      <p>Before you spend a dollar on gear, spend an hour thinking about your room. The single biggest factor in how your recordings sound isn't your microphone, your interface, or your monitors — it's your room acoustics. A $50 microphone in a well-treated room will outperform a $500 microphone in an untreated bedroom every time.</p>
+
+      <h3>Choosing the Right Room</h3>
+      <p>If you have a choice of rooms, here's what to look for:</p>
+      <ul>
+        <li>Irregular shapes are better than perfect squares or rectangles. Square rooms create strong standing waves that colour your sound badly.</li>
+        <li>Carpeted floors absorb mid and high frequencies that would otherwise bounce around and muddy your recordings.</li>
+        <li>A room with existing furniture — bookshelves, sofas, curtains — already has some natural acoustic treatment built in.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>💡 The Clap Test</strong><br>
+        Stand in the centre of your room and clap once, sharply. If you hear a flutter or ringing that decays slowly, your room has problematic reflections. If the clap sounds dull and absorbed quickly, your room is well-damped.
+      </div>
+
+      <h3>Basic DIY Acoustic Treatment</h3>
+      <p>You don't need an acoustic engineer or expensive panels to make a meaningful improvement. The goal isn't a dead, anechoic room — it's controlling the worst reflections while keeping enough life in the space to sound natural.</p>
+
+      <p>The first reflection points are where sound from your monitors bounces off walls and reaches your ears. Treating these has the most dramatic impact on mixing accuracy...</p>
+    </div>
+  </div>
+
+  <!-- MID-PAGE CTA -->
+  <div class="cta-mid">
+    <p>Get all 6 chapters, 3 budget build guides, and the free VST starter pack list</p>
+    <a href="https://musicusingtech.gumroad.com/l/pyzm" class="btn-buy" target="_blank" rel="noopener">Download the Full Guide →</a>
+    <p class="sub">PDF e-book · Instant download · A$12 · contact@musicusingtech.com for support</p>
+  </div>
+
+  <!-- STARTER GEAR TABLE TEASER -->
+  <h2>Starter setup — a taste from Chapter 6</h2>
+  <p>The guide includes three complete budget build guides. Here's a preview of the entry-level setup:</p>
+
+  <table class="gear-table">
+    <tr><th>Item</th><th>Recommendation</th></tr>
+    <tr><td>Interface</td><td>Focusrite Scarlett Solo — ~$120</td></tr>
+    <tr><td>Headphones</td><td>Sony MDR-7506 — ~$100</td></tr>
+    <tr><td>Microphone</td><td>Audio-Technica AT2020 — ~$100</td></tr>
+    <tr><td>DAW</td><td>REAPER — $60 (personal licence)</td></tr>
+    <tr><td>Acoustic treatment</td><td>DIY rockwool panels + moving blankets — ~$50</td></tr>
+    <tr><td><strong>Total</strong></td><td><strong>~$430</strong></td></tr>
+  </table>
+
+  <p>The full guide includes this setup plus mid-range (~$1,200) and serious home studio (~$3,000) versions — with every item listed and explained.</p>
+
+  <!-- FINAL CTA -->
+  <div class="buy-box" style="margin-top:48px;">
+    <div class="tag">Instant Download</div>
+    <h2>Ready to build your home studio?</h2>
+    <p class="subtitle">Everything you need in one structured, no-fluff guide.</p>
+    <a href="https://musicusingtech.gumroad.com/l/pyzm" class="btn-buy" target="_blank" rel="noopener">Download the Guide — A$12 →</a>
+    <p class="price-note">PDF e-book · ~5,000 words · 6 chapters · Instant download</p>
+  </div>
+
+  <!-- RELATED LINKS -->
+  <h2>Related free articles on MusicUsingTech</h2>
+  <ul>
+    <li><a href="https://musicusingtech.com/best-free-vst-plugins/index.html">Best Free VST Plugins for REAPER</a></li>
+    <li><a href="https://musicusingtech.com/best-audio-interfaces/index.html">Best Audio Interfaces</a></li>
+    <li><a href="https://musicusingtech.com/best-midi-keyboards/index.html">Best MIDI Keyboards</a></li>
+    <li><a href="https://musicusingtech.com/blog/index.html">Full blog — all articles</a></li>
+  </ul>
+
+  <!-- FOOTER -->
+  <div class="site-footer">
+    <p><a href="https://musicusingtech.com/">Music Using Technology</a> &nbsp;·&nbsp; <a href="https://musicusingtech.com/privacy-policy-2/index.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="https://musicusingtech.com/contact-us/index.html">Contact</a></p>
+    <p>© 2025 musicusingtech.com. All rights reserved.</p>
+  </div>
+
+</div>
+</body>
+</html>
