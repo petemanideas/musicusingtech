@@ -11,11 +11,10 @@
       <a href="${root}index.html"><img src="${root}musicusingtech.webp" alt="Music Using Technology" loading="eager"></a>
     </div>
     <nav aria-label="Primary navigation" class="main-nav">
-      <a href="${root}quickguide/index.html">Quick Guides</a>
-
       <div class="menu-item has-submenu">
-        <a class="submenu-toggle" href="${root}home-studio-guide/index.html">Guides</a>
+        <a class="submenu-toggle" href="${root}quickguide/index.html">Guides</a>
         <ul class="submenu">
+          <li><a href="${root}quickguide/index.html">REAPER Quick Start Cheat Sheet</a></li>
           <li><a href="${root}home-studio-guide/index.html">The Home Studio Setup Guide</a></li>
         </ul>
       </div>
