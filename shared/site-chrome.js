@@ -14,6 +14,13 @@
       <a href="${root}quickguide/index.html">Quick Guides</a>
 
       <div class="menu-item has-submenu">
+        <a class="submenu-toggle" href="${root}home-studio-guide/index.html">Guides</a>
+        <ul class="submenu">
+          <li><a href="${root}home-studio-guide/index.html">The Home Studio Setup Guide</a></li>
+        </ul>
+      </div>
+
+      <div class="menu-item has-submenu">
         <a class="submenu-toggle" href="${root}blog/index.html">Blogging</a>
         <ul class="submenu">
           <li><a href="${root}audio-interface-blog/index.html">Audio Interface Blog</a></li>
