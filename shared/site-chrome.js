@@ -8,63 +8,63 @@
 <header class="site-header">
   <div class="container header-inner">
     <div class="logo">
-      <a href="${root}index.html"><img src="${root}musicusingtech.webp" alt="Music Using Technology" loading="eager"></a>
+      <a href="${root}"><img src="${root}musicusingtech.webp" alt="Music Using Technology" loading="eager"></a>
     </div>
     <nav aria-label="Primary navigation" class="main-nav">
       <div class="menu-item has-submenu">
-        <a class="submenu-toggle" href="${root}quickguide/index.html">Guides</a>
+        <a class="submenu-toggle" href="${root}quickguide/">Guides</a>
         <ul class="submenu">
-          <li><a href="${root}quickguide/index.html">REAPER Quick Start Cheat Sheet</a></li>
-          <li><a href="${root}home-studio-guide/index.html">The Home Studio Setup Guide</a></li>
+          <li><a href="${root}quickguide/">REAPER Quick Start Cheat Sheet</a></li>
+          <li><a href="${root}home-studio-guide/">The Home Studio Setup Guide</a></li>
         </ul>
       </div>
 
       <div class="menu-item has-submenu">
-        <a class="submenu-toggle" href="${root}blog/index.html">Blogging</a>
+        <a class="submenu-toggle" href="${root}blog/">Blogging</a>
         <ul class="submenu">
-          <li><a href="${root}audio-interface-blog/index.html">Audio Interface Blog</a></li>
-          <li><a href="${root}software-instruments-blog/index.html">Software Instruments Blog</a></li>
-          <li><a href="${root}sound-effects-blog/index.html">Sound Effects Blog</a></li>
-          <li><a href="${root}midi-controllers-blog/index.html">MIDI Controllers Blog</a></li>
-          <li><a href="${root}wireless-midi/index.html">Wireless MIDI</a></li>
-          <li><a href="${root}learning-musical-instruments/index.html">Learning Musical Instruments</a></li>
-          <li><a href="${root}how-to-install-vst-plugins-in-reaper/index.html">How to Install VST Plugins in REAPER</a></li>
-          <li><a href="${root}best-free-synth-vst-plugins-for-reaper/index.html">Best Free Synth VST Plugins (2026)</a></li>
+          <li><a href="${root}audio-interface-blog/">Audio Interface Blog</a></li>
+          <li><a href="${root}software-instruments-blog/">Software Instruments Blog</a></li>
+          <li><a href="${root}sound-effects-blog/">Sound Effects Blog</a></li>
+          <li><a href="${root}midi-controllers-blog/">MIDI Controllers Blog</a></li>
+          <li><a href="${root}wireless-midi/">Wireless MIDI</a></li>
+          <li><a href="${root}learning-musical-instruments/">Learning Musical Instruments</a></li>
+          <li><a href="${root}how-to-install-vst-plugins-in-reaper/">How to Install VST Plugins in REAPER</a></li>
+          <li><a href="${root}best-free-synth-vst-plugins-for-reaper/">Best Free Synth VST Plugins (2026)</a></li>
         </ul>
       </div>
 
-      <a href="${root}wireless-midi/index.html">Wireless MIDI</a>
+      <a href="${root}wireless-midi/">Wireless MIDI</a>
 
       <div class="menu-item has-submenu">
-        <a class="submenu-toggle" href="${root}best-free-vst-plugins/index.html">Best</a>
+        <a class="submenu-toggle" href="${root}best-free-vst-plugins/">Best</a>
         <ul class="submenu">
-          <li><a href="${root}best-free-vst-plugins/index.html">Best Free VST Plugins</a></li>
-          <li><a href="${root}best-software-instruments/index.html">Best Software Instruments</a></li>
-          <li><a href="${root}best-audio-interfaces/index.html">Best Audio Interfaces</a></li>
-          <li><a href="${root}best-midi-keyboards/index.html">Best MIDI Keyboards</a></li>
-          <li><a href="${root}best-free-daws/index.html">Best Free DAWs</a></li>
-          <li><a href="${root}best-free-piano-vst-plugins/index.html">Best Free Piano VST Plugins</a></li>
-          <li><a href="${root}best-free-drum-vst-plugins/index.html">Best Free Drum VST Plugins</a></li>
-          <li><a href="${root}best-free-synth-vst-plugins/index.html">Best Free Synth VST Plugins</a></li>
-          <li><a href="${root}best-audio-interfaces-for-beginners/index.html">Best Audio Interfaces for Beginners</a></li>
-          <li><a href="${root}best-audio-interfaces-under-200/index.html">Best Audio Interfaces Under $200</a></li>
-          <li><a href="${root}best-midi-keyboards-for-beginners/index.html">Best MIDI Keyboards for Beginners</a></li>
-          <li><a href="${root}best-budget-midi-keyboards/index.html">Best Budget MIDI Keyboards</a></li>
-          <li><a href="${root}best-midi-keyboards-under-200/index.html">Best MIDI Keyboards Under $200</a></li>
-          <li><a href="${root}best-midi-keyboards-for-reaper/index.html">Best MIDI Keyboards for REAPER</a></li>
-          <li><a href="${root}best-free-reverb-vst-plugins/index.html">Best Free Reverb VST Plugins</a></li>
-          <li><a href="${root}best-free-delay-vst-plugins/index.html">Best Free Delay VST Plugins</a></li>
-          <li><a href="${root}best-free-compressor-vst-plugins/index.html">Best Free Compressor VST Plugins</a></li>
-          <li><a href="${root}best-free-eq-vst-plugins/index.html">Best Free EQ VST Plugins</a></li>
-          <li><a href="${root}best-free-guitar-vst-plugins/index.html">Best Free Guitar VST Plugins</a></li>
-          <li><a href="${root}best-free-bass-vst-plugins/index.html">Best Free Bass VST Plugins</a></li>
+          <li><a href="${root}best-free-vst-plugins/">Best Free VST Plugins</a></li>
+          <li><a href="${root}best-software-instruments/">Best Software Instruments</a></li>
+          <li><a href="${root}best-audio-interfaces/">Best Audio Interfaces</a></li>
+          <li><a href="${root}best-midi-keyboards/">Best MIDI Keyboards</a></li>
+          <li><a href="${root}best-free-daws/">Best Free DAWs</a></li>
+          <li><a href="${root}best-free-piano-vst-plugins/">Best Free Piano VST Plugins</a></li>
+          <li><a href="${root}best-free-drum-vst-plugins/">Best Free Drum VST Plugins</a></li>
+          <li><a href="${root}best-free-synth-vst-plugins/">Best Free Synth VST Plugins</a></li>
+          <li><a href="${root}best-audio-interfaces-for-beginners/">Best Audio Interfaces for Beginners</a></li>
+          <li><a href="${root}best-audio-interfaces-under-200/">Best Audio Interfaces Under $200</a></li>
+          <li><a href="${root}best-midi-keyboards-for-beginners/">Best MIDI Keyboards for Beginners</a></li>
+          <li><a href="${root}best-budget-midi-keyboards/">Best Budget MIDI Keyboards</a></li>
+          <li><a href="${root}best-midi-keyboards-under-200/">Best MIDI Keyboards Under $200</a></li>
+          <li><a href="${root}best-midi-keyboards-for-reaper/">Best MIDI Keyboards for REAPER</a></li>
+          <li><a href="${root}best-free-reverb-vst-plugins/">Best Free Reverb VST Plugins</a></li>
+          <li><a href="${root}best-free-delay-vst-plugins/">Best Free Delay VST Plugins</a></li>
+          <li><a href="${root}best-free-compressor-vst-plugins/">Best Free Compressor VST Plugins</a></li>
+          <li><a href="${root}best-free-eq-vst-plugins/">Best Free EQ VST Plugins</a></li>
+          <li><a href="${root}best-free-guitar-vst-plugins/">Best Free Guitar VST Plugins</a></li>
+          <li><a href="${root}best-free-bass-vst-plugins/">Best Free Bass VST Plugins</a></li>
         </ul>
       </div>
 
-      <a href="${root}legal/index.html">Legal</a>
-      <a href="${root}privacy-policy-2/index.html">Privacy Policy</a>
-      <a href="${root}contact-us/index.html">Contact Us</a>
-      <a href="${root}about-us/index.html">About Us</a>
+      <a href="${root}legal/">Legal</a>
+      <a href="${root}privacy-policy-2/">Privacy Policy</a>
+      <a href="${root}contact-us/">Contact Us</a>
+      <a href="${root}about-us/">About Us</a>
     </nav>
   </div>
 </header>`;
