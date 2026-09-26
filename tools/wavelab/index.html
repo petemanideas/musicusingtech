@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YMQHLEN5DM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YMQHLEN5DM');
+</script>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3308191074184260"
+     crossorigin="anonymous"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Wave Lab — a free browser-based audio tool. Generate tones, shape them with pitch, filter and echo controls, and export as WAV. No download or install needed.">
+<link rel="canonical" href="https://musicusingtech.com/tools/wavelab/">
+<title>Wave Lab — Free Browser Audio Tool | Music Using Tech</title>
+
+<link rel="stylesheet" href="../../shared/site-shell.css" />
+
+<style>
+  .tools-page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+  }
+
+  .tools-page h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.9em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 10px;
+  }
+
+  .tools-page .intro {
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #444;
+    margin: 0 0 28px;
+  }
+
+  .tools-page .tag-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 0 0 28px;
+  }
+
+  .tools-page .tag {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #0066cc;
+    background: #eaf2ff;
+    padding: 4px 10px;
+    border-radius: 3px;
+  }
+
+  hr.section-rule {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 36px 0;
+  }
+
+  .back-link {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #0066cc;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 24px;
+  }
+
+  .back-link:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .tools-page { padding: 24px 16px 48px; }
+    .tools-page h1 { font-size: 1.5em; }
+  }
+</style>
+
+</head>
+<body>
+<div id="site-header"></div>
+
+<div class="tools-page">
+
+  <a href="../" class="back-link">← Back to Tools</a>
+
+  <h1>🎛️ Wave Lab</h1>
+
+  <div class="tag-row">
+    <span class="tag">Free Tool</span>
+    <span class="tag">No Install</span>
+    <span class="tag">Web Audio</span>
+    <span class="tag">WAV Export</span>
+  </div>
+
+  <p class="intro">
+    Wave Lab runs entirely in your browser using the Web Audio API — no download, no plugin, no account needed. Generate a tone from scratch using sine, square, sawtooth or triangle waves, or load your own audio file and shape it with pitch, volume, filter and echo controls. Export the result as a WAV file when you're done.
+  </p>
+
+  <p class="intro" style="margin-top:-12px;">
+    It's a good way to hear the difference between waveforms before you open a synth plugin in REAPER — and useful for quick sound design experiments without launching your DAW.
+  </p>
+
+  <hr class="section-rule">
+
+  <!-- ============================================================
+       WAVE LAB TOOL — self-contained, no external dependencies
+       ============================================================ -->
+
+<!-- 
+  Wave Lab — embeddable wave generator / editor for MusicUsingTech.com
+  Drop this whole block into a page or post (e.g. via a Custom HTML block).
+  Self-contained: no external dependencies, uses the Web Audio API.
+-->
+<div id="wavelab-root" style="
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color:#1a1a1a;
+  background:#ffffff;
+  max-width:720px;
+  margin:24px auto;
+  padding:20px;
+  border:1px solid #e2e2e2;
+  border-radius:8px;
+">
+  <h3 style="margin:0 0 4px 0; font-size:1.25rem;">🎛️ Wave Lab</h3>
+  <p style="margin:0 0 14px 0; font-size:0.92rem; color:#444;">
+    Generate a tone from scratch, or load your own audio file, then shape it with three core
+    wave parameters — pitch, volume and filter cutoff — right in the browser.
+  </p>
+
+  <!-- Mode tabs -->
+  <div style="display:flex; gap:8px; margin-bottom:14px;">
+    <button id="wl-tab-synth" class="wl-tab wl-tab-active">Generate a tone</button>
+    <button id="wl-tab-sample" class="wl-tab">Load a file</button>
+  </div>
+
+  <!-- Synth-only controls -->
+  <div id="wl-shape-row" style="margin-bottom:14px;">
+    <span style="font-size:0.85rem; color:#444; margin-right:8px;">Waveform:</span>
+    <button class="wl-shape wl-shape-active" data-shape="sine">Sine</button>
+    <button class="wl-shape" data-shape="square">Square</button>
+    <button class="wl-shape" data-shape="sawtooth">Saw</button>
+    <button class="wl-shape" data-shape="triangle">Triangle</button>
+  </div>
+
+  <!-- File loader -->
+  <div id="wl-load-row" style="display:none; margin-bottom:14px;">
+    <input type="file" id="wl-file-input" accept="audio/*" style="font-size:0.85rem;">
+    <span id="wl-file-name" style="font-size:0.85rem; color:#666; margin-left:8px;"></span>
+  </div>
+
+  <!-- Waveform display -->
+  <canvas id="wl-canvas" width="680" height="140" style="
+    width:100%;
+    height:140px;
+    background:#fafafa;
+    border:1px solid #e2e2e2;
+    border-radius:4px;
+    display:block;
+    margin-bottom:10px;
+  "></canvas>
+
+  <!-- Live spectrum analyzer -->
+  <div style="font-size:0.78rem; color:#888; margin-bottom:4px;">Live spectrum</div>
+  <canvas id="wl-spectrum" width="680" height="90" style="
+    width:100%;
+    height:90px;
+    background:#0d1117;
+    border:1px solid #e2e2e2;
+    border-radius:4px;
+    display:block;
+    margin-bottom:16px;
+  "></canvas>
+
+  <!-- Sliders -->
+  <div class="wl-control-row">
+    <label for="wl-freq">Pitch <span id="wl-freq-val">440 Hz</span></label>
+    <input type="range" id="wl-freq" min="55" max="1760" value="440" step="1">
+  </div>
+  <div class="wl-control-row">
+    <label for="wl-vol">Volume <span id="wl-vol-val">80%</span></label>
+    <input type="range" id="wl-vol" min="0" max="150" value="80" step="1">
+  </div>
+  <div class="wl-control-row">
+    <label for="wl-filter">Filter cutoff <span id="wl-filter-val">12000 Hz</span></label>
+    <input type="range" id="wl-filter" min="200" max="12000" value="12000" step="10">
+  </div>
+
+  <div style="font-size:0.85rem; color:#444; margin:16px 0 8px 0; font-weight:600;">Echo</div>
+  <div class="wl-control-row">
+    <label for="wl-echo-time">Time <span id="wl-echo-time-val">250 ms</span></label>
+    <input type="range" id="wl-echo-time" min="0" max="800" value="250" step="5">
+  </div>
+  <div class="wl-control-row">
+    <label for="wl-echo-feedback">Feedback <span id="wl-echo-feedback-val">35%</span></label>
+    <input type="range" id="wl-echo-feedback" min="0" max="85" value="35" step="1">
+  </div>
+  <div class="wl-control-row">
+    <label for="wl-echo-mix">Mix <span id="wl-echo-mix-val">0%</span></label>
+    <input type="range" id="wl-echo-mix" min="0" max="100" value="0" step="1">
+  </div>
+
+  <!-- Transport -->
+  <div style="display:flex; gap:10px; margin-top:16px; flex-wrap:wrap;">
+    <button id="wl-play" class="wl-btn wl-btn-primary">▶ Play</button>
+    <button id="wl-stop" class="wl-btn" disabled>■ Stop</button>
+    <button id="wl-download" class="wl-btn">⬇ Download WAV</button>
+  </div>
+
+  <p id="wl-status" style="font-size:0.8rem; color:#888; margin-top:10px; min-height:1em;"></p>
+</div>
+
+<!-- CTA block -->
+<div style="
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  max-width:720px;
+  margin:0 auto 24px auto;
+  padding:18px 20px;
+  background:#fafafa;
+  border-left:4px solid #0066cc;
+  border-radius:4px;
+  color:#1a1a1a;
+">
+  <p style="margin:0 0 8px 0; font-size:1rem; font-weight:600;">
+    Want to shape sound like this with a full synth, not just three sliders?
+  </p>
+  <p style="margin:0 0 12px 0; font-size:0.92rem; color:#333;">
+    Wave Lab is a great way to get a feel for pitch, volume and filtering — but a proper synth
+    plugin gives you oscillators, envelopes and modulation on top. Here are the free and paid
+    synths I actually use in REAPER:
+  </p>
+  <p style="margin:0 0 4px 0;">
+    <a href="https://musicusingtech.com/best-free-synth-vst-plugins-for-reaper/" style="color:#0066cc; font-weight:600; text-decoration:none;">
+      → Best free synth VST plugins for REAPER
+    </a>
+  </p>
+  <p style="margin:0 0 14px 0;">
+    <a href="/go/plugin-boutique" style="color:#0066cc; font-weight:600; text-decoration:none;">
+      → Browse synths and effects at Plugin Boutique
+    </a>
+  </p>
+  <hr style="border:none; border-top:1px solid #e2e2e2; margin:14px 0;">
+  <p style="margin:0; font-size:0.78rem; color:#888;">
+    Affiliate disclosure: Some links on this page may be affiliate links. If you purchase through
+    them, I may earn a small commission at no extra cost to you.
+  </p>
+</div>
+
+<style>
+  #wavelab-root .wl-tab, #wavelab-root .wl-shape, #wavelab-root .wl-btn {
+    font-family: inherit;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #1a1a1a;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  #wavelab-root .wl-tab-active, #wavelab-root .wl-shape-active {
+    background: #0066cc;
+    border-color: #0066cc;
+    color: #fff;
+  }
+  #wavelab-root .wl-btn-primary {
+    background: #0066cc;
+    border-color: #0066cc;
+    color: #fff;
+  }
+  #wavelab-root .wl-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  #wavelab-root .wl-control-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+  }
+  #wavelab-root .wl-control-row label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    color: #333;
+  }
+  #wavelab-root input[type="range"] {
+    width: 100%;
+    accent-color: #0066cc;
+  }
+</style>
+
+<script>
+(function () {
+  const root = document.getElementById('wavelab-root');
+  const canvas = root.querySelector('#wl-canvas');
+  const ctx = canvas.getContext('2d');
+
+  const freqSlider = root.querySelector('#wl-freq');
+  const volSlider = root.querySelector('#wl-vol');
+  const filterSlider = root.querySelector('#wl-filter');
+  const freqVal = root.querySelector('#wl-freq-val');
+  const volVal = root.querySelector('#wl-vol-val');
+  const filterVal = root.querySelector('#wl-filter-val');
+
+  const echoTimeSlider = root.querySelector('#wl-echo-time');
+  const echoFeedbackSlider = root.querySelector('#wl-echo-feedback');
+  const echoMixSlider = root.querySelector('#wl-echo-mix');
+  const echoTimeVal = root.querySelector('#wl-echo-time-val');
+  const echoFeedbackVal = root.querySelector('#wl-echo-feedback-val');
+  const echoMixVal = root.querySelector('#wl-echo-mix-val');
+
+  const spectrumCanvas = root.querySelector('#wl-spectrum');
+  const spectrumCtx = spectrumCanvas.getContext('2d');
+
+  const playBtn = root.querySelector('#wl-play');
+  const stopBtn = root.querySelector('#wl-stop');
+  const downloadBtn = root.querySelector('#wl-download');
+  const statusEl = root.querySelector('#wl-status');
+
+  const tabSynth = root.querySelector('#wl-tab-synth');
+  const tabSample = root.querySelector('#wl-tab-sample');
+  const shapeRow = root.querySelector('#wl-shape-row');
+  const loadRow = root.querySelector('#wl-load-row');
+  const fileInput = root.querySelector('#wl-file-input');
+  const fileNameEl = root.querySelector('#wl-file-name');
+
+  let audioCtx = null;
+  let mode = 'synth';
+  let waveShape = 'sine';
+  let sampleBuffer = null;
+  let processedBuffer = null;
+  let liveNodes = null;
+  let renderDebounceTimer = null;
+  let renderGeneration = 0;
+
+  function getCtx() {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    return audioCtx;
+  }
+
+  function setStatus(msg) { statusEl.textContent = msg; }
+
+  function setMode(m) {
+    mode = m;
+    tabSynth.classList.toggle('wl-tab-active', m === 'synth');
+    tabSample.classList.toggle('wl-tab-active', m === 'sample');
+    shapeRow.style.display = m === 'synth' ? 'block' : 'none';
+    loadRow.style.display = m === 'sample' ? 'block' : 'none';
+    draw();
+  }
+  tabSynth.addEventListener('click', () => setMode('synth'));
+  tabSample.addEventListener('click', () => setMode('sample'));
+
+  root.querySelectorAll('.wl-shape').forEach(btn => {
+    btn.addEventListener('click', () => {
+      root.querySelectorAll('.wl-shape').forEach(b => b.classList.remove('wl-shape-active'));
+      btn.classList.add('wl-shape-active');
+      waveShape = btn.dataset.shape;
+      draw();
+    });
+  });
+
+  function updateLabels() {
+    if (mode === 'synth') {
+      freqVal.textContent = freqSlider.value + ' Hz';
+    } else {
+      const rate = (parseFloat(freqSlider.value) / 440).toFixed(2);
+      freqVal.textContent = rate + 'x speed';
+    }
+    volVal.textContent = volSlider.value + '%';
+    filterVal.textContent = filterSlider.value + ' Hz';
+    echoTimeVal.textContent = echoTimeSlider.value + ' ms';
+    echoFeedbackVal.textContent = echoFeedbackSlider.value + '%';
+    echoMixVal.textContent = echoMixSlider.value + '%';
+  }
+  [freqSlider, volSlider, filterSlider, echoTimeSlider, echoFeedbackSlider, echoMixSlider].forEach(s => {
+    s.addEventListener('input', () => { updateLabels(); draw(); applyLiveParams(); scheduleProcessedRender(); });
+  });
+  updateLabels();
+
+  function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = '#ddd';
+    ctx.beginPath();
+    ctx.moveTo(0, canvas.height / 2);
+    ctx.lineTo(canvas.width, canvas.height / 2);
+    ctx.stroke();
+  }
+
+  function drawBuffer(buf, color, lineWidth) {
+    const data = buf.getChannelData(0);
+    const step = Math.max(1, Math.ceil(data.length / canvas.width));
+    ctx.strokeStyle = color;
+    ctx.lineWidth = lineWidth;
+    ctx.beginPath();
+    for (let x = 0; x < canvas.width; x++) {
+      let min = 1, max = -1;
+      for (let i = 0; i < step; i++) {
+        const idx = x * step + i;
+        if (idx >= data.length) break;
+        const v = data[idx];
+        if (v < min) min = v;
+        if (v > max) max = v;
+      }
+      const yMin = canvas.height / 2 - min * (canvas.height / 2 - 10);
+      const yMax = canvas.height / 2 - max * (canvas.height / 2 - 10);
+      ctx.moveTo(x, yMin);
+      ctx.lineTo(x, yMax);
+    }
+    ctx.stroke();
+  }
+
+  function draw() {
+    clearCanvas();
+    if (mode === 'synth') {
+      ctx.strokeStyle = '#0066cc';
+      ctx.lineWidth = 2;
+      const amp = (parseFloat(volSlider.value) / 100) * (canvas.height / 2 - 10);
+      ctx.beginPath();
+      const cycles = 4;
+      for (let x = 0; x < canvas.width; x++) {
+        const t = (x / canvas.width) * cycles * 2 * Math.PI;
+        let y;
+        switch (waveShape) {
+          case 'square':   y = Math.sign(Math.sin(t)); break;
+          case 'sawtooth': y = 2 * ((t / (2 * Math.PI)) % 1) - 1; break;
+          case 'triangle': y = Math.asin(Math.sin(t)) * (2 / Math.PI); break;
+          default:         y = Math.sin(t);
+        }
+        const py = canvas.height / 2 - y * amp;
+        if (x === 0) ctx.moveTo(x, py); else ctx.lineTo(x, py);
+      }
+      ctx.stroke();
+    } else if (sampleBuffer) {
+      drawBuffer(sampleBuffer, 'rgba(160,160,180,0.55)', 1);
+      if (processedBuffer) {
+        drawBuffer(processedBuffer, '#0066cc', 2);
+        const lx = canvas.width - 130, ly = 12;
+        ctx.font = '10px sans-serif';
+        ctx.strokeStyle = 'rgba(160,160,180,0.8)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.moveTo(lx, ly + 4); ctx.lineTo(lx + 18, ly + 4); ctx.stroke();
+        ctx.fillStyle = '#888';
+        ctx.fillText('Original', lx + 22, ly + 8);
+        ctx.strokeStyle = '#0066cc';
+        ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(lx, ly + 18); ctx.lineTo(lx + 18, ly + 18); ctx.stroke();
+        ctx.fillStyle = '#0066cc';
+        ctx.fillText('Processed', lx + 22, ly + 22);
+      } else {
+        drawBuffer(sampleBuffer, '#0066cc', 2);
+      }
+    } else {
+      ctx.fillStyle = '#999';
+      ctx.font = '13px sans-serif';
+      ctx.fillText('Load an audio file to see its waveform here.', 14, canvas.height / 2 + 4);
+    }
+  }
+
+  async function renderProcessedPreview() {
+    if (!sampleBuffer) return;
+    const gen = ++renderGeneration;
+    const rate = parseFloat(freqSlider.value) / 440;
+    const sr = sampleBuffer.sampleRate;
+    const tailSec = echoTailSeconds();
+    const length = Math.ceil(sampleBuffer.length / rate + tailSec * sr);
+    try {
+      const offlineCtx = new OfflineAudioContext(1, Math.max(1, length), sr);
+      const gainNode = offlineCtx.createGain();
+      gainNode.gain.value = parseFloat(volSlider.value) / 100;
+      const filterNode = offlineCtx.createBiquadFilter();
+      filterNode.type = 'lowpass';
+      filterNode.frequency.value = parseFloat(filterSlider.value);
+      const src = offlineCtx.createBufferSource();
+      src.buffer = sampleBuffer;
+      src.playbackRate.value = rate;
+      src.connect(gainNode);
+      gainNode.connect(filterNode);
+      buildEchoNodes(offlineCtx, filterNode, offlineCtx.destination);
+      src.start(0);
+      const rendered = await offlineCtx.startRendering();
+      if (gen !== renderGeneration) return;
+      processedBuffer = rendered;
+      draw();
+    } catch (e) {}
+  }
+
+  function scheduleProcessedRender() {
+    if (mode !== 'sample' || !sampleBuffer) return;
+    clearTimeout(renderDebounceTimer);
+    renderDebounceTimer = setTimeout(renderProcessedPreview, 350);
+  }
+
+  function drawSpectrumIdle() {
+    spectrumCtx.clearRect(0, 0, spectrumCanvas.width, spectrumCanvas.height);
+    spectrumCtx.fillStyle = '#c9d4dd';
+    spectrumCtx.font = '13px sans-serif';
+    spectrumCtx.textAlign = 'center';
+    spectrumCtx.fillText('Press Play to see the live spectrum.', spectrumCanvas.width / 2, spectrumCanvas.height / 2 + 4);
+    spectrumCtx.textAlign = 'left';
+  }
+
+  function drawSpectrumFrame() {
+    if (!liveNodes || !liveNodes.analyserNode) { drawSpectrumIdle(); return; }
+    const analyser = liveNodes.analyserNode;
+    const bufferLength = analyser.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
+    analyser.getByteFrequencyData(dataArray);
+    const w = spectrumCanvas.width;
+    const h = spectrumCanvas.height;
+    spectrumCtx.clearRect(0, 0, w, h);
+    const sampleRate = audioCtx ? audioCtx.sampleRate : 44100;
+    const minF = 20, maxF = Math.min(20000, sampleRate / 2);
+    const logMin = Math.log10(minF), logMax = Math.log10(maxF);
+    for (let x = 0; x < w; x++) {
+      const freq = Math.pow(10, logMin + (x / w) * (logMax - logMin));
+      let bin = Math.round((freq / (sampleRate / 2)) * bufferLength);
+      bin = Math.max(0, Math.min(bufferLength - 1, bin));
+      const value = dataArray[bin] / 255;
+      const barHeight = value * h;
+      const hue = 205 - value * 60;
+      spectrumCtx.fillStyle = `hsl(${hue}, 80%, ${45 + value * 20}%)`;
+      spectrumCtx.fillRect(x, h - barHeight, 1.5, barHeight);
+    }
+    requestAnimationFrame(drawSpectrumFrame);
+  }
+  drawSpectrumIdle();
+
+  fileInput.addEventListener('change', async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    fileNameEl.textContent = file.name;
+    setStatus('Decoding audio…');
+    try {
+      const arrayBuffer = await file.arrayBuffer();
+      const ctxA = getCtx();
+      sampleBuffer = await ctxA.decodeAudioData(arrayBuffer.slice(0));
+      processedBuffer = null;
+      draw();
+      setStatus('Loaded: ' + file.name + ' (' + sampleBuffer.duration.toFixed(2) + 's) — rendering preview…');
+      await renderProcessedPreview();
+      setStatus('Loaded: ' + file.name + ' (' + sampleBuffer.duration.toFixed(2) + 's)');
+    } catch (err) { setStatus('Could not decode that file.'); }
+  });
+
+  function buildChain(destinationCtx) {
+    const gainNode = destinationCtx.createGain();
+    gainNode.gain.value = parseFloat(volSlider.value) / 100;
+    const filterNode = destinationCtx.createBiquadFilter();
+    filterNode.type = 'lowpass';
+    filterNode.frequency.value = parseFloat(filterSlider.value);
+    const analyserNode = destinationCtx.createAnalyser();
+    analyserNode.fftSize = 1024;
+    analyserNode.smoothingTimeConstant = 0.75;
+    const dryGain = destinationCtx.createGain();
+    const wetGain = destinationCtx.createGain();
+    const delayNode = destinationCtx.createDelay(5.0);
+    const feedbackGain = destinationCtx.createGain();
+    const mix = parseFloat(echoMixSlider.value) / 100;
+    dryGain.gain.value = 1 - mix;
+    wetGain.gain.value = mix;
+    delayNode.delayTime.value = parseFloat(echoTimeSlider.value) / 1000;
+    feedbackGain.gain.value = parseFloat(echoFeedbackSlider.value) / 100;
+    gainNode.connect(filterNode);
+    filterNode.connect(dryGain);
+    filterNode.connect(delayNode);
+    delayNode.connect(feedbackGain);
+    feedbackGain.connect(delayNode);
+    delayNode.connect(wetGain);
+    dryGain.connect(analyserNode);
+    wetGain.connect(analyserNode);
+    analyserNode.connect(destinationCtx.destination);
+    return { gainNode, filterNode, analyserNode, dryGain, wetGain, delayNode, feedbackGain };
+  }
+
+  function stopPlayback() {
+    if (liveNodes && liveNodes.source) { try { liveNodes.source.stop(); } catch (e) {} }
+    liveNodes = null;
+    playBtn.disabled = false;
+    stopBtn.disabled = true;
+  }
+
+  function applyLiveParams() {
+    if (!liveNodes) return;
+    const ctxA = getCtx();
+    const now = ctxA.currentTime;
+    liveNodes.gainNode.gain.setTargetAtTime(parseFloat(volSlider.value) / 100, now, 0.01);
+    liveNodes.filterNode.frequency.setTargetAtTime(parseFloat(filterSlider.value), now, 0.01);
+    const mix = parseFloat(echoMixSlider.value) / 100;
+    liveNodes.dryGain.gain.setTargetAtTime(1 - mix, now, 0.01);
+    liveNodes.wetGain.gain.setTargetAtTime(mix, now, 0.01);
+    liveNodes.delayNode.delayTime.setTargetAtTime(parseFloat(echoTimeSlider.value) / 1000, now, 0.01);
+    liveNodes.feedbackGain.gain.setTargetAtTime(parseFloat(echoFeedbackSlider.value) / 100, now, 0.01);
+    if (mode === 'synth' && liveNodes.source.frequency) {
+      liveNodes.source.frequency.setTargetAtTime(parseFloat(freqSlider.value), now, 0.01);
+    } else if (mode === 'sample' && liveNodes.source.playbackRate) {
+      liveNodes.source.playbackRate.setTargetAtTime(parseFloat(freqSlider.value) / 440, now, 0.01);
+    }
+  }
+
+  playBtn.addEventListener('click', () => {
+    const ctxA = getCtx();
+    if (ctxA.state === 'suspended') ctxA.resume();
+    if (mode === 'synth') {
+      const { gainNode, filterNode, analyserNode, dryGain, wetGain, delayNode, feedbackGain } = buildChain(ctxA);
+      const osc = ctxA.createOscillator();
+      osc.type = waveShape;
+      osc.frequency.value = parseFloat(freqSlider.value);
+      osc.connect(gainNode);
+      osc.start();
+      liveNodes = { source: osc, gainNode, filterNode, analyserNode, dryGain, wetGain, delayNode, feedbackGain };
+      setStatus('Playing tone — drag the sliders to hear it change live.');
+    } else {
+      if (!sampleBuffer) { setStatus('Load a file first.'); return; }
+      const { gainNode, filterNode, analyserNode, dryGain, wetGain, delayNode, feedbackGain } = buildChain(ctxA);
+      const src = ctxA.createBufferSource();
+      src.buffer = sampleBuffer;
+      src.playbackRate.value = parseFloat(freqSlider.value) / 440;
+      src.connect(gainNode);
+      src.start();
+      src.onended = stopPlayback;
+      liveNodes = { source: src, gainNode, filterNode, analyserNode, dryGain, wetGain, delayNode, feedbackGain };
+      setStatus('Playing sample — drag the sliders to hear it change live.');
+    }
+    playBtn.disabled = true;
+    stopBtn.disabled = false;
+    requestAnimationFrame(drawSpectrumFrame);
+  });
+
+  stopBtn.addEventListener('click', () => { stopPlayback(); drawSpectrumIdle(); setStatus('Stopped.'); });
+
+  function encodeWav(audioBuffer) {
+    const numChannels = audioBuffer.numberOfChannels;
+    const sampleRate = audioBuffer.sampleRate;
+    const numFrames = audioBuffer.length;
+    const bytesPerSample = 2;
+    const blockAlign = numChannels * bytesPerSample;
+    const dataSize = numFrames * blockAlign;
+    const buffer = new ArrayBuffer(44 + dataSize);
+    const view = new DataView(buffer);
+    function writeStr(offset, str) { for (let i = 0; i < str.length; i++) view.setUint8(offset + i, str.charCodeAt(i)); }
+    writeStr(0, 'RIFF'); view.setUint32(4, 36 + dataSize, true); writeStr(8, 'WAVE');
+    writeStr(12, 'fmt '); view.setUint32(16, 16, true); view.setUint16(20, 1, true);
+    view.setUint16(22, numChannels, true); view.setUint32(24, sampleRate, true);
+    view.setUint32(28, sampleRate * blockAlign, true); view.setUint16(32, blockAlign, true);
+    view.setUint16(34, 16, true); writeStr(36, 'data'); view.setUint32(40, dataSize, true);
+    const channelData = [];
+    for (let c = 0; c < numChannels; c++) channelData.push(audioBuffer.getChannelData(c));
+    let offset = 44;
+    for (let i = 0; i < numFrames; i++) {
+      for (let c = 0; c < numChannels; c++) {
+        let sample = Math.max(-1, Math.min(1, channelData[c][i]));
+        sample = sample < 0 ? sample * 0x8000 : sample * 0x7fff;
+        view.setInt16(offset, sample, true); offset += 2;
+      }
+    }
+    return new Blob([view], { type: 'audio/wav' });
+  }
+
+  function triggerDownload(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a); URL.revokeObjectURL(url);
+  }
+
+  function buildEchoNodes(ctxAny, inputNode, destinationNode) {
+    const dryGain = ctxAny.createGain(); const wetGain = ctxAny.createGain();
+    const delayNode = ctxAny.createDelay(5.0); const feedbackGain = ctxAny.createGain();
+    const mix = parseFloat(echoMixSlider.value) / 100;
+    dryGain.gain.value = 1 - mix; wetGain.gain.value = mix;
+    delayNode.delayTime.value = parseFloat(echoTimeSlider.value) / 1000;
+    feedbackGain.gain.value = parseFloat(echoFeedbackSlider.value) / 100;
+    inputNode.connect(dryGain); inputNode.connect(delayNode);
+    delayNode.connect(feedbackGain); feedbackGain.connect(delayNode);
+    delayNode.connect(wetGain);
+    dryGain.connect(destinationNode); wetGain.connect(destinationNode);
+  }
+
+  function echoTailSeconds() {
+    const timeSec = parseFloat(echoTimeSlider.value) / 1000;
+    const feedback = parseFloat(echoFeedbackSlider.value) / 100;
+    const mix = parseFloat(echoMixSlider.value) / 100;
+    if (mix <= 0 || timeSec <= 0) return 0;
+    const repeats = feedback > 0.01 ? Math.min(30, Math.ceil(Math.log(0.001) / Math.log(feedback))) : 1;
+    return Math.min(6, timeSec * repeats);
+  }
+
+  downloadBtn.addEventListener('click', async () => {
+    setStatus('Rendering WAV…');
+    try {
+      if (mode === 'synth') {
+        const duration = 2 + echoTailSeconds();
+        const sampleRate = 44100;
+        const offlineCtx = new OfflineAudioContext(1, Math.ceil(duration * sampleRate), sampleRate);
+        const gainNode = offlineCtx.createGain(); gainNode.gain.value = parseFloat(volSlider.value) / 100;
+        const filterNode = offlineCtx.createBiquadFilter(); filterNode.type = 'lowpass';
+        filterNode.frequency.value = parseFloat(filterSlider.value);
+        const osc = offlineCtx.createOscillator(); osc.type = waveShape;
+        osc.frequency.value = parseFloat(freqSlider.value);
+        osc.connect(gainNode); gainNode.connect(filterNode);
+        buildEchoNodes(offlineCtx, filterNode, offlineCtx.destination);
+        osc.start(0); osc.stop(2);
+        const rendered = await offlineCtx.startRendering();
+        triggerDownload(encodeWav(rendered), 'wavelab-tone.wav');
+        setStatus('Downloaded wavelab-tone.wav');
+      } else {
+        if (!sampleBuffer) { setStatus('Load a file first.'); return; }
+        const rate = parseFloat(freqSlider.value) / 440;
+        const sampleRate = sampleBuffer.sampleRate;
+        const length = Math.ceil(sampleBuffer.length / rate + echoTailSeconds() * sampleRate);
+        const offlineCtx = new OfflineAudioContext(sampleBuffer.numberOfChannels, length, sampleRate);
+        const gainNode = offlineCtx.createGain(); gainNode.gain.value = parseFloat(volSlider.value) / 100;
+        const filterNode = offlineCtx.createBiquadFilter(); filterNode.type = 'lowpass';
+        filterNode.frequency.value = parseFloat(filterSlider.value);
+        const src = offlineCtx.createBufferSource(); src.buffer = sampleBuffer;
+        src.playbackRate.value = rate; src.connect(gainNode); gainNode.connect(filterNode);
+        buildEchoNodes(offlineCtx, filterNode, offlineCtx.destination); src.start(0);
+        const rendered = await offlineCtx.startRendering();
+        triggerDownload(encodeWav(rendered), 'wavelab-edited.wav');
+        setStatus('Downloaded wavelab-edited.wav');
+      }
+    } catch (err) { setStatus('Render failed: ' + err.message); }
+  });
+})();
+</script>
+
+  <!-- ============================================================
+       END WAVE LAB TOOL
+       ============================================================ -->
+
+  <hr class="section-rule">
+
+  <!-- Kit email signup -->
+  <div style="background:#1a1a1a; border-radius:6px; padding:28px 32px; margin:40px 0; text-align:center;">
+    <p style="font-family:Arial,sans-serif; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#0066cc; margin:0 0 6px;">Free Download</p>
+    <h3 style="font-family:Arial,Helvetica,sans-serif; font-size:1.2em; font-weight:700; color:#ffffff; margin:0 0 8px;">🎹 Free REAPER Quick-Start Cheat Sheet</h3>
+    <p style="font-family:Arial,sans-serif; font-size:14px; color:#aaaaaa; margin:0 0 18px;">18 shortcuts, settings, and a free plugin starter pack — one printable page.</p>
+    <a href="../quickguide/" style="display:inline-block; background:#0066cc; color:#fff; font-family:Arial,sans-serif; font-size:15px; font-weight:700; padding:12px 28px; border-radius:4px; text-decoration:none;">Get the Free Cheat Sheet →</a>
+    <p style="font-family:Arial,sans-serif; font-size:12px; color:#666; margin:10px 0 0;">No spam. Unsubscribe any time.</p>
+  </div>
+
+  <p style="font-family:Arial,sans-serif; font-size:14px; color:#888; text-align:center;">
+    <a href="../" style="color:#0066cc;">← Back to Music Using Tech</a>
+  </p>
+
+</div><!-- /tools-page -->
+
+<div id="site-footer"></div>
+<script src="../../shared/site-chrome.js"></script>
+</body>
+</html>
