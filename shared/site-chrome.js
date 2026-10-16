@@ -31,7 +31,6 @@
           <li><a href="${root}learning-musical-instruments/">Learning Musical Instruments</a></li>
           <li><a href="${root}how-to-install-vst-plugins-in-reaper/">How to Install VST Plugins in REAPER</a></li>
           <li><a href="${root}best-free-synth-vst-plugins-for-reaper/">Best Free Synth VST Plugins (2026)</a></li>
-          <li><a href="${root}scan-sheet-music-to-music/">Scan Sheet Music to an Editable File</a></li>
         </ul>
       </div>
 
