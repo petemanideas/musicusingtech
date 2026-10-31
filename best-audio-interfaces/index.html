@@ -158,6 +158,117 @@
 </script>
 	  </div>
   </section>
+  <section class="card" id="how-to-choose">
+    <h2>How to choose an audio interface for REAPER</h2>
+    <p>
+      REAPER isn't fussy about hardware. Almost any modern USB interface will work.
+      What matters is matching the interface to <em>what you record</em> and making sure it has solid drivers.
+      Check these five things before you buy:
+    </p>
+    <ul>
+      <li><strong>Number of inputs.</strong> Recording one thing at a time (vocals <em>or</em> guitar)? One input is enough. Vocals and guitar together, or a stereo keyboard? Get two. Recording a band or drums? You'll need 4–8 or more. See <a href="/how-many-audio-interface-inputs/">how many audio interface inputs you need</a>.</li>
+      <li><strong>Drivers (Windows).</strong> Look for a dedicated <strong>ASIO driver</strong> from the manufacturer. That's the single biggest factor in low latency and crackle-free recording on Windows. On Mac, class-compliant Core Audio interfaces work without installing anything.</li>
+      <li><strong>Mic preamps and phantom power.</strong> If you'll use a condenser microphone, you need <strong>48V phantom power</strong>, which almost every interface on this page has. Cleaner preamps with more gain make a real difference with quieter dynamic mics.</li>
+      <li><strong>Direct monitoring.</strong> A direct monitor switch or knob lets you hear yourself with zero delay while recording. That's essential if your computer isn't very powerful.</li>
+      <li><strong>Loopback (nice to have).</strong> Loopback lets you record or stream your computer's audio alongside your mic. It's great for tutorials, podcasts and livestreams.</li>
+    </ul>
+    <p>Still deciding between an interface and a mixer? Read <a href="/audio-interface-vs-mixer/">audio interface vs mixer</a> and <a href="/usb-vs-thunderbolt-audio-interface/">USB vs Thunderbolt</a>.</p>
+  </section>
+
+  <section class="card" id="by-budget">
+    <h2>Best audio interface for REAPER by budget</h2>
+    <p>Prices change often, so these are grouped by tier rather than exact price. Check current prices before you buy. For deeper comparisons, see the <a href="/best-audio-interfaces-for-beginners/">best audio interfaces for beginners</a> and the <a href="/best-audio-interfaces-under-200/">best audio interfaces under $200</a>.</p>
+
+    <h3>Entry level: one or two inputs, best value</h3>
+    <ul>
+      <li><strong>Focusrite Scarlett Solo:</strong> the simplest way to start. One mic input plus one instrument input, with excellent drivers on Windows and Mac.</li>
+      <li><strong>Behringer UMC204HD:</strong> two combo inputs and MIDI in/out at a very low price. A good pick if budget comes first.</li>
+      <li><strong>M-Audio AIR 192|6:</strong> two inputs, MIDI in/out and a big, easy-to-read monitor knob. Strong value.</li>
+    </ul>
+
+    <h3>Mid-range: the sweet spot for most home studios</h3>
+    <ul>
+      <li><strong>Focusrite Scarlett 2i2:</strong> the classic all-rounder for vocals and guitar together. Reliable, low latency and easy to set up.</li>
+      <li><strong>MOTU M2:</strong> known for very low latency and clear LCD level meters, which make setting recording levels easy.</li>
+      <li><strong>Audient iD4 MkII:</strong> a high-quality preamp in a compact, sturdy box. Great for vocals and voiceover.</li>
+      <li><strong>Universal Audio Volt 2:</strong> a simple layout, with an optional "vintage" preamp mode for a warmer vocal sound.</li>
+    </ul>
+
+    <h3>More inputs: bands, drums and multi-mic setups</h3>
+    <ul>
+      <li><strong>MOTU M4 / Focusrite Scarlett 4i4:</strong> extra line inputs and outputs for synths, external effects or a second pair of speakers.</li>
+      <li><strong>Audient iD14 MkII:</strong> two excellent preamps now, with room to expand later via ADAT (an add-on preamp unit gives you 8 more inputs).</li>
+      <li><strong>Focusrite Scarlett 18i8 / Behringer UMC1820:</strong> eight or more inputs for recording a full drum kit or live band in REAPER.</li>
+    </ul>
+    <p><strong>Not sure?</strong> If you're a solo musician recording vocals and an instrument, a two-input interface like the Scarlett 2i2 or MOTU M2 covers 90% of home studio needs.</p>
+  </section>
+
+  <section class="card" id="reaper-setup">
+    <h2>How to set up your audio interface in REAPER (5 minutes)</h2>
+    <ol>
+      <li><strong>Install the driver first</strong> (Windows), from the manufacturer's website. Mac users can usually skip this.</li>
+      <li>Plug the interface directly into your computer, not into a USB hub.</li>
+      <li>In REAPER, open <strong>Options → Preferences → Audio → Device</strong>.</li>
+      <li>Set <strong>Audio system</strong> to <strong>ASIO</strong> (Windows) or <strong>Core Audio</strong> (Mac), then choose your interface as the device.</li>
+      <li>Tick <strong>Request sample rate</strong> and set it to <strong>48000</strong> (or 44100). Either is fine. Just keep it consistent across a project.</li>
+      <li>Tick <strong>Request block size</strong> and start at <strong>128 samples</strong> for recording.</li>
+      <li>Click <strong>OK</strong>, create a track, choose your input, arm the track for recording, and turn on record monitoring if you want to hear REAPER's effects while you play.</li>
+    </ol>
+    <p>
+      Next steps: <a href="/how-to-record-vocals-in-reaper/">how to record vocals in REAPER</a> and <a href="/how-to-record-guitar-in-reaper/">how to record guitar in REAPER</a>. New to REAPER? Grab the free <a href="/quickguide/">REAPER Quick-Start Cheat Sheet</a>. It has the key settings and shortcuts on one page.
+    </p>
+  </section>
+
+  <section class="card" id="fix-latency">
+    <h2>Fixing crackles, pops and latency in REAPER</h2>
+    <p>Crackling and delay are the most common audio interface problems. Work through these in order:</p>
+    <ul>
+      <li><strong>Raise the block size.</strong> Crackles usually mean the buffer is too small for your computer. Try 256 or 512 samples. Use a small buffer (64–128) while recording and a large one (512–1024) while mixing.</li>
+      <li><strong>Use the manufacturer's ASIO driver,</strong> not WASAPI or a generic driver like ASIO4ALL, whenever one is available.</li>
+      <li><strong>Use direct monitoring</strong> on the interface while recording, so you hear yourself with no delay at all.</li>
+      <li><strong>Turn off power saving.</strong> On Windows, choose the High Performance power plan. On laptops, plug into mains power.</li>
+      <li><strong>Try a different USB port,</strong> ideally one directly on the computer, and update your interface's driver and firmware.</li>
+      <li><strong>Freeze heavy tracks.</strong> Big synths and reverbs use a lot of CPU. Right-click a track and choose <em>Freeze tracks</em> to lighten the load. You can watch CPU use under <strong>View → Performance Meter</strong>.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="faq">
+    <h2>Audio interface for REAPER: FAQ</h2>
+
+    <h3>Do I need an audio interface to use REAPER?</h3>
+    <p>No. REAPER runs fine with your computer's built-in audio for editing and mixing. But to record microphones or guitar with good quality and low latency, an audio interface is the biggest upgrade you can make.</p>
+
+    <h3>Should I use ASIO4ALL with REAPER?</h3>
+    <p>Only as a fallback. If your interface has its own ASIO driver, use that. It's more stable and gives lower latency. ASIO4ALL is useful for basic devices that don't come with a dedicated driver.</p>
+
+    <h3>What buffer (block) size should I use in REAPER?</h3>
+    <p>Start at 128 samples for recording. If you hear crackles, go up to 256. For mixing large projects, use 512 or 1024. Latency doesn't matter much when you're not recording.</p>
+
+    <h3>Is one input enough?</h3>
+    <p>If you only ever record one source at a time, yes. Most people end up wanting to record vocals and guitar (or a stereo keyboard) together, so a two-input interface is usually the safer buy.</p>
+
+    <h3>Should I record at 44.1 kHz or 48 kHz?</h3>
+    <p>Either works well. 48 kHz is the standard for video and YouTube, and 44.1 kHz is the traditional music standard. Pick one and stay consistent within each project.</p>
+
+    <h3>Do audio interfaces work on both Windows and Mac with REAPER?</h3>
+    <p>All the interfaces on this page work with REAPER on both Windows and macOS. Windows users should install the manufacturer's ASIO driver. Most work on Mac without any driver.</p>
+  </section>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Do I need an audio interface to use REAPER?", "acceptedAnswer": {"@type": "Answer", "text": "No. REAPER runs fine with your computer's built-in audio for editing and mixing, but for recording microphones or guitar with good quality and low latency, an audio interface is the biggest upgrade you can make."}},
+      {"@type": "Question", "name": "Should I use ASIO4ALL with REAPER?", "acceptedAnswer": {"@type": "Answer", "text": "Only as a fallback. If your interface has its own ASIO driver, use that, because it is more stable and gives lower latency. ASIO4ALL is useful for basic devices without a dedicated driver."}},
+      {"@type": "Question", "name": "What buffer (block) size should I use in REAPER?", "acceptedAnswer": {"@type": "Answer", "text": "Start at 128 samples for recording. If you hear crackles, increase to 256. For mixing large projects, use 512 or 1024 samples."}},
+      {"@type": "Question", "name": "Is one input enough?", "acceptedAnswer": {"@type": "Answer", "text": "If you only record one source at a time, yes. Most people want to record vocals and guitar or a stereo keyboard together, so a two-input interface is usually the safer buy."}},
+      {"@type": "Question", "name": "Should I record at 44.1 kHz or 48 kHz?", "acceptedAnswer": {"@type": "Answer", "text": "Either works well. 48 kHz is standard for video and YouTube, and 44.1 kHz is the traditional music standard. Pick one and stay consistent within each project."}},
+      {"@type": "Question", "name": "Do audio interfaces work on both Windows and Mac with REAPER?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Windows users should install the manufacturer's ASIO driver, and most interfaces work on Mac without any driver."}}
+    ]
+  }
+  </script>
+
 
   <section class="card">
     <h2>Suggested next reads (internal links)</h2>
