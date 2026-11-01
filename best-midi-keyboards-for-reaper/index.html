@@ -151,6 +151,108 @@
     <li>A simple audio interface if you also record vocals or guitar</li>
   </ul>
 </section>
+  <section class="card" id="features">
+    <h2>Keys, pads, knobs: what's worth paying for?</h2>
+    <p>Most MIDI keyboards look similar at first glance. Here's how the main features actually affect working in REAPER:</p>
+    <ul>
+      <li><strong>Key feel.</strong> Mini keys save space but are hard to play two-handed. Full-size synth-action keys suit most producers. Semi-weighted or weighted keys feel closer to a piano. See <a href="/do-you-need-weighted-keys-midi/">do you need weighted keys?</a></li>
+      <li><strong>Velocity-sensitive pads.</strong> These are great for finger-drumming beats into REAPER with a drum plugin, and much faster than drawing notes in the MIDI editor.</li>
+      <li><strong>Knobs and faders.</strong> Map them to synth filters, plugin settings or track volume using REAPER's <em>Learn</em> feature (explained below). They make tweaking sounds feel hands-on.</li>
+      <li><strong>Transport buttons.</strong> Play, stop and record buttons on the keyboard mean less reaching for the mouse while you're recording takes.</li>
+      <li><strong>Pitch and mod wheels (or touch strips).</strong> These add expression to synth leads, strings and guitar plugins. They're missing on some very cheap boards.</li>
+      <li><strong>Sustain pedal input.</strong> Essential if you play piano parts. Check it's included before you buy.</li>
+      <li><strong>USB power, no drivers.</strong> Almost every modern keyboard is class compliant and USB powered, so REAPER sees it as soon as you plug it in, on both Windows and Mac.</li>
+    </ul>
+    <p>Not sure which size? Compare them in <a href="/25-vs-49-vs-61-key-midi-keyboard/">25 vs 49 vs 61 key MIDI keyboards</a>.</p>
+  </section>
+
+  <section class="card" id="by-need">
+    <h2>Best MIDI keyboard for REAPER by budget and need</h2>
+    <h3>Tight budget or small desk</h3>
+    <p>A 25-key board with pads, like the <strong>Akai MPK Mini MK3</strong> or <strong>Arturia MiniLab 3</strong>, covers bass lines, chords, melodies and drums in a tiny footprint. See all the options in <a href="/best-budget-midi-keyboards/">best budget MIDI keyboards</a>.</p>
+    <h3>Best all-round home studio choice</h3>
+    <p>A 49-key controller like the <strong>Nektar Impact GX49</strong> gives you room to play with both hands, and Nektar's free REAPER integration puts transport and mixer control on the keyboard. Compare more picks in <a href="/best-midi-keyboards-under-200/">best MIDI keyboards under $200</a>.</p>
+    <h3>Piano players and two-handed parts</h3>
+    <p>Go for 61 keys or more, such as the <strong>M-Audio Keystation 61 MK3</strong> for simple, full-size keys or the <strong>Arturia KeyLab Essential 61 mk3</strong> if you also want pads, faders and chord modes.</p>
+    <h3>Complete beginners</h3>
+    <p>Keep it simple: plug-and-play, velocity-sensitive keys and a bundled instrument or two. Our <a href="/best-midi-keyboards-for-beginners/">best MIDI keyboards for beginners</a> guide focuses on exactly that.</p>
+  </section>
+
+  <section class="card" id="reaper-setup">
+    <h2>How to set up a MIDI keyboard in REAPER (step by step)</h2>
+    <ol>
+      <li>Plug the keyboard into your computer with USB, ideally directly rather than through a hub.</li>
+      <li>In REAPER, open <strong>Options → Preferences → Audio → MIDI Inputs</strong> (called <em>MIDI Devices</em> in older versions).</li>
+      <li>Find your keyboard in the list. If it says <em>&lt;disabled&gt;</em>, double-click it and tick <strong>Enable input from this device</strong>. If you'll use its knobs or faders, also tick <strong>Enable input for control messages</strong>.</li>
+      <li>Click <strong>OK</strong>, then insert a new track (<strong>Ctrl+T</strong> on Windows, <strong>Cmd+T</strong> on Mac).</li>
+      <li>Click the track's <strong>FX</strong> button and add a virtual instrument, such as one of REAPER's built-in instruments (see the FAQ below) or any free synth or piano plugin.</li>
+      <li>Click the track's input selector and choose <strong>Input: MIDI → [your keyboard] → All channels</strong>.</li>
+      <li><strong>Arm the track</strong> (the red record button) and turn on <strong>record monitoring</strong>. Play a few keys and you should hear the instrument.</li>
+      <li>Press <strong>Ctrl+R</strong> (Cmd+R on Mac) to start recording, and press it again to stop.</li>
+    </ol>
+    <p>For more detail, see <a href="/how-to-use-midi-keyboard-with-reaper/">how to use a MIDI keyboard with REAPER</a>. Need sounds to play? Start with the <a href="/best-free-synth-vst-plugins-for-reaper/">best free synth plugins for REAPER</a> or <a href="/best-free-piano-vst-plugins/">free piano VSTs</a>.</p>
+  </section>
+
+  <section class="card" id="learn">
+    <h2>Mapping knobs and faders in REAPER with "Learn"</h2>
+    <p>REAPER can link almost any knob, fader or pad on your keyboard to a plugin control or action:</p>
+    <ol>
+      <li>Open the plugin and move the on-screen control you want to map, such as a synth's filter cutoff.</li>
+      <li>In the plugin window, click the <strong>Param</strong> button and choose <strong>Learn → (the last touched parameter)</strong>.</li>
+      <li>Turn the knob on your keyboard and click <strong>OK</strong>. That knob now controls that parameter.</li>
+    </ol>
+    <p>To map buttons to REAPER actions like play, record or undo, open <strong>Actions → Show action list</strong>, select an action, click <strong>Add</strong> under shortcuts, then press the button on your keyboard.</p>
+  </section>
+
+  <section class="card" id="troubleshooting">
+    <h2>MIDI keyboard not working in REAPER? Quick fixes</h2>
+    <ul>
+      <li><strong>Keyboard not listed:</strong> try a different USB cable or port (some cables only charge and don't carry data), then restart REAPER.</li>
+      <li><strong>Listed but no response:</strong> check it's enabled in <em>Preferences → MIDI Inputs</em>. On Windows, close any other music app using the keyboard, because Windows often lets only one program use a MIDI device at a time.</li>
+      <li><strong>Meter moves but no sound:</strong> make sure the track has an instrument plugin loaded, is armed, has record monitoring on, and that its input is set to your keyboard.</li>
+      <li><strong>Noticeable delay when playing:</strong> lower the block size in <em>Preferences → Audio → Device</em> (try 128), and use your audio interface's ASIO driver on Windows. See <a href="/best-audio-interfaces/#fix-latency">fixing latency in REAPER</a>.</li>
+      <li><strong>Sustain pedal works backwards:</strong> plug the pedal in <em>before</em> turning on or connecting the keyboard, so it detects the pedal's polarity correctly.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="more-faq">
+    <h2>More MIDI keyboard questions</h2>
+
+    <h3>Will any MIDI keyboard work with REAPER?</h3>
+    <p>Yes. Any class-compliant USB MIDI keyboard works with REAPER on Windows and Mac, and almost all modern keyboards are. Older keyboards with 5-pin MIDI ports need an audio interface with MIDI input or a USB-MIDI adapter.</p>
+
+    <h3>Do I need an audio interface to use a MIDI keyboard?</h3>
+    <p>Not to get MIDI into REAPER, because USB handles that. But an audio interface gives you lower latency when you're playing virtual instruments, which makes playing feel much more responsive.</p>
+
+    <h3>How many keys do I need for REAPER?</h3>
+    <p>25 keys suits beats and short parts, 49 keys is the best all-round choice for most home studios, and 61 or more keys suits piano players and two-handed playing.</p>
+
+    <h3>Does REAPER come with instruments to play?</h3>
+    <p>Yes, and many more since version 7.83. Alongside the long-standing ReaSynth and ReaSamplOmatic5000, REAPER 7.83 added 39 free JSFX instruments and effects, ported from open-source projects by Christopher Hampson (chmaha). They include:</p>
+    <ul>
+      <li><strong>Jexed:</strong> a port of Dexed, the classic DX7-style FM synth</li>
+      <li><strong>JamSynth:</strong> a port of the amSynth analogue-style synth</li>
+      <li><strong>Synthy McSynthface:</strong> ports of the MDA Piano, ePiano, JX10 and DX10, for pianos, electric pianos and synths</li>
+      <li><strong>Lord of the Rinks:</strong> a tonewheel organ based on setBfree</li>
+      <li><strong>Dr Nine:</strong> a drum synthesiser</li>
+      <li><strong>Major General MIDI:</strong> a General MIDI sound set, handy for quickly playing back MIDI files</li>
+    </ul>
+    <p>Update REAPER to the latest version and search for them in the FX browser. They're a great way to start playing your new keyboard straight away. When you want more variety, add some of the <a href="/best-free-vst-plugins/">best free VST plugins</a>.</p>
+  </section>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Will any MIDI keyboard work with REAPER?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Any class-compliant USB MIDI keyboard works with REAPER on Windows and Mac, and almost all modern keyboards are. Older keyboards with 5-pin MIDI ports need an audio interface with MIDI input or a USB-MIDI adapter."}},
+      {"@type": "Question", "name": "Do I need an audio interface to use a MIDI keyboard?", "acceptedAnswer": {"@type": "Answer", "text": "Not to get MIDI into REAPER, because USB handles that. But an audio interface gives lower latency when playing virtual instruments, which makes playing feel more responsive."}},
+      {"@type": "Question", "name": "How many keys do I need for REAPER?", "acceptedAnswer": {"@type": "Answer", "text": "25 keys suits beats and short parts, 49 keys is the best all-round choice for most home studios, and 61 or more keys suits piano players and two-handed playing."}},
+      {"@type": "Question", "name": "Does REAPER come with instruments to play?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Alongside ReaSynth and ReaSamplOmatic5000, REAPER 7.83 added 39 free JSFX instruments and effects ported from open-source projects, including Jexed (a Dexed FM synth port), JamSynth (amSynth), Synthy McSynthface (MDA Piano, ePiano, JX10 and DX10), the Lord of the Rinks tonewheel organ, the Dr Nine drum synthesiser and the Major General MIDI sound set."}}
+    ]
+  }
+  </script>
+
 
 <section class="card">
   <h2>Frequently asked questions</h2>
