@@ -17,6 +17,7 @@
           <li><a href="${root}quickguide/">REAPER Quick Start Cheat Sheet</a></li>
           <li><a href="${root}home-studio-guide/">The Home Studio Setup Guide</a></li>
           <li><a href="${root}tools/wavelab/">Wave Lab — Free Audio Tool</a></li>
+          <li><a href="${root}music-production-deals/">Music Production Deals</a></li>
         </ul>
       </div>
 
@@ -73,6 +74,7 @@
   var footer = `
 <footer class="site-footer">
   <div>Disclaimer: Some links may be affiliate links. I may earn from qualifying purchases at no extra cost to you.</div>
+  <div style="margin-top:6px;"><a href="${root}music-production-deals/">Music production deals: plugins, samples &amp; software</a></div>
   <div style="margin-top:6px;">© 2026 MusicUsingTech.com – Helping musicians use technology</div>
 </footer>`;
 
